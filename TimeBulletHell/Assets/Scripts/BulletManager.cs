@@ -46,10 +46,7 @@ public class BulletManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(new Vector2(0, 0), direction, 5));
-            BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(new Vector2(0, 0), direction, 2));
-            BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(new Vector2(0, 0), direction + 30, 5));
-            BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(new Vector2(0, 0), direction + 30, 2));
+            BulletManager.instance.fire("BubbleBullet", new BubbleBulletFireProperties(new Vector2(0, 0), direction, 5, 1));
             direction += 25;
             direction %= 360;
         }

@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 9065072925700377871, guid: a42e8db5e6099d64596315ab50c464cf, type: 3}
+  - {fileID: 5701476821842896282, guid: 239f7deccd465c04e8b4878b3943762e, type: 3}
   poolCounts: 1000
 --- !u!4 &579919707
 Transform:

@@ -17,7 +17,7 @@ public class BulletBehaviour : MonoBehaviour
         this.move();
     }
 
-    public virtual void fire(Vector3 origin, float direction, float speed)
+    public virtual void fire(Vector2 origin, float direction, float speed)
     {
         this.transform.position = origin;
         this.direction = direction;
@@ -42,18 +42,18 @@ public class BulletBehaviour : MonoBehaviour
 
 public class DefaultFireProperties : IFireProperties
 {
-    private Vector3 origin;
-    private float direction;
-    private float speed;
+    protected Vector3 origin;
+    protected float direction;
+    protected float speed;
 
-    public DefaultFireProperties(Vector3 origin, float direction, float speed)
+    public DefaultFireProperties(Vector2 origin, float direction, float speed)
     {
         this.origin = origin;
         this.direction = direction;
         this.speed = speed;
     }
 
-    public void fire(BulletBehaviour bb)
+    public virtual void fire(BulletBehaviour bb)
     {
         bb.fire(this.origin, this.direction, this.speed);
     }
