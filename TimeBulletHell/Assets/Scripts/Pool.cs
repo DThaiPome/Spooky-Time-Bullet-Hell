@@ -48,7 +48,6 @@ public class Pool
             p = this.poolables.Dequeue();
         } else
         {
-            Debug.Log("CLONED");
             p = this.clone();
             this.initPoolable(p);
         }

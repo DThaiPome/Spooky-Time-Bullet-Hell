@@ -7,14 +7,20 @@ public class BubbleBullet : BulletBehaviour
 {
     protected Vector2 origin;
     protected float duration;
+    protected string burstType;
+    protected float burstCount;
+    protected float burstSpeed;
 
     private float timeElapsed;
 
-    public void fire(Vector3 origin, float direction, float speed, float duration)
+    public void fire(Vector3 origin, float direction, float speed, float duration, string burstType, float burstCount, float burstSpeed)
     {
         this.fire(origin, direction, speed);
         this.duration = duration;
         this.origin = origin;
+        this.burstType = burstType;
+        this.burstCount = burstCount;
+        this.burstSpeed = burstSpeed;
         this.timeElapsed = 0;
     }
 
@@ -31,10 +37,11 @@ public class BubbleBullet : BulletBehaviour
 
     private void burst()
     {
-        BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(this.transform.position, this.direction + 45, 5));
-        BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(this.transform.position, this.direction + 135, 5));
-        BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(this.transform.position, this.direction + 225, 5));
-        BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(this.transform.position, this.direction + 315, 5));
+        float diff = 360 / this.burstCount;
+        for(int i = 0; i < this.burstCount; i++)
+        {
+            BulletManager.instance.fire(this.burstType, new DefaultFireProperties(this.transform.position, diff * (i + 0.5f), this.burstSpeed));
+        }
         this.gameObject.SetActive(false);
     }
 
@@ -47,10 +54,17 @@ public class BubbleBullet : BulletBehaviour
 public class BubbleBulletFireProperties : DefaultFireProperties
 {
     protected float duration;
+    protected string burstType;
+    protected float burstCount;
+    protected float burstSpeed;
 
-    public BubbleBulletFireProperties(Vector2 origin, float direction, float speed, float distance) : base(origin, direction, speed)
+    public BubbleBulletFireProperties(Vector2 origin, float direction, float speed, float distance, string burstType, float burstCount, float burstSpeed) 
+        : base(origin, direction, speed)
     {
         this.duration = distance;
+        this.burstType = burstType;
+        this.burstCount = burstCount;
+        this.burstSpeed = burstSpeed;
     }
 
     public override void fire(BulletBehaviour bb)
@@ -63,7 +77,7 @@ public class BubbleBulletFireProperties : DefaultFireProperties
         catch (Exception e) { }
         if (bubble != null)
         {
-            bubble.fire(origin, direction, speed, duration);
+            bubble.fire(this.origin, this.direction, this.speed, this.duration, this.burstType, this.burstCount, this.burstSpeed);
         }
     }
 }
