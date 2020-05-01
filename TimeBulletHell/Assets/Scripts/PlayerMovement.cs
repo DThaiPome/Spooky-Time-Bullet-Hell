@@ -12,9 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private Vector2 input;
     private Vector2 direction;
-    private float dirAngle;
     private Vector2 velocity;
     private bool sneaking;
+    private bool maxSpeed;
 
     private Rigidbody2D rb;
 
@@ -33,32 +33,43 @@ public class PlayerMovement : MonoBehaviour
 
     private void updateInputs()
     {
-        this.input.x = this.horizontalInput();
-        this.input.y = this.verticalInput();
+        this.input.x = Input.GetAxisRaw("Horizontal");
+        this.input.y = Input.GetAxisRaw("Vertical");
+
+        bool atMaxSpeed = this.moveInput == 1;
+        bool stopped = this.input.magnitude == 0 && this.noKeysReleased();
+
+        bool inMotion = false;
+        if (atMaxSpeed)
+        {
+            inMotion = true;
+        }
+        if (inMotion)
+        {
+            if (stopped)
+            {
+                inMotion = false;
+            }
+        }
+
         if (input.magnitude != 0)
         {
             this.direction = input / input.magnitude;
             this.correctDirection();
         }
 
-        this.moveInput = Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
-        bool sneaking = Input.GetKey(KeyCode.LeftShift);
+        this.moveInput = inMotion ? 1 : Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
+        this.sneaking = Input.GetKey(KeyCode.LeftShift);
 
         this.velocity = (Vector3)this.direction * this.speed * (sneaking ? this.moveInput * this.sneakMultiplier : this.moveInput);
     }
 
-    private float horizontalInput()
+    private bool noKeysReleased()
     {
-        bool left = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
-        bool right = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
-        return left || right ? (right ? 1 : -1) : 0;
-    }
-
-    private float verticalInput()
-    {
-        bool up = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-        bool down = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-        return up || down ? (up ? 1 : -1) : 0;
+        return !(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) ||
+            Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow) ||
+            Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow) ||
+            Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow));
     }
 
     private void correctDirection()
