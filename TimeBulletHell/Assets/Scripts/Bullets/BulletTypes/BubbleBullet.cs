@@ -14,6 +14,11 @@ public class BubbleBullet : BulletBehaviour
     private float timeElapsed;
     private float initialSpeed;
 
+    protected override void start()
+    {
+        base.start();
+        EventManager.instance.onPlayerBulletHitEvent += this.onPlayerBulletHit;
+    }
     public void fire(Vector3 origin, float direction, float speed, float duration, string burstType, float burstCount, float burstSpeed)
     {
         this.fire(origin, direction, speed);
@@ -35,6 +40,25 @@ public class BubbleBullet : BulletBehaviour
         {
             this.burst();
             this.gameObject.SetActive(false);
+        }
+    }
+
+    protected override void onTriggerEnter2D(Collider2D other)
+    {
+        base.onTriggerEnter2D(other);
+        if (other.tag == "Player")
+        {
+            this.burst();
+        }
+    }
+
+    protected virtual void onPlayerBulletHit(Transform t, PlayerBullet pb)
+    {
+        if (t.Equals(this.transform))
+        {
+            this.gameObject.SetActive(false);
+            this.burst();
+            pb.gameObject.SetActive(false);
         }
     }
 

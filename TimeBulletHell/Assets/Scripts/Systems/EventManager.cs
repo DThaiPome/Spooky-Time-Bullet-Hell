@@ -7,9 +7,13 @@ public class EventManager : MonoBehaviour
 {
     public static EventManager instance;
 
-    //Time events
+    //** TIME EVENTS
     public event Action onWarpedTickEvent;
     public event Action onFixedWarpedTickEvent;
+
+    //** BULLET EVENTS
+    //On a bullet collision
+    public event Action<Transform, PlayerBullet> onPlayerBulletHitEvent;
 
     void Awake()
     {
@@ -29,6 +33,14 @@ public class EventManager : MonoBehaviour
         if (onFixedWarpedTickEvent != null)
         {
             onFixedWarpedTickEvent();
+        }
+    }
+
+    public void onPlayerBulletHit(Transform t, PlayerBullet pb)
+    {
+        if (onPlayerBulletHitEvent != null)
+        {
+            onPlayerBulletHitEvent(t, pb);
         }
     }
 }

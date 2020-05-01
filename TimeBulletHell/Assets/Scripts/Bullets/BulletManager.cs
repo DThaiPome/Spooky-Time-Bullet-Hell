@@ -9,7 +9,7 @@ public class BulletManager : MonoBehaviour
     [SerializeField]
     private int poolCounts;
 
-    private Dictionary<string, Pool> pools;
+    private PoolMap pools;
 
     public static BulletManager instance;
 
@@ -21,24 +21,12 @@ public class BulletManager : MonoBehaviour
     void Start()
     {
         EventManager.instance.onWarpedTickEvent += this.onWarpedTick;
-        this.pools = new Dictionary<string, Pool>();
-        this.initPools();
+        this.pools = new PoolMap(this.prefabs, this.poolCounts, this.transform);
     }
 
     void Update()
     {
-        this.recallBullets();
-    }
-
-    private void recallBullets()
-    {
-        Dictionary<string, Pool>.Enumerator enumerator = this.pools.GetEnumerator();
-        while (enumerator.MoveNext())
-        {
-            if (this.pools.TryGetValue(enumerator.Current.Key, out Pool p)) {
-                p.recallPoolables();
-            }
-        }
+        this.pools.recallBullets();
     }
 
     private int direction = 0;
@@ -47,28 +35,20 @@ public class BulletManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightShift))
         {
-            BulletManager.instance.fire("BubbleBullet", new BubbleBulletFireProperties(new Vector2(0, 0), direction, 5, 1, "BasicBullet", 5, 4));
+            /*BulletManager.instance.fire("BubbleBullet", new BubbleBulletFireProperties(new Vector2(0, 0), direction, 5, 1, "BasicBullet", 5, 4));
             BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(new Vector2(0, 0), direction - 5, 4));
             BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(new Vector2(0, 0), direction - 5, 2));
             BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(new Vector2(0, 0), direction + 5, 4));
             BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(new Vector2(0, 0), direction + 5, 2));
             direction += 24;
-            direction %= 360;
-        }
-    }
-
-    private void initPools()
-    {
-        foreach(GameObject g in prefabs)
-        {
-            this.pools.Add(g.name, new Pool(g, this.poolCounts, this.transform));
+            direction %= 360;*/
         }
     }
 
     public void fire(string bulletName, IFireProperties fireProperties)
     {
         Pool pool;
-        if (this.pools.TryGetValue(bulletName, out pool))
+        if (this.pools.tryGetValue(bulletName, out pool))
         {
             Poolable p = pool.pick();
             BulletBehaviour bb = p.gameObject.GetComponent<BulletBehaviour>();

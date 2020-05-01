@@ -7,12 +7,32 @@ public class BulletBehaviour : MonoBehaviour
     protected float direction;
     protected float speed;
 
+    void Start()
+    {
+        this.start();
+    }
+
+    protected virtual void start()
+    {
+
+    }
+
     void Update()
+    {
+        this.update();
+    }
+
+    protected virtual void update()
     {
         this.disableIfReady();
     }
 
     void FixedUpdate()
+    {
+        this.fixedUpdate();
+    }
+
+    protected virtual void fixedUpdate()
     {
         this.move();
     }
@@ -34,6 +54,19 @@ public class BulletBehaviour : MonoBehaviour
     protected virtual void disableIfReady()
     {
         if (this.transform.position.magnitude >= 10)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        this.onTriggerEnter2D(other);
+    }
+
+    protected virtual void onTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
         {
             this.gameObject.SetActive(false);
         }
