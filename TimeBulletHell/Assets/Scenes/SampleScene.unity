@@ -268,10 +268,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletType: BasicBullet
-  bulletSpeed: 10
-  bulletCount: 0
-  sprayAngle: 30
-  ticksPerSecond: 5
+  bulletSpeed: 30
+  bulletCount: 10
+  sprayAngle: 15
+  shotsPerSecond: 8
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,19 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a3e4180ef99fa4e9610692134e7639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes:
-  - name: 
-    positiveName: 
-    negativeName: 
-    negativeButton: 0
-    positiveButton: 0
-    altNegativeButton: 0
-    altPositiveButton: 0
-    gravity: 0
-    dead: 0
-    sensitivity: 0
-    snap: 0
-    invert: 0
+  axes: []
 --- !u!1 &722914978
 GameObject:
   m_ObjectHideFlags: 0

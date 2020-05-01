@@ -45,7 +45,7 @@ public class BulletManager : MonoBehaviour
 
     void onWarpedTick()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.RightShift))
         {
             BulletManager.instance.fire("BubbleBullet", new BubbleBulletFireProperties(new Vector2(0, 0), direction, 5, 1, "BasicBullet", 5, 4));
             BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(new Vector2(0, 0), direction - 5, 4));

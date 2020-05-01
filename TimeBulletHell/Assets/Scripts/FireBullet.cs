@@ -13,36 +13,36 @@ public class FireBullet : MonoBehaviour
     [SerializeField]
     private float sprayAngle;
     [SerializeField]
-    private int ticksPerSecond;
+    private int shotsPerSecond;
 
-    private float secondsPerTick;
+    private float secondsPerShot;
     private float timeElapsed;
 
     void Start()
     {
-        this.secondsPerTick = 1.0f / this.ticksPerSecond;
+        this.secondsPerShot = 1.0f / this.shotsPerSecond;
     }
 
     void FixedUpdate()
     {
-        this.timeElapsed += GameTime.instance.fixedDeltaTime();
-        int i = 0;
-        while(this.timeElapsed >= this.secondsPerTick)
+        if (Input.GetKey(KeyCode.Space) || this.timeElapsed < this.secondsPerShot)
+        {
+            this.timeElapsed += GameTime.instance.fixedDeltaTime();
+        } else if (this.timeElapsed >= this.secondsPerShot)
+        {
+            this.timeElapsed = this.secondsPerShot;
+        }
+        while(Input.GetKey(KeyCode.Space) && this.timeElapsed >= this.secondsPerShot)
         {
             this.fire();
-            this.timeElapsed -= this.secondsPerTick;
-            if (this.timeElapsed >= this.secondsPerTick)
-            {
-                i++;
-                Debug.Log("Overlap " + i);
-            }
+            this.timeElapsed -= this.secondsPerShot;
         }
     }
 
     private void fire()
     {
-        float minAngle = -this.sprayAngle / 2;
-        float dAngle = this.bulletCount > 0 ? this.sprayAngle / (this.bulletCount - 1) : -minAngle;
+        float minAngle = this.bulletCount > 1 ? -this.sprayAngle / 2 : 0;
+        float dAngle = this.bulletCount > 1 ? this.sprayAngle / (this.bulletCount - 1) : -minAngle;
 
         for(int i = 0; i < this.bulletCount; i++)
         {
