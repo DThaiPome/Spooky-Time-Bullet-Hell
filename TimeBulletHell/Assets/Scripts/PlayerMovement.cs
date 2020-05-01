@@ -6,13 +6,15 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float sneakMultiplier;
 
     private float moveInput;
-    [SerializeField]
     private Vector2 input;
     private Vector2 direction;
     private float dirAngle;
     private Vector2 velocity;
+    private bool sneaking;
 
     private Rigidbody2D rb;
 
@@ -40,8 +42,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         this.moveInput = Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
+        bool sneaking = Input.GetKey(KeyCode.LeftShift);
 
-        this.velocity = (Vector3)this.direction * this.speed * this.moveInput;
+        this.velocity = (Vector3)this.direction * this.speed * (sneaking ? this.moveInput * this.sneakMultiplier : this.moveInput);
     }
 
     private float horizontalInput()
