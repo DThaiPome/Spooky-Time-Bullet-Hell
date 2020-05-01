@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  input: {x: 0, y: 0}
 --- !u!114 &102405167
 MonoBehaviour:
   m_ObjectHideFlags: 0

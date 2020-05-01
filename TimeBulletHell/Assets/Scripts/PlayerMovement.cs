@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Vector2 input;
     private Vector2 direction;
+    private float dirAngle;
     private Vector2 velocity;
 
     private Rigidbody2D rb;
@@ -30,16 +31,79 @@ public class PlayerMovement : MonoBehaviour
 
     private void updateInputs()
     {
-        input.x = Input.GetAxis("Horizontal");
-        input.y = Input.GetAxis("Vertical");
+        this.input.x = this.horizontalInput();
+        this.input.y = this.verticalInput();
         if (input.magnitude != 0)
         {
             this.direction = input / input.magnitude;
+            this.correctDirection();
         }
 
         this.moveInput = Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
 
         this.velocity = (Vector3)this.direction * this.speed * this.moveInput;
+    }
+
+    private float horizontalInput()
+    {
+        bool left = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+        bool right = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+        return left || right ? (right ? 1 : -1) : 0;
+    }
+
+    private float verticalInput()
+    {
+        bool up = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+        bool down = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+        return up || down ? (up ? 1 : -1) : 0;
+    }
+
+    private void correctDirection()
+    {
+        float angle = Mathf.Atan2(this.direction.y, this.direction.x) * Mathf.Rad2Deg;
+        switch (angle)
+        {
+            case 0:
+                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+                {
+                    angle = 45;
+                } else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+                {
+                    angle = -45;
+                }
+                break;
+            case 90:
+                if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+                {
+                    angle = 135;
+                }
+                else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+                {
+                    angle = 45;
+                }
+                break;
+            case 180:
+                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+                {
+                    angle = 135;
+                }
+                else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+                {
+                    angle = -135;
+                }
+                break;
+            case -90:
+                if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+                {
+                    angle = -135;
+                }
+                else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+                {
+                    angle = -45;
+                }
+                break;
+        }
+        this.direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
     }
 
     void FixedUpdate()
