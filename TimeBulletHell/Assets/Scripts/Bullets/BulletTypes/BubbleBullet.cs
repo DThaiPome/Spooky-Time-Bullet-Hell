@@ -12,6 +12,7 @@ public class BubbleBullet : BulletBehaviour
     protected float burstSpeed;
 
     private float timeElapsed;
+    private float initialSpeed;
 
     public void fire(Vector3 origin, float direction, float speed, float duration, string burstType, float burstCount, float burstSpeed)
     {
@@ -22,13 +23,14 @@ public class BubbleBullet : BulletBehaviour
         this.burstCount = burstCount;
         this.burstSpeed = burstSpeed;
         this.timeElapsed = 0;
+        this.initialSpeed = speed;
     }
 
     protected override void move()
     {
         base.move();
-        this.timeElapsed += GameTime.deltaTime;
-        this.speed = Mathf.Lerp(this.speed, this.duration - this.timeElapsed, 0.05f);
+        this.timeElapsed += GameTime.instance.fixedDeltaTime();
+        this.speed -= (this.initialSpeed / this.duration) * GameTime.instance.fixedDeltaTime();
         if (this.timeElapsed >= this.duration)
         {
             this.burst();
@@ -38,7 +40,6 @@ public class BubbleBullet : BulletBehaviour
 
     private void burst()
     {
-        Debug.Log("BURST " + this.gameObject.activeInHierarchy);
         float diff = 360 / this.burstCount;
         for(int i = 0; i < this.burstCount; i++)
         {

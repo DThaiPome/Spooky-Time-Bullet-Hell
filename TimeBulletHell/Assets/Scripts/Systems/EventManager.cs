@@ -9,6 +9,7 @@ public class EventManager : MonoBehaviour
 
     //Time events
     public event Action onWarpedTickEvent;
+    public event Action onFixedWarpedTickEvent;
 
     void Awake()
     {
@@ -20,6 +21,14 @@ public class EventManager : MonoBehaviour
         if (onWarpedTickEvent != null)
         {
             onWarpedTickEvent();
+        }
+    }
+
+    public void onFixedWarpedTick()
+    {
+        if (onFixedWarpedTickEvent != null)
+        {
+            onFixedWarpedTickEvent();
         }
     }
 }

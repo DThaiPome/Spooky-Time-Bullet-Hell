@@ -295,3 +295,4 @@ Assets\Scripts\Bullets\Poolable.cs
 Assets\Scripts\FireBullet.cs
 Assets\Scripts\PlayerMovement.cs
 Assets\Scripts\Systems\EventManager.cs
+Assets\Scripts\Systems\GameTime.cs

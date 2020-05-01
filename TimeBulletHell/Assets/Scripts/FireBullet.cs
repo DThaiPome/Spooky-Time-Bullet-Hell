@@ -25,7 +25,7 @@ public class FireBullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        this.timeElapsed += GameTime.deltaTime;
+        this.timeElapsed += GameTime.instance.fixedDeltaTime();
         int i = 0;
         while(this.timeElapsed >= this.secondsPerTick)
         {

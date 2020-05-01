@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameTime : MonoBehaviour
 {
-    public static float deltaTime;
+    public static GameTime instance;
 
     [SerializeField]
     private int ticksPerSecond;
@@ -18,6 +18,11 @@ public class GameTime : MonoBehaviour
     private float secondsPerTick;
     private float timeElapsed;
 
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         if (this.ticksPerSecond == 0)
@@ -28,12 +33,21 @@ public class GameTime : MonoBehaviour
 
     void Update()
     {
-        deltaTime = Mathf.Lerp(this.minMulitiplier, this.maxMultiplier, this.pm.getSpeedPercent()) * Time.deltaTime;
-        this.timeElapsed += deltaTime;
+        this.timeElapsed += this.deltaTime();
         while (this.timeElapsed >= this.secondsPerTick)
         {
             EventManager.instance.onWarpedTick();
             this.timeElapsed -= this.secondsPerTick;
         }
+    }
+
+    public float fixedDeltaTime()
+    {
+        return Mathf.Lerp(this.minMulitiplier, this.maxMultiplier, this.pm.getSpeedPercent()) * Time.fixedDeltaTime;
+    }
+
+    public float deltaTime()
+    {
+        return Mathf.Lerp(this.minMulitiplier, this.maxMultiplier, this.pm.getSpeedPercent()) * Time.deltaTime;
     }
 }

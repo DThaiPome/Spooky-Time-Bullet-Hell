@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
 
     private float moveInput;
+    [SerializeField]
+    private Vector2 input;
     private Vector2 direction;
     private Vector2 velocity;
 
@@ -15,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        this.input = new Vector2();
         this.direction = new Vector2();
         this.velocity = new Vector2();
         this.rb = this.gameObject.GetComponent<Rigidbody2D>();
@@ -27,12 +30,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void updateInputs()
     {
-        float horInput = Input.GetAxis("Horizontal");
-        float verInput = Input.GetAxis("Vertical");
-        if (horInput != 0 || verInput != 0)
+        input.x = Input.GetAxis("Horizontal");
+        input.y = Input.GetAxis("Vertical");
+        if (input.magnitude != 0)
         {
-            this.direction = new Vector2(horInput, verInput);
-            this.direction /= this.direction.magnitude;
+            this.direction = input / input.magnitude;
         }
 
         this.moveInput = Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
