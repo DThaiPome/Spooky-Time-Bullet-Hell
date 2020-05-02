@@ -18,11 +18,17 @@ public class TestMob : MobBehaviour
     protected float secondsPerBullet;
     protected float timeElapsed;
 
+    protected override void onEnable()
+    {
+        base.onEnable();
+        this.secondsPerBullet = 1 / this.bulletsPerSecond;
+        this.timeElapsed = secondsPerBullet / 2;
+    }
+
     protected override void start()
     {
         base.start();
         this.pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        this.secondsPerBullet = 1 / this.bulletsPerSecond;
     }
 
     protected override void update()
