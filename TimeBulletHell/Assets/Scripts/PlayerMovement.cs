@@ -6,22 +6,21 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float speed;
-    [SerializeField]
-    private float sneakMultiplier;
 
     private float moveInput;
     private Vector2 input;
-    private Vector2 direction;
+    private Vector2 moveDirection;
+    private Vector2 lookDirection;
     private Vector2 velocity;
-    private bool sneaking;
-    private bool maxSpeed;
+    private bool directionLocked;
 
     private Rigidbody2D rb;
 
     void Start()
     {
         this.input = new Vector2();
-        this.direction = new Vector2();
+        this.moveDirection = new Vector2();
+        this.lookDirection = new Vector2();
         this.velocity = new Vector2();
         this.rb = this.gameObject.GetComponent<Rigidbody2D>();
     }
@@ -54,14 +53,23 @@ public class PlayerMovement : MonoBehaviour
 
         if (input.magnitude != 0)
         {
-            this.direction = input / input.magnitude;
+            this.moveDirection = input / input.magnitude;
             this.correctDirection();
         }
 
         this.moveInput = inMotion ? 1 : Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
-        this.sneaking = Input.GetKey(KeyCode.LeftShift);
 
-        this.velocity = (Vector3)this.direction * this.speed * (sneaking ? this.moveInput * this.sneakMultiplier : this.moveInput);
+        this.directionLocked = Input.GetKey(KeyCode.LeftShift);
+
+        if (!this.directionLocked)
+        {
+            this.lookDirection = this.moveDirection;
+        } else if (this.moveInput == 0)
+        {
+            this.moveDirection = this.lookDirection;
+        }
+
+        this.velocity = (Vector3)this.moveDirection * this.speed * this.moveInput;
     }
 
     private bool noKeysReleased()
@@ -74,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void correctDirection()
     {
-        float angle = Mathf.Atan2(this.direction.y, this.direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(this.moveDirection.y, this.moveDirection.x) * Mathf.Rad2Deg;
         switch (angle)
         {
             case 0:
@@ -117,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 break;
         }
-        this.direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
+        this.moveDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
     }
 
     void FixedUpdate()
@@ -129,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 newPos = (Vector2)this.transform.position + (this.velocity * Time.deltaTime);
         this.rb.MovePosition(newPos);
-        this.transform.localEulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(this.direction.y, this.direction.x));
+        this.transform.localEulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(this.lookDirection.y, this.lookDirection.x));
     }
 
     public float getSpeedPercent()

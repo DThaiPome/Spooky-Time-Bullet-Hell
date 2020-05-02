@@ -49,7 +49,6 @@ public class Inventory : MonoBehaviour
                 if (ii.shouldDiscard())
                 {
                     this.inventory[i] = null;
-                    this.selectedIndex = 0;
                 }
             }
         }
@@ -87,6 +86,10 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
         {
             this.selectedIndex = 3;
+        }
+        if (this.inventory[this.selectedIndex] == null)
+        {
+            this.selectedIndex = 0;
         }
     }
 }

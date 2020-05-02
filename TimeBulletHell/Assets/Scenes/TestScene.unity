@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 102405164}
   - component: {fileID: 102405163}
   - component: {fileID: 102405166}
-  - component: {fileID: 102405167}
   - component: {fileID: 102405162}
   - component: {fileID: 102405168}
   m_Layer: 11
@@ -257,23 +256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   sneakMultiplier: 0.5
---- !u!114 &102405167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102405161}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42e6d607cbc0f741ac3449db7863bef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletType: PlayerBullet
-  bulletSpeed: 30
-  bulletCount: 5
-  sprayAngle: 17
-  shotsPerSecond: 8
 --- !u!114 &102405168
 MonoBehaviour:
   m_ObjectHideFlags: 0
