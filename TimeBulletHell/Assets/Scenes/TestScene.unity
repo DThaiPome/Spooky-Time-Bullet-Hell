@@ -255,7 +255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  sneakMultiplier: 0.5
 --- !u!114 &102405168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +368,7 @@ GameObject:
   - component: {fileID: 579919708}
   - component: {fileID: 579919710}
   - component: {fileID: 579919711}
+  - component: {fileID: 579919712}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -463,6 +463,21 @@ MonoBehaviour:
   prefabs:
   - {fileID: 5039416365036288553, guid: 64aaf1e0e96f5aa448119c0f201b04fe, type: 3}
   poolCounts: 100
+--- !u!114 &579919712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579919705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f584949d976c3b94382ba3231d05bd1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 8555173407817951530, guid: 98ab92552fb334a4b81a28ac3e1e6e8e, type: 3}
+  poolCounts: 25
 --- !u!1 &722914978
 GameObject:
   m_ObjectHideFlags: 0

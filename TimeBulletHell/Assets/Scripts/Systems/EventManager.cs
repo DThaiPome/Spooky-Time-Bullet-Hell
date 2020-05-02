@@ -15,6 +15,12 @@ public class EventManager : MonoBehaviour
     //On a bullet collision
     public event Action<Transform, PlayerBullet> onPlayerBulletHitEvent;
 
+    //** INVENTORY ADDED
+    //Pickup collected
+    public event Action<APickup> onPickupCollectedEvent;
+    //Add to inventory
+    public event Action<InventoryItem> addToInventoryEvent;
+
     void Awake()
     {
         instance = this;
@@ -41,6 +47,22 @@ public class EventManager : MonoBehaviour
         if (onPlayerBulletHitEvent != null)
         {
             onPlayerBulletHitEvent(t, pb);
+        }
+    }
+
+    public void onPickupCollected(APickup ap)
+    {
+        if (onPickupCollectedEvent != null)
+        {
+            onPickupCollectedEvent(ap);
+        }
+    }
+
+    public void addToInventory(InventoryItem ii)
+    {
+        if (addToInventoryEvent != null)
+        {
+            addToInventoryEvent(ii);
         }
     }
 }

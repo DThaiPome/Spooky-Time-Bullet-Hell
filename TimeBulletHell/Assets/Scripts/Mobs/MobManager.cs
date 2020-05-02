@@ -35,19 +35,13 @@ public class MobManager : MonoBehaviour
 
     public void spawn(string mobName, IMobSpawnProperty spawnProperties)
     {
-        Pool pool;
-        if (this.pools.tryGetValue(mobName, out pool))
+        MobBehaviour mb;
+        if (this.pools.tryGetComponent<MobBehaviour>(mobName, out mb))
         {
-            Poolable p = pool.pick();
-            MobBehaviour mb = p.gameObject.GetComponent<MobBehaviour>();
             if (mb != null)
             {
                 spawnProperties.spawn(mb);
             }
-        }
-        else
-        {
-            Debug.Log(mobName + " doesn't exist!");
         }
     }
 }

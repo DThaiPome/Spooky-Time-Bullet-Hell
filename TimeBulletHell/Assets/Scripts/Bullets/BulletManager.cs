@@ -47,18 +47,13 @@ public class BulletManager : MonoBehaviour
 
     public void fire(string bulletName, IFireProperties fireProperties)
     {
-        Pool pool;
-        if (this.pools.tryGetValue(bulletName, out pool))
+        BulletBehaviour bb;
+        if (this.pools.tryGetComponent<BulletBehaviour>(bulletName, out bb))
         {
-            Poolable p = pool.pick();
-            BulletBehaviour bb = p.gameObject.GetComponent<BulletBehaviour>();
             if (bb != null)
             {
                 fireProperties.fire(bb);
             }
-        } else
-        {
-            Debug.Log(bulletName + " doesn't exist!");
         }
     }
 }

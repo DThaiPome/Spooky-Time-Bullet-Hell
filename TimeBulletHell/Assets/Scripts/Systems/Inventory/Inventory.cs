@@ -17,6 +17,26 @@ public class Inventory : MonoBehaviour
         this.selectedIndex = 0;
         this.inventory = new InventoryItem[this.inventoryCapacity];
         this.inventory[0] = new DefaultGun();
+
+        EventManager.instance.onPickupCollectedEvent += this.onPickupCollected;
+        EventManager.instance.addToInventoryEvent += this.addToInventory;
+    }
+
+    private void onPickupCollected(APickup ap)
+    {
+        if (this.nextOpen() < this.inventoryCapacity)
+        {
+            ap.addToInventory();
+            ap.gameObject.SetActive(false);
+        }
+    }
+
+    private void addToInventory(InventoryItem ii)
+    {
+        if (this.nextOpen() < this.inventoryCapacity)
+        {
+            this.inventory[this.nextOpen()] = ii;
+        }
     }
 
     // Update is called once per frame
@@ -91,5 +111,12 @@ public class Inventory : MonoBehaviour
         {
             this.selectedIndex = 0;
         }
+    }
+
+    private int nextOpen()
+    {
+        int i;
+        for(i = 0; i < this.inventoryCapacity && this.inventory[i] != null; i++) { }
+        return i;
     }
 }

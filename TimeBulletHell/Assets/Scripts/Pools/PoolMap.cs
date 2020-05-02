@@ -31,4 +31,19 @@ public class PoolMap
     {
         return this.pools.TryGetValue(key, out p);
     }
+
+    public bool tryGetComponent<T>(string key, out T t)
+    {
+        Pool p;
+        if (this.tryGetValue(key, out p))
+        {
+            t = p.pick().gameObject.GetComponent<T>();
+            return true;
+        } else
+        {
+            t = default(T);
+            Debug.Log(key + " does not exist!");
+            return false;
+        }
+    }
 }

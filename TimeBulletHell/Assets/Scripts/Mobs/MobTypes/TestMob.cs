@@ -55,4 +55,10 @@ public class TestMob : MobBehaviour
             BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(this.transform.position, direction + minAngle + (i * dAngle), this.bulletSpeed));
         }
     }
+
+    protected override void onDeath()
+    {
+        base.onDeath();
+        PickupManager.instance.spawn("TimelessGunPickup", new DefaultPickupSpawnProperties(this.transform.position));
+    }
 }

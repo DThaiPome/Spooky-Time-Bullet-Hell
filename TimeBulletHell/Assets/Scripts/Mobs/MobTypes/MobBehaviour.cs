@@ -76,8 +76,14 @@ public class MobBehaviour : MonoBehaviour
     {
         if (this.health <= 0)
         {
+            this.onDeath();
             this.gameObject.SetActive(false);
         }
+    }
+
+    protected virtual void onDeath()
+    {
+
     }
 
     void FixedUpdate()
