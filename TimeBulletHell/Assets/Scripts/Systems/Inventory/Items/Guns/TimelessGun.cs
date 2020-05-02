@@ -11,7 +11,7 @@ public class TimelessGun : AGunWeapon
 
     public TimelessGun() : base(8)
     {
-        this.ammo = 50;
+        this.ammo = 15;
     }
 
     protected override void fire()

@@ -27,7 +27,6 @@ public class Inventory : MonoBehaviour
         if (this.nextOpen() < this.inventoryCapacity)
         {
             ap.addToInventory();
-            ap.gameObject.SetActive(false);
         }
     }
 

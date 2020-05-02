@@ -4,6 +4,26 @@ using UnityEngine;
 
 public abstract class APickup : MonoBehaviour
 {
+    void Start()
+    {
+        this.start();
+    }
+
+    protected virtual void start()
+    {
+
+    }
+
+    void Update()
+    {
+        this.update();
+    }
+
+    protected virtual void update()
+    {
+
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -33,6 +53,7 @@ public abstract class APickup : MonoBehaviour
     public virtual void addToInventory()
     {
         EventManager.instance.addToInventory(this.getInventoryItem());
+        this.gameObject.SetActive(false);
     }
 
     protected abstract InventoryItem getInventoryItem();

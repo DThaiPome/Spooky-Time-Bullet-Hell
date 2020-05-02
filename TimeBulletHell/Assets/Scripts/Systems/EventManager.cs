@@ -27,6 +27,10 @@ public class EventManager : MonoBehaviour
     //Add to inventory
     public event Action<InventoryItem> addToInventoryEvent;
 
+    //** PLAYER EVEntS
+    //Neutral drop collected
+    public event Action onNeutralDropPickupEvent;
+
     void Awake()
     {
         instance = this;
@@ -93,6 +97,14 @@ public class EventManager : MonoBehaviour
         if (addToInventoryEvent != null)
         {
             addToInventoryEvent(ii);
+        }
+    }
+
+    public void onNeutralDropPickup()
+    {
+        if (onNeutralDropPickupEvent != null)
+        {
+            onNeutralDropPickupEvent();
         }
     }
 }

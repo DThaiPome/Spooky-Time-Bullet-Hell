@@ -23,13 +23,23 @@ public class MobManager : MonoBehaviour
         this.pools = new PoolMap(this.prefabs, this.poolCounts, this.transform);    
     }
 
+    private float timeElapsed;
+    private float timeToSpawn = 2;
+    private float count = 2;
+
     void Update()
     {
         this.pools.recallBullets();
-        if (Input.GetKeyDown(KeyCode.RightShift))
+        this.timeElapsed += GameTime.instance.deltaTime();
+        while (this.timeElapsed >= this.timeToSpawn)
         {
-            float xPos = Random.Range(-8.0f, 8.0f);
-            MobManager.instance.spawn("BAT", new DefaultSpawnProperties(new Vector2(xPos, 3.5f)));
+            this.timeElapsed -= this.timeToSpawn;
+            for (int i = 0; i < this.count; i++)
+            {
+                float xPos = Random.Range(-8.0f, 8.0f);
+                float yPos = Random.Range(-3.5f, 3.5f);
+                MobManager.instance.spawn("BAT", new DefaultSpawnProperties(new Vector2(xPos, yPos)));
+            }
         }
     }
 

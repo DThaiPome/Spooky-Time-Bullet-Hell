@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInfo : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerInfo : MonoBehaviour
     private int lives;
     [SerializeField]
     private int points;
+    [SerializeField]
+    private int pointsToExtraLife;
 
     private int initialLives;
 
@@ -15,16 +18,35 @@ public class PlayerInfo : MonoBehaviour
     {
         this.initialLives = this.lives;
         EventManager.instance.onPlayerHurtEvent += this.onHurt;
+        EventManager.instance.onNeutralDropPickupEvent += this.pickupNeutralDrop;
     }
 
     private void onHurt()
     {
         this.lives--;
-        Debug.Log(this.lives);
+        if (this.lives < 0)
+        {
+            this.gameOver();
+        }
     }
 
     private void addLife()
     {
         this.lives++;
+    }
+
+    private void pickupNeutralDrop()
+    {
+        this.points++;
+        if (this.points >= this.pointsToExtraLife)
+        {
+            this.addLife();
+            this.points = 0;
+        }
+    }
+
+    private void gameOver()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

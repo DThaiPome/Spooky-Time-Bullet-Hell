@@ -62,6 +62,9 @@ public class TestMob : MobBehaviour
         if (Random.value < 0.15f)
         {
             PickupManager.instance.spawn("TimelessGunPickup", new DefaultPickupSpawnProperties(this.transform.position));
+        } else
+        {
+            PickupManager.instance.spawn("NeutralDrop", new DefaultPickupSpawnProperties(this.transform.position));
         }
     }
 }
