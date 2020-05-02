@@ -59,6 +59,9 @@ public class TestMob : MobBehaviour
     protected override void onDeath()
     {
         base.onDeath();
-        PickupManager.instance.spawn("TimelessGunPickup", new DefaultPickupSpawnProperties(this.transform.position));
+        if (Random.value < 0.15f)
+        {
+            PickupManager.instance.spawn("TimelessGunPickup", new DefaultPickupSpawnProperties(this.transform.position));
+        }
     }
 }

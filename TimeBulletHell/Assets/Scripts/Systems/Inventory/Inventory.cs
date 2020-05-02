@@ -91,6 +91,7 @@ public class Inventory : MonoBehaviour
 
     private void updateSelectedIndex()
     {
+        int prevIndex = this.selectedIndex;
         if (Input.GetKeyDown(KeyCode.Q))
         {
             this.selectedIndex = 0;
@@ -109,7 +110,13 @@ public class Inventory : MonoBehaviour
         }
         if (this.inventory[this.selectedIndex] == null)
         {
-            this.selectedIndex = 0;
+            if (this.inventory[prevIndex] != null)
+            {
+                this.selectedIndex = prevIndex;
+            } else
+            {
+                this.selectedIndex = 0;
+            }
         }
     }
 

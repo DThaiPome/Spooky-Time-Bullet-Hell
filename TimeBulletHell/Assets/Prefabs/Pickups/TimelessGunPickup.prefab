@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7353215867925604787}
   - component: {fileID: 1798854483012108657}
   - component: {fileID: 2759467806772664594}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TimelessGunPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

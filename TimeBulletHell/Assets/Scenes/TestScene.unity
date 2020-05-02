@@ -133,10 +133,9 @@ GameObject:
   - component: {fileID: 102405163}
   - component: {fileID: 102405166}
   - component: {fileID: 102405162}
-  - component: {fileID: 102405168}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,20 +254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
---- !u!114 &102405168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102405161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 580bcfb8d086d0c41b0e1487ed712924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryCapacity: 4
-  selectedIndex: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +354,8 @@ GameObject:
   - component: {fileID: 579919710}
   - component: {fileID: 579919711}
   - component: {fileID: 579919712}
+  - component: {fileID: 579919713}
+  - component: {fileID: 579919714}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -478,6 +465,34 @@ MonoBehaviour:
   prefabs:
   - {fileID: 8555173407817951530, guid: 98ab92552fb334a4b81a28ac3e1e6e8e, type: 3}
   poolCounts: 25
+--- !u!114 &579919713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579919705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580bcfb8d086d0c41b0e1487ed712924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryCapacity: 4
+  selectedIndex: 0
+--- !u!114 &579919714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579919705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17524d02dd024a46a4a48195b680721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
+  points: 0
 --- !u!1 &722914978
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +537,8 @@ GameObject:
   m_Component:
   - component: {fileID: 974027851}
   - component: {fileID: 974027852}
-  m_Layer: 11
+  - component: {fileID: 974027853}
+  m_Layer: 14
   m_Name: PlayerHitbox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -559,6 +575,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.17654362
+--- !u!114 &974027853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974027850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb57835f4b9b9d4a8aa4d42b31f9bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempImmunityDuration: 1
 --- !u!1 &1482202362
 GameObject:
   m_ObjectHideFlags: 0

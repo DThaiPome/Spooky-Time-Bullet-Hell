@@ -14,6 +14,26 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void start()
     {
+        EventManager.instance.onBulletHitsPlayerEvent += this.onHitPlayer;
+    }
+
+    void OnEnable()
+    {
+        this.onEnable();
+    }
+
+    protected virtual void onEnable()
+    {
+
+    }
+
+    void OnDisable()
+    {
+        this.onDisable();
+    }
+
+    protected virtual void onDisable()
+    {
 
     }
 
@@ -66,10 +86,21 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void onTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        EventManager.instance.onBulletHit(other.transform, this);
+        this.gameObject.SetActive(false);
+    }
+
+    protected virtual void onHitPlayer(PlayerHitbox ph, BulletBehaviour bb)
+    {
+        if (bb.Equals(this))
         {
-            this.gameObject.SetActive(false);
+            this.hurtPlayer(ph);
         }
+    }
+
+    protected virtual void hurtPlayer(PlayerHitbox ph)
+    {
+        EventManager.instance.onPlayerHurt();
     }
 
     protected virtual float fixedDeltaTime()

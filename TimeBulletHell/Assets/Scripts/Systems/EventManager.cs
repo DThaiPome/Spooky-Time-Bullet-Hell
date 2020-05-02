@@ -12,8 +12,14 @@ public class EventManager : MonoBehaviour
     public event Action onFixedWarpedTickEvent;
 
     //** BULLET EVENTS
-    //On a bullet collision
+    //On player bullet hit
     public event Action<Transform, PlayerBullet> onPlayerBulletHitEvent;
+    //On mob bullet hit
+    public event Action<Transform, BulletBehaviour> onBulletHitEvent;
+    //When a mob bullet hits a player
+    public event Action<PlayerHitbox, BulletBehaviour> onBulletHitsPlayerEvent;
+    //Normal player hurt
+    public event Action onPlayerHurtEvent;
 
     //** INVENTORY ADDED
     //Pickup collected
@@ -47,6 +53,30 @@ public class EventManager : MonoBehaviour
         if (onPlayerBulletHitEvent != null)
         {
             onPlayerBulletHitEvent(t, pb);
+        }
+    }
+
+    public void onBulletHit(Transform t, BulletBehaviour bb)
+    {
+        if (onBulletHitEvent != null)
+        {
+            onBulletHitEvent(t, bb);
+        }
+    }
+
+    public void onBulletHitsPlayer(PlayerHitbox ph, BulletBehaviour bb)
+    {
+        if (onBulletHitsPlayerEvent != null)
+        {
+            onBulletHitsPlayerEvent(ph, bb);
+        }
+    }
+
+    public void onPlayerHurt()
+    {
+        if (onPlayerHurtEvent != null)
+        {
+            onPlayerHurtEvent();
         }
     }
 

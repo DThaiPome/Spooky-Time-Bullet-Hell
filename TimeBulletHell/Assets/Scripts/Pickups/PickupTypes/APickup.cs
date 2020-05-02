@@ -12,6 +12,14 @@ public abstract class APickup : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            this.onPickup();
+        }
+    }
+
     public virtual void spawn(Vector2 origin)
     {
         this.transform.position = origin;

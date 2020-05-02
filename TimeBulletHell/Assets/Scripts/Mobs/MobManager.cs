@@ -28,7 +28,7 @@ public class MobManager : MonoBehaviour
         this.pools.recallBullets();
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
-            float xPos = Random.Range(-8, 8);
+            float xPos = Random.Range(-8.0f, 8.0f);
             MobManager.instance.spawn("BAT", new DefaultSpawnProperties(new Vector2(xPos, 3.5f)));
         }
     }
