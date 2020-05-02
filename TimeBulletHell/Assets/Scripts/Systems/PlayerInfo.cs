@@ -31,7 +31,7 @@ public class PlayerInfo : MonoBehaviour
         {
             this.timeElapsed -= 1;
             counter++;
-            //Debug.Log(counter);
+            Debug.Log(counter);
         }
     }
 

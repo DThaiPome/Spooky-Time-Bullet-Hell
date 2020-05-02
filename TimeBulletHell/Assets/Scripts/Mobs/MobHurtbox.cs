@@ -13,7 +13,6 @@ public class MobHurtbox : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("A");
         if (other.tag == "Player")
         {
             EventManager.instance.hurtPlayer();
@@ -22,7 +21,6 @@ public class MobHurtbox : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("A");
         if (other.tag == "Player")
         {
             EventManager.instance.hurtPlayer();
