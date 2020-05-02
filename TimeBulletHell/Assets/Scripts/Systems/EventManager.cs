@@ -18,8 +18,6 @@ public class EventManager : MonoBehaviour
     public event Action<Transform, BulletBehaviour> onBulletHitEvent;
     //When a mob bullet hits a player
     public event Action<PlayerHitbox, BulletBehaviour> onBulletHitsPlayerEvent;
-    //Normal player hurt
-    public event Action onPlayerHurtEvent;
 
     //** INVENTORY ADDED
     //Pickup collected
@@ -30,6 +28,10 @@ public class EventManager : MonoBehaviour
     //** PLAYER EVEntS
     //Neutral drop collected
     public event Action onNeutralDropPickupEvent;
+    //Attempt the damage the player
+    public event Action hurtPlayerEvent;
+    //Normal player hurt
+    public event Action onPlayerHurtEvent;
 
     void Awake()
     {
@@ -73,6 +75,14 @@ public class EventManager : MonoBehaviour
         if (onBulletHitsPlayerEvent != null)
         {
             onBulletHitsPlayerEvent(ph, bb);
+        }
+    }
+
+    public void hurtPlayer()
+    {
+        if (hurtPlayerEvent != null)
+        {
+            hurtPlayerEvent();
         }
     }
 

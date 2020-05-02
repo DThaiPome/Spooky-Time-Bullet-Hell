@@ -94,13 +94,13 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (bb.Equals(this))
         {
-            this.hurtPlayer(ph);
+            this.playerEffect(ph);
         }
     }
 
-    protected virtual void hurtPlayer(PlayerHitbox ph)
+    protected virtual void playerEffect(PlayerHitbox ph)
     {
-        EventManager.instance.onPlayerHurt();
+
     }
 
     protected virtual float fixedDeltaTime()

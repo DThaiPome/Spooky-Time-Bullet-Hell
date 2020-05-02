@@ -16,22 +16,32 @@ public class PlayerHitbox : MonoBehaviour
     void Start()
     {
         EventManager.instance.onBulletHitEvent += this.onBulletHit;
+        EventManager.instance.hurtPlayerEvent += this.hurtPlayer;
         EventManager.instance.onPlayerHurtEvent += this.onHurt;
     }
 
     private void onBulletHit(Transform t, BulletBehaviour bb)
     {
-        if (t.Equals(this.transform) && !this.immune && bulletHit == null)
+        if (t.Equals(this.transform) && bulletHit == null)
         {
             this.bulletHit = bb;
             EventManager.instance.onBulletHitsPlayer(this, this.bulletHit);
+            EventManager.instance.hurtPlayer();
         }
+    }
+
+    private void hurtPlayer()
+    {
+        if (!this.immune)
+        {
+            EventManager.instance.onPlayerHurt();
+        }
+        this.bulletHit = null;
     }
 
     private void onHurt()
     {
         this.immunity(this.tempImmunityDuration);
-        this.bulletHit = null;
     }
 
     private void immunity(float duration)

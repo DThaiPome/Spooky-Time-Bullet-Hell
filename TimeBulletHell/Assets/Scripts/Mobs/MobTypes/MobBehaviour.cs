@@ -100,6 +100,26 @@ public class MobBehaviour : MonoBehaviour
     {
         transform.position = origin;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        this.onTriggerEnter2D(other);
+    }
+
+    protected virtual void onTriggerEnter2D(Collider2D other)
+    {
+
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        this.onTriggerStay2D(other);
+    }
+
+    protected virtual void onTriggerStay2D(Collider2D other)
+    {
+
+    }
 }
 
 public class DefaultSpawnProperties : IMobSpawnProperty
