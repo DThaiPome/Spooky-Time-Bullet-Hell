@@ -44,9 +44,13 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < this.inventoryCapacity; i++)
         {
             InventoryItem ii = this.inventory[i];
-            if (ii == null || ii.shouldDiscard())
+            if (ii != null)
             {
-                this.inventory[i] = null;
+                if (ii.shouldDiscard())
+                {
+                    this.inventory[i] = null;
+                    this.selectedIndex = 0;
+                }
             }
         }
     }

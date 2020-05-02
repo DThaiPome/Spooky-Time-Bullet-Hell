@@ -47,7 +47,7 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void move()
     {
-        Vector3 step = new Vector3(Mathf.Cos(Mathf.Deg2Rad * this.direction), Mathf.Sin(Mathf.Deg2Rad * this.direction), 0.0f) * this.speed * GameTime.instance.fixedDeltaTime();
+        Vector3 step = new Vector3(Mathf.Cos(Mathf.Deg2Rad * this.direction), Mathf.Sin(Mathf.Deg2Rad * this.direction), 0.0f) * this.speed * this.fixedDeltaTime();
         this.transform.position += step;
     }
 
@@ -70,6 +70,11 @@ public class BulletBehaviour : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+    }
+
+    protected virtual float fixedDeltaTime()
+    {
+        return GameTime.instance.fixedDeltaTime();
     }
 }
 
