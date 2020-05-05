@@ -34,7 +34,7 @@ public abstract class ObjectManager<T> : MonoBehaviour
     protected virtual void start()
     {
         EventManager.instance.onRoomChangeEvent += this.updateRoomTransform;
-        this.pools = new PoolMap(this.prefabs, this.poolCounts, this.roomTransform);
+        this.pools = new PoolMap(this.prefabs, this.poolCounts, this.transform);
     }
 
     // Update is called once per frame
@@ -51,10 +51,12 @@ public abstract class ObjectManager<T> : MonoBehaviour
     public void spawn(string name, ISpawnProperties<T> spawnProperties)
     {
         T t;
-        if (this.pools.tryGetComponent<T>(name, out t))
+        GameObject g;
+        if (this.pools.tryGetComponent<T>(name, out t, out g))
         {
             if (t != null)
             {
+                g.transform.SetParent(this.roomTransform);
                 spawnProperties.spawn(t);
             }
         }
@@ -62,7 +64,7 @@ public abstract class ObjectManager<T> : MonoBehaviour
 
     protected virtual void updateRoomTransform(string roomName)
     {
-        GameObject roomObject = GameObject.Find("roomName");
+        GameObject roomObject = GameObject.Find(roomName);
         this.roomTransform = roomObject.transform;
     }
 }

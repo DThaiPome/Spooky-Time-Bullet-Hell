@@ -32,15 +32,17 @@ public class PoolMap
         return this.pools.TryGetValue(key, out p);
     }
 
-    public bool tryGetComponent<T>(string key, out T t)
+    public bool tryGetComponent<T>(string key, out T t, out GameObject g)
     {
         Pool p;
         if (this.tryGetValue(key, out p))
         {
-            t = p.pick().gameObject.GetComponent<T>();
+            g = p.pick().gameObject;
+            t = g.GetComponent<T>();
             return true;
         } else
         {
+            g = null;
             t = default(T);
             Debug.Log(key + " does not exist!");
             return false;

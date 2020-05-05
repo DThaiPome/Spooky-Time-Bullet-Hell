@@ -24,13 +24,13 @@ public class Pool
     private Poolable clone()
     {
         GameObject g = Object.Instantiate(this.prefab);
-        g.transform.SetParent(poolableParent);
         return g.GetComponent<Poolable>();
     }
 
     private void enqueue(Poolable p)
     {
         this.initPoolable(p);
+        p.transform.SetParent(poolableParent);
         this.poolables.Enqueue(p);
     }
 
