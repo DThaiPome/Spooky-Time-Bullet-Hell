@@ -109,7 +109,7 @@ public class BulletBehaviour : MonoBehaviour
     }
 }
 
-public class DefaultFireProperties : IFireProperties
+public class DefaultFireProperties : ISpawnProperties<BulletBehaviour>
 {
     protected Vector3 origin;
     protected float direction;
@@ -122,7 +122,7 @@ public class DefaultFireProperties : IFireProperties
         this.speed = speed;
     }
 
-    public virtual void fire(BulletBehaviour bb)
+    public virtual void spawn(BulletBehaviour bb)
     {
         bb.fire(this.origin, this.direction, this.speed);
     }

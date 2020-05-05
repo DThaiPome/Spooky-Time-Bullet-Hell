@@ -61,7 +61,7 @@ public class Pool
         for(int i = 0; i < this.activePoolables.Count; i++)
         {
             Poolable p = this.activePoolables[i];
-            if (!p.gameObject.activeInHierarchy)
+            if (!p.gameObject.activeSelf)
             {
                 this.activePoolables.RemoveAt(i);
                 i--;

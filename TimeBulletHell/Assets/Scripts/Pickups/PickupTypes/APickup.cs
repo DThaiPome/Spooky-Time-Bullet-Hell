@@ -59,7 +59,7 @@ public abstract class APickup : MonoBehaviour
     protected abstract InventoryItem getInventoryItem();
 }
 
-public class DefaultPickupSpawnProperties : IPickupSpawnProperties
+public class DefaultPickupSpawnProperties : ISpawnProperties<APickup>
 {
     private Vector2 origin;
 

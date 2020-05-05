@@ -67,7 +67,7 @@ public class BubbleBullet : BulletBehaviour
         float diff = 360 / this.burstCount;
         for(int i = 0; i < this.burstCount; i++)
         {
-            BulletManager.instance.fire(this.burstType, new DefaultFireProperties(this.transform.position, diff * (i + 0.5f), this.burstSpeed));
+            BulletManager.instance.spawn(this.burstType, new DefaultFireProperties(this.transform.position, diff * (i + 0.5f), this.burstSpeed));
         }
     }
 
@@ -93,7 +93,7 @@ public class BubbleBulletFireProperties : DefaultFireProperties
         this.burstSpeed = burstSpeed;
     }
 
-    public override void fire(BulletBehaviour bb)
+    public override void spawn(BulletBehaviour bb)
     {
         BubbleBullet bubble = null;
         try

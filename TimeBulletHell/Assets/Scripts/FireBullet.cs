@@ -46,7 +46,7 @@ public class FireBullet : MonoBehaviour
 
         for(int i = 0; i < this.bulletCount; i++)
         {
-            BulletManager.instance.fire(this.bulletType, new DefaultFireProperties(this.transform.position, this.transform.localEulerAngles.z + minAngle + (i * dAngle), this.bulletSpeed));
+            BulletManager.instance.spawn(this.bulletType, new DefaultFireProperties(this.transform.position, this.transform.localEulerAngles.z + minAngle + (i * dAngle), this.bulletSpeed));
         }
     }
 }

@@ -52,7 +52,7 @@ public class TestMob : MobBehaviour
 
         for (int i = 0; i < this.bulletCount; i++)
         {
-            BulletManager.instance.fire("BasicBullet", new DefaultFireProperties(this.transform.position, direction + minAngle + (i * dAngle), this.bulletSpeed));
+            BulletManager.instance.spawn("BasicBullet", new DefaultFireProperties(this.transform.position, direction + minAngle + (i * dAngle), this.bulletSpeed));
         }
     }
 

@@ -122,7 +122,7 @@ public class MobBehaviour : MonoBehaviour
     }
 }
 
-public class DefaultSpawnProperties : IMobSpawnProperty
+public class DefaultSpawnProperties : ISpawnProperties<MobBehaviour>
 {
     private Vector2 origin;
 

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupManager : ObjectManager<APickup>
+public interface ISpawnProperties<T>
 {
-
+    //Spawn the given object
+    void spawn(T t);
 }
