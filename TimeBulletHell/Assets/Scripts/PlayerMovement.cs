@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private string controlMode = "";
 
     private float moveInput;
     private Vector2 input;
@@ -23,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
         this.lookDirection = new Vector2();
         this.velocity = new Vector2();
         this.rb = this.gameObject.GetComponent<Rigidbody2D>();
+
+        EventManager.instance.onPlayerControlModeChangedEvent += this.setControlMode;
     }
 
     void Update()
@@ -30,10 +34,41 @@ public class PlayerMovement : MonoBehaviour
         this.updateInputs();
     }
 
+    private void setInputVector()
+    {
+        switch(this.controlMode)
+        {
+            case "move left":
+                this.input.x = 1;
+                this.input.y = 0;
+                break;
+            case "move right":
+                this.input.x = -1;
+                this.input.y = 0;
+                break;
+            case "move up":
+                this.input.x = 0;
+                this.input.y = 1;
+                break;
+            case "move down":
+                this.input.x = 0;
+                this.input.y = -1;
+                break;
+            default:
+                this.input.x = Input.GetAxisRaw("Horizontal");
+                this.input.y = Input.GetAxisRaw("Vertical");
+                break;
+        }
+    }
+
+    private void setControlMode(string mode)
+    {
+        this.controlMode = mode;
+    }
+
     private void updateInputs()
     {
-        this.input.x = Input.GetAxisRaw("Horizontal");
-        this.input.y = Input.GetAxisRaw("Vertical");
+        this.setInputVector();
 
         bool atMaxSpeed = this.moveInput == 1;
         bool stopped = this.input.magnitude == 0 && this.noKeysReleased();

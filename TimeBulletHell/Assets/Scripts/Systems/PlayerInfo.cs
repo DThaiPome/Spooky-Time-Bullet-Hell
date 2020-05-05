@@ -26,7 +26,7 @@ public class PlayerInfo : MonoBehaviour
 
     void Update()
     {
-        this.timeElapsed += Time.deltaTime;
+        this.timeElapsed += GameTime.instance.deltaTime();
         while(this.timeElapsed >= 1)
         {
             this.timeElapsed -= 1;

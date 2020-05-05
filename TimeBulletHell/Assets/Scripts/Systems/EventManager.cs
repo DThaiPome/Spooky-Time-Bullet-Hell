@@ -11,6 +11,9 @@ public class EventManager : MonoBehaviour
     public event Action onWarpedTickEvent;
     public event Action onFixedWarpedTickEvent;
 
+    //** CAMERA EVENTS
+    public event Action<string> onRoomChangeEvent;
+
     //** BULLET EVENTS
     //On player bullet hit
     public event Action<Transform, PlayerBullet> onPlayerBulletHitEvent;
@@ -32,6 +35,8 @@ public class EventManager : MonoBehaviour
     public event Action hurtPlayerEvent;
     //Normal player hurt
     public event Action onPlayerHurtEvent;
+    //Control Mode Changed
+    public event Action<string> onPlayerControlModeChangedEvent;
 
     void Awake()
     {
@@ -115,6 +120,22 @@ public class EventManager : MonoBehaviour
         if (onNeutralDropPickupEvent != null)
         {
             onNeutralDropPickupEvent();
+        }
+    }
+
+    public void onRoomChange(string id)
+    {
+        if (onRoomChangeEvent != null)
+        {
+            onRoomChangeEvent(id);
+        }
+    }
+
+    public void onPlayerControlModeChanged(string mode)
+    {
+        if (onPlayerControlModeChangedEvent != null)
+        {
+            onPlayerControlModeChangedEvent(mode);
         }
     }
 }
