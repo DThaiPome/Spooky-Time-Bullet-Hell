@@ -73,7 +73,7 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void disableIfReady()
     {
-        if (this.transform.position.magnitude >= 10)
+        if (this.transform.localPosition.magnitude >= 10)
         {
             this.gameObject.SetActive(false);
         }

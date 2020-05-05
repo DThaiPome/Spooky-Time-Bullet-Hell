@@ -11,8 +11,11 @@ public class EventManager : MonoBehaviour
     public event Action onWarpedTickEvent;
     public event Action onFixedWarpedTickEvent;
 
-    //** CAMERA EVENTS
+    //** ROOM EVENTS
+    //On room change
     public event Action<string> onRoomChangeEvent;
+    //Just set a room active
+    public event Action<string> setRoomActiveEvent;
 
     //** BULLET EVENTS
     //On player bullet hit
@@ -136,6 +139,14 @@ public class EventManager : MonoBehaviour
         if (onPlayerControlModeChangedEvent != null)
         {
             onPlayerControlModeChangedEvent(mode);
+        }
+    }
+
+    public void setRoomActive(string id)
+    {
+        if (setRoomActiveEvent != null)
+        {
+            setRoomActiveEvent(id);
         }
     }
 }

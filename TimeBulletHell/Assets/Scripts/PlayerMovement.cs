@@ -41,22 +41,44 @@ public class PlayerMovement : MonoBehaviour
             case "move left":
                 this.input.x = 1;
                 this.input.y = 0;
+                this.moveInput = 1;
                 break;
             case "move right":
                 this.input.x = -1;
                 this.input.y = 0;
+                this.moveInput = 1;
                 break;
             case "move up":
                 this.input.x = 0;
                 this.input.y = 1;
+                this.moveInput = 1;
                 break;
             case "move down":
                 this.input.x = 0;
                 this.input.y = -1;
+                this.moveInput = 1;
                 break;
             default:
                 this.input.x = Input.GetAxisRaw("Horizontal");
                 this.input.y = Input.GetAxisRaw("Vertical");
+
+                bool atMaxSpeed = this.moveInput == 1;
+                bool stopped = this.input.magnitude == 0 && this.noKeysReleased();
+
+                bool inMotion = false;
+                if (atMaxSpeed)
+                {
+                    inMotion = true;
+                }
+                if (inMotion)
+                {
+                    if (stopped)
+                    {
+                        inMotion = false;
+                    }
+                }
+
+                this.moveInput = inMotion ? 1 : Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
                 break;
         }
     }
@@ -70,29 +92,11 @@ public class PlayerMovement : MonoBehaviour
     {
         this.setInputVector();
 
-        bool atMaxSpeed = this.moveInput == 1;
-        bool stopped = this.input.magnitude == 0 && this.noKeysReleased();
-
-        bool inMotion = false;
-        if (atMaxSpeed)
-        {
-            inMotion = true;
-        }
-        if (inMotion)
-        {
-            if (stopped)
-            {
-                inMotion = false;
-            }
-        }
-
         if (input.magnitude != 0)
         {
             this.moveDirection = input / input.magnitude;
             this.correctDirection();
         }
-
-        this.moveInput = inMotion ? 1 : Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
 
         this.directionLocked = Input.GetKey(KeyCode.LeftShift);
 

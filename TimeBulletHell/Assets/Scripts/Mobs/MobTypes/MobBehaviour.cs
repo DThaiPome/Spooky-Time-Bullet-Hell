@@ -98,7 +98,7 @@ public class MobBehaviour : MonoBehaviour
 
     public virtual void spawn(Vector3 origin)
     {
-        transform.position = origin;
+        transform.localPosition = origin;
     }
 
     void OnTriggerEnter2D(Collider2D other)

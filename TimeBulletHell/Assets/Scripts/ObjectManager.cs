@@ -64,6 +64,7 @@ public abstract class ObjectManager<T> : MonoBehaviour
 
     protected virtual void updateRoomTransform(string roomName)
     {
+        Debug.Log(roomName);
         GameObject roomObject = GameObject.Find(roomName);
         this.roomTransform = roomObject.transform;
     }

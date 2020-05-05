@@ -7,6 +7,8 @@ public class CameraControl : MonoBehaviour
     private Dictionary<string, Vector2> rooms;
     [SerializeField]
     private string currentRoom;
+    [SerializeField]
+    private float moveRate;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +37,7 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         this.transform.eulerAngles = new Vector3(0, 0, 0);
-        this.focusOnRoom(0.5f);
+        this.focusOnRoom(this.moveRate);
     }
 
     private void focusOnRoom(float rate)
