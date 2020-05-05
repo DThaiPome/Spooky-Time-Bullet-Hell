@@ -25,12 +25,6 @@ public class TestMob : MobBehaviour
         this.timeElapsed = secondsPerBullet / 2;
     }
 
-    protected override void start()
-    {
-        base.start();
-        this.pm = GameObject.Find("Player").GetComponent<PlayerMovement>();
-    }
-
     protected override void update()
     {
         base.update();
@@ -44,7 +38,7 @@ public class TestMob : MobBehaviour
 
     protected virtual void fire()
     {
-        Vector2 mobToPlayer = this.pm.transform.position - this.transform.position;
+        Vector2 mobToPlayer = PlayerMovement.player.transform.position - this.transform.position;
         float direction = Mathf.Atan2(mobToPlayer.y, mobToPlayer.x) * Mathf.Rad2Deg;
 
         float minAngle = this.bulletCount > 1 ? -this.sprayAngle / 2 : 0;
@@ -53,18 +47,6 @@ public class TestMob : MobBehaviour
         for (int i = 0; i < this.bulletCount; i++)
         {
             BulletManager.instance.spawn("BasicBullet", new DefaultFireProperties(this.transform.position, direction + minAngle + (i * dAngle), this.bulletSpeed));
-        }
-    }
-
-    protected override void onDeath()
-    {
-        base.onDeath();
-        if (Random.value < 0.15f)
-        {
-            PickupManager.instance.spawn("TimelessGunPickup", new DefaultPickupSpawnProperties(this.transform.position));
-        } else
-        {
-            PickupManager.instance.spawn("NeutralDrop", new DefaultPickupSpawnProperties(this.transform.position));
         }
     }
 }

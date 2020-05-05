@@ -61,6 +61,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  drops:
+  - frequency: 10
+    pickups:
+    - NeutralDrop
+  - frequency: 10
+    pickups:
+    - NeutralDrop
+    - NeutralDrop
+  - frequency: 1
+    pickups:
+    - TimelessGunPickup
   bulletsPerSecond: 1
   bulletCount: 3
   bulletSpeed: 3

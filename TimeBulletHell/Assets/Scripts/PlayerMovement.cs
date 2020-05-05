@@ -18,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public static PlayerMovement player;
+
+    void Awake()
+    {
+        player = this;
+    }
+
     void Start()
     {
         this.input = new Vector2();

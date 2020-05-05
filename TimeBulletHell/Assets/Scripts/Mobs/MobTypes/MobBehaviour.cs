@@ -6,6 +6,8 @@ public class MobBehaviour : MonoBehaviour
 {
     [SerializeField]
     protected int maxHealth;
+    [SerializeField]
+    protected List<MobDropData> drops;
 
     protected int health;
     
@@ -47,6 +49,22 @@ public class MobBehaviour : MonoBehaviour
     protected virtual void start()
     {
         EventManager.instance.onPlayerBulletHitEvent += this.onPlayerBulletHit;
+        this.initDrops();
+    }
+
+    protected virtual void initDrops()
+    {
+        float totalFrequency = 0;
+        foreach(MobDropData mdd in this.drops)
+        {
+            float frequency = mdd.frequency;
+            mdd.frequency += totalFrequency;
+            totalFrequency += frequency;
+        }
+        foreach(MobDropData mdd in this.drops)
+        {
+            mdd.frequency /= totalFrequency;
+        }
     }
 
     protected virtual void onPlayerBulletHit(Transform t, PlayerBullet pb)
@@ -83,7 +101,19 @@ public class MobBehaviour : MonoBehaviour
 
     protected virtual void onDeath()
     {
+        this.spawnDrops(Random.value);
+    }
 
+    protected virtual void spawnDrops(float rand)
+    {
+        foreach(MobDropData mdd in this.drops)
+        {
+            if (rand < mdd.frequency)
+            {
+                mdd.spawnPickups(this.transform.position);
+                return;
+            }
+        }
     }
 
     void FixedUpdate()
