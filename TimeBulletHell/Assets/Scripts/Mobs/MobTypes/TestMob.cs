@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestMob : MobBehaviour
 {
     [SerializeField]
-    protected int bulletsPerSecond;
+    protected float bulletsPerSecond;
     [SerializeField]
     protected int bulletCount;
     [SerializeField]
@@ -13,15 +13,13 @@ public class TestMob : MobBehaviour
     [SerializeField]
     protected int sprayAngle;
 
-    protected PlayerMovement pm;
-
     protected float secondsPerBullet;
     protected float timeElapsed;
 
     protected override void onEnable()
     {
         base.onEnable();
-        this.secondsPerBullet = 1 / this.bulletsPerSecond;
+        this.secondsPerBullet = this.bulletsPerSecond == 0 ? 1 : 1 / this.bulletsPerSecond;
         this.timeElapsed = secondsPerBullet / 2;
     }
 
@@ -38,8 +36,7 @@ public class TestMob : MobBehaviour
 
     protected virtual void fire()
     {
-        Vector2 mobToPlayer = PlayerMovement.player.transform.position - this.transform.position;
-        float direction = Mathf.Atan2(mobToPlayer.y, mobToPlayer.x) * Mathf.Rad2Deg;
+        float direction = this.angleToPlayer();
 
         float minAngle = this.bulletCount > 1 ? -this.sprayAngle / 2 : 0;
         float dAngle = this.bulletCount > 1 ? this.sprayAngle / (this.bulletCount - 1) : -minAngle;

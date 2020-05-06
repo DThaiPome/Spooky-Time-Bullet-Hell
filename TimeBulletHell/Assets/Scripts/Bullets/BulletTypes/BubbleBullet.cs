@@ -84,10 +84,10 @@ public class BubbleBulletFireProperties : DefaultFireProperties
     protected float burstCount;
     protected float burstSpeed;
 
-    public BubbleBulletFireProperties(Vector2 origin, float direction, float speed, float distance, string burstType, float burstCount, float burstSpeed) 
+    public BubbleBulletFireProperties(Vector2 origin, float direction, float speed, float duration, string burstType, float burstCount, float burstSpeed) 
         : base(origin, direction, speed)
     {
-        this.duration = distance;
+        this.duration = duration;
         this.burstType = burstType;
         this.burstCount = burstCount;
         this.burstSpeed = burstSpeed;
