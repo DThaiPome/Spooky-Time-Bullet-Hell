@@ -43,6 +43,14 @@ public class EventManager : MonoBehaviour
     //Control Mode Changed
     public event Action<string> onPlayerControlModeChangedEvent;
 
+    //** LEVEL EVENTS
+    //End the level
+    public event Action endLevelEvent;
+    //Switch to the level
+    public event Action<string> switchToLevelEvent;
+    //On level switched
+    public event Action<string> onLevelSwitchedEvent;
+
     void Awake()
     {
         instance = this;
