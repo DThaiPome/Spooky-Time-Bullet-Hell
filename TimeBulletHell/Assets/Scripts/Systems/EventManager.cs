@@ -44,6 +44,8 @@ public class EventManager : MonoBehaviour
     public event Action<string> onPlayerControlModeChangedEvent;
 
     //** LEVEL EVENTS
+    //Boss defeated
+    public event Action onBossDefeatedEvent;
     //End the level
     public event Action endLevelEvent;
     //Switch to the level
@@ -165,6 +167,38 @@ public class EventManager : MonoBehaviour
         if (onRoomChangeEvent != null)
         {
             onRoomChangeEvent(ro);
+        }
+    }
+
+    public void onBossDefeated()
+    {
+        if (onBossDefeatedEvent != null)
+        {
+            onBossDefeatedEvent();
+        }
+    }
+
+    public void endLevel()
+    {
+        if (endLevelEvent != null)
+        {
+            endLevelEvent();
+        }
+    }
+
+    public void switchToLevel(string level)
+    {
+        if (switchToLevelEvent != null)
+        {
+            switchToLevelEvent(level);
+        }
+    }
+
+    public void onLevelSwitch(string level)
+    {
+        if (onLevelSwitchedEvent != null)
+        {
+            onLevelSwitchedEvent(level);
         }
     }
 }

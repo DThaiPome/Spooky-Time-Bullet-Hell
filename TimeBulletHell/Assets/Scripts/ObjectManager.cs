@@ -65,7 +65,6 @@ public abstract class ObjectManager<T> : MonoBehaviour
 
     protected virtual void updateRoomTransform(RoomObject room)
     {
-        Debug.Log(room.name);
         this.roomTransform = room.transform;
     }
 }

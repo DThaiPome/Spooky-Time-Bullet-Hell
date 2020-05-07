@@ -10,11 +10,6 @@ public class LevelManager : MonoBehaviour
 
     private Dictionary<string, string> levelMap;
 
-    void Awake()
-    {
-        Debug.Log(SceneManager.GetActiveScene().name);
-    }
-
     void Start()
     {
         this.levelMap = new Dictionary<string, string>();
@@ -29,7 +24,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void loadLevel(string levelId)
+    public void loadLevel(string levelId)
     {
         string s;
         if (this.levelMap.TryGetValue(levelId, out s)) {
