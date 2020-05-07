@@ -70,11 +70,6 @@ public class BubbleBullet : BulletBehaviour
             BulletManager.instance.spawn(this.burstType, new DefaultFireProperties(this.transform.position, diff * (i + 0.5f), this.burstSpeed));
         }
     }
-
-    protected override void disableIfReady()
-    {
-        
-    }
 }
 
 public class BubbleBulletFireProperties : DefaultFireProperties

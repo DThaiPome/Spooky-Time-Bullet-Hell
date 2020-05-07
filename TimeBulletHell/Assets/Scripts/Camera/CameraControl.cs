@@ -14,9 +14,9 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         this.rooms = new Dictionary<string, Vector2>();
-        EventManager.instance.onRoomChangeEvent += this.changeRoom;
+        EventManager.instance.switchToRoomEvent += this.changeRoom;
         this.initRoomMap();
-        EventManager.instance.onRoomChange(this.currentRoom);
+        EventManager.instance.switchToRoom(this.currentRoom);
     }
 
     private void initRoomMap()

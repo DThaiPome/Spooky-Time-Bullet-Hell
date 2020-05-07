@@ -7,6 +7,8 @@ public class TestBossMob : BossMobBehaviour
     [SerializeField]
     protected float moveSpeed;
     [SerializeField]
+    protected bool useTurnSpeed;
+    [SerializeField]
     protected float turnSpeed;
     [SerializeField]
     protected float bulletsPerSecond;
@@ -76,7 +78,7 @@ public class TestBossMob : BossMobBehaviour
         {
             this.currentDirection = counterClockwiseRotation;
         }
-        if (Mathf.Abs(this.currentDirection - angle) < this.turnSpeed * GameTime.instance.fixedDeltaTime())
+        if (!this.useTurnSpeed || Mathf.Abs(this.currentDirection - angle) < this.turnSpeed * GameTime.instance.fixedDeltaTime())
         {
             this.currentDirection = angle;
         }

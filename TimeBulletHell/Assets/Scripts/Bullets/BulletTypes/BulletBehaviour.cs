@@ -24,7 +24,7 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void onEnable()
     {
-
+        this.disableIfReady();
     }
 
     void OnDisable()
@@ -34,7 +34,7 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void onDisable()
     {
-
+        this.disableIfReady();
     }
 
     void Update()
@@ -73,10 +73,15 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void disableIfReady()
     {
-        if (this.transform.localPosition.magnitude >= 10)
+        if (this.readyToDisable())
         {
             this.gameObject.SetActive(false);
         }
+    }
+
+    protected virtual bool readyToDisable()
+    {
+        return !this.gameObject.activeInHierarchy;
     }
 
     void OnTriggerEnter2D(Collider2D other)

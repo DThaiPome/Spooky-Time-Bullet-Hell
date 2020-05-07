@@ -11,7 +11,7 @@ public class MobManager : ObjectManager<MobBehaviour>
     protected override void update()
     {
         base.update();
-        this.timeElapsed += GameTime.instance.deltaTime();
+        /*this.timeElapsed += GameTime.instance.deltaTime();
         while (this.timeElapsed >= this.timeToSpawn)
         {
             this.timeElapsed -= this.timeToSpawn;
@@ -21,6 +21,6 @@ public class MobManager : ObjectManager<MobBehaviour>
                 float yPos = Random.Range(-3.5f, 3.5f);
                 MobManager.instance.spawn("BAT", new DefaultSpawnProperties(new Vector2(xPos, yPos)));
             }
-        }
+        }*/
     }
 }

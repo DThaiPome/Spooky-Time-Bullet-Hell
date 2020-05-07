@@ -48,7 +48,7 @@ public abstract class ObjectManager<T> : MonoBehaviour
         this.pools.recallBullets();
     }
 
-    public void spawn(string name, ISpawnProperties<T> spawnProperties)
+    public T spawn(string name, ISpawnProperties<T> spawnProperties)
     {
         T t;
         GameObject g;
@@ -60,12 +60,12 @@ public abstract class ObjectManager<T> : MonoBehaviour
                 spawnProperties.spawn(t);
             }
         }
+        return t;
     }
 
-    protected virtual void updateRoomTransform(string roomName)
+    protected virtual void updateRoomTransform(RoomObject room)
     {
-        Debug.Log(roomName);
-        GameObject roomObject = GameObject.Find(roomName);
-        this.roomTransform = roomObject.transform;
+        Debug.Log(room.name);
+        this.roomTransform = room.transform;
     }
 }

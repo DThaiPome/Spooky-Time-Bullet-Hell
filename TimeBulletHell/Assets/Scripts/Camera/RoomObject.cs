@@ -7,7 +7,7 @@ public class RoomObject : MonoBehaviour
     void Start()
     {
         EventManager.instance.setRoomActiveEvent += this.setActive;
-        EventManager.instance.onRoomChangeEvent += this.onRoomChange;
+        EventManager.instance.switchToRoomEvent += this.onRoomChange;
     }
 
     private void setActive(string name)
@@ -23,6 +23,7 @@ public class RoomObject : MonoBehaviour
         if (name == this.name)
         {
             this.gameObject.SetActive(true);
+            EventManager.instance.onRoomChange(this);
         } else
         {
             this.gameObject.SetActive(false);

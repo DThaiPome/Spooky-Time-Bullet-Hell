@@ -12,8 +12,10 @@ public class EventManager : MonoBehaviour
     public event Action onFixedWarpedTickEvent;
 
     //** ROOM EVENTS
-    //On room change
-    public event Action<string> onRoomChangeEvent;
+    //Make a room change
+    public event Action<string> switchToRoomEvent;
+    //On a room change
+    public event Action<RoomObject> onRoomChangeEvent;
     //Just set a room active
     public event Action<string> setRoomActiveEvent;
 
@@ -126,11 +128,11 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void onRoomChange(string id)
+    public void switchToRoom(string id)
     {
-        if (onRoomChangeEvent != null)
+        if (switchToRoomEvent != null)
         {
-            onRoomChangeEvent(id);
+            switchToRoomEvent(id);
         }
     }
 
@@ -147,6 +149,14 @@ public class EventManager : MonoBehaviour
         if (setRoomActiveEvent != null)
         {
             setRoomActiveEvent(id);
+        }
+    }
+
+    public void onRoomChange(RoomObject ro)
+    {
+        if (onRoomChangeEvent != null)
+        {
+            onRoomChangeEvent(ro);
         }
     }
 }

@@ -299,6 +299,8 @@ Assets\Scripts\ISpawnProperties.cs
 Assets\Scripts\Mobs\MobDropData.cs
 Assets\Scripts\Mobs\MobHurtbox.cs
 Assets\Scripts\Mobs\MobManager.cs
+Assets\Scripts\Mobs\MobSpawners\MobSpawner.cs
+Assets\Scripts\Mobs\MobSpawners\SpawnOnEnable.cs
 Assets\Scripts\Mobs\MobTypes\BossMobBehaviour.cs
 Assets\Scripts\Mobs\MobTypes\MobBehaviour.cs
 Assets\Scripts\Mobs\MobTypes\TestBossMob.cs

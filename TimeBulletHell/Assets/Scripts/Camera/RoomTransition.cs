@@ -13,7 +13,7 @@ public class RoomTransition : MonoBehaviour
 
     void Start()
     {
-        EventManager.instance.onRoomChangeEvent += this.onRoomChange;
+        EventManager.instance.switchToRoomEvent += this.onRoomChange;
         this.from = this.transform.parent.name;
     }
 
@@ -35,7 +35,7 @@ public class RoomTransition : MonoBehaviour
             if (this.direction == "left" || this.direction == "up" || this.direction == "right" || this.direction == "down")
             {
                 EventManager.instance.onPlayerControlModeChanged("move " + this.direction);
-                EventManager.instance.setRoomActive(to);
+                //EventManager.instance.setRoomActive(to);
             }
         }
     }
@@ -45,7 +45,7 @@ public class RoomTransition : MonoBehaviour
         if (other.tag == "Player")
         {
             EventManager.instance.onPlayerControlModeChanged("");
-            EventManager.instance.onRoomChange(to);
+            EventManager.instance.switchToRoom(to);
         }
     }
 }

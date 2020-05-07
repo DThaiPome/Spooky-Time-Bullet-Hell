@@ -24,6 +24,16 @@ public abstract class APickup : MonoBehaviour
 
     }
 
+    void OnDisable()
+    {
+        this.onDisable();
+    }
+
+    protected virtual void onDisable()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
