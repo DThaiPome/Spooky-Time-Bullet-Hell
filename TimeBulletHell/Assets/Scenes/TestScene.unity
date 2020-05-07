@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &102405161
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &301740465
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &306745789
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &381150671
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &562997090
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &579919705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,6 +1302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &722914978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &839331865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,6 +1643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &995175111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,6 +2256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &1685460799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,6 +2466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &1818572358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2705,6 +2716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &2047878623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,6 +2868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1
 --- !u!1 &2135948018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,3 +2913,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: BAT
+  singularMob: 1

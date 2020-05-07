@@ -6,13 +6,18 @@ public class SpawnOnEnable : MobSpawner
 {
     [SerializeField]
     protected string mobName;
+    [SerializeField]
+    protected bool singularMob;
 
     protected bool spawned;
 
     protected override void onEnable()
     {
         base.onEnable();
-        this.spawned = false;
+        if (!this.singularMob)
+        {
+            this.spawned = false;
+        }
     }
 
     protected override bool readyToSpawn()
@@ -24,7 +29,14 @@ public class SpawnOnEnable : MobSpawner
     {
         foreach(MobBehaviour mb in this.activeMobs)
         {
-            mb.gameObject.SetActive(false);
+            if (this.singularMob)
+            {
+                mb.transform.position = this.transform.position;
+            }
+            else
+            {
+                mb.gameObject.SetActive(false);
+            }
         }
         this.activeMobs = new List<MobBehaviour>();
     }
