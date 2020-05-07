@@ -24,6 +24,7 @@ public class NeutralDrop : APickup
     protected override void start()
     {
         base.start();
+        EventManager.instance.onBossDefeatedEvent += this.onBossDefeated;
         this.player = GameObject.Find("Player");
         //this.rb = this.transform.GetComponentInChildren<Rigidbody2D>();
     }
@@ -45,5 +46,10 @@ public class NeutralDrop : APickup
             }
         }
         //this.rb.MovePosition(step);
+    }
+
+    protected void onBossDefeated()
+    {
+        this.onPickup();
     }
 }

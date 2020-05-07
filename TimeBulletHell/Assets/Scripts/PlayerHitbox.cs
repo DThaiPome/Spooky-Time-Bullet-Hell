@@ -17,7 +17,6 @@ public class PlayerHitbox : MonoBehaviour
     {
         EventManager.instance.onBulletHitEvent += this.onBulletHit;
         EventManager.instance.hurtPlayerEvent += this.hurtPlayer;
-        EventManager.instance.onPlayerHurtEvent += this.onHurt;
     }
 
     private void onBulletHit(Transform t, BulletBehaviour bb)

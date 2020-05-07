@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         this.rb = this.gameObject.GetComponent<Rigidbody2D>();
 
         EventManager.instance.onPlayerControlModeChangedEvent += this.setControlMode;
+        EventManager.instance.onBossDefeatedEvent += this.onBossDefeated;
     }
 
     void Update()
@@ -45,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
     {
         switch(this.controlMode)
         {
+            case "no movement":
+                this.input = new Vector2();
+                this.moveInput = 0;
+                break;
             case "move left":
                 this.input.x = 1;
                 this.input.y = 0;
@@ -172,6 +177,11 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
         this.moveDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
+    }
+
+    private void onBossDefeated()
+    {
+        EventManager.instance.onPlayerControlModeChanged("no movement");
     }
 
     void FixedUpdate()
