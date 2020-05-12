@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BossMobBehaviour : MobBehaviour
 {
+    [SerializeField]
+    private Vector2 levelEnderPosition;
+
     protected override void onDeath()
     {
         base.onDeath();
@@ -13,7 +16,8 @@ public class BossMobBehaviour : MobBehaviour
     protected virtual void beforeLevelEnds()
     {
         EventManager.instance.onBossDefeated();
-        this.endLevel();
+        PickupManager.instance.spawn("LevelEnderPickup", new DefaultPickupSpawnProperties(levelEnderPosition));
+        //this.endLevel();
     }
 
     protected virtual void endLevel()

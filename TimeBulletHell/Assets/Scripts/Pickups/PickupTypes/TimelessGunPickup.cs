@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimelessGunPickup : APickup
+public class TimelessGunPickup : InventoryPickup
 {
     protected override InventoryItem getInventoryItem()
     {

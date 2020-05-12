@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         this.rb = this.gameObject.GetComponent<Rigidbody2D>();
 
         EventManager.instance.onPlayerControlModeChangedEvent += this.setControlMode;
-        EventManager.instance.onBossDefeatedEvent += this.onBossDefeated;
+        EventManager.instance.endLevelEvent += this.onBossDefeated;
     }
 
     void Update()

@@ -1239,6 +1239,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 8555173407817951530, guid: 98ab92552fb334a4b81a28ac3e1e6e8e, type: 3}
   - {fileID: 7144653597370386955, guid: c7140b273763c7c4198934474d1046ab, type: 3}
+  - {fileID: 3258767235682670297, guid: a6d25c18f8029074e9beeb281437bebe, type: 3}
   poolCounts: 100
 --- !u!114 &579919713
 MonoBehaviour:
@@ -2020,6 +2021,7 @@ MonoBehaviour:
     - NeutralDrop
     - NeutralDrop
     - NeutralDrop
+  levelEnderPosition: {x: 0, y: 13}
   moveSpeed: 1
   useTurnSpeed: 1
   turnSpeed: 45

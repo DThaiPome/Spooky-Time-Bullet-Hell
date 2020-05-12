@@ -26,7 +26,10 @@ public class MobDropData
     {
         foreach(string s in this.pickups)
         {
-            Vector2 offset = new Vector2(UnityEngine.Random.value - 0.5f, UnityEngine.Random.value - 0.5f);
+            float angle = UnityEngine.Random.value * 2 * Mathf.PI;
+            float distance = UnityEngine.Random.value;
+            Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+            offset *= distance;
             PickupManager.instance.spawn(s, new DefaultPickupSpawnProperties((Vector3)offset + position));
         }
     }

@@ -18,11 +18,11 @@ public class Inventory : MonoBehaviour
         this.inventory = new InventoryItem[this.inventoryCapacity];
         this.inventory[0] = new DefaultGun();
 
-        EventManager.instance.onPickupCollectedEvent += this.onPickupCollected;
+        EventManager.instance.onInventoryItemCollectedEvent += this.onPickupCollected;
         EventManager.instance.addToInventoryEvent += this.addToInventory;
     }
 
-    private void onPickupCollected(APickup ap)
+    private void onPickupCollected(InventoryPickup ap)
     {
         if (this.nextOpen() < this.inventoryCapacity)
         {

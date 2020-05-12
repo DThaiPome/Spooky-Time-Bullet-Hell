@@ -31,7 +31,7 @@ public abstract class APickup : MonoBehaviour
 
     protected virtual void onDisable()
     {
-        this.gameObject.SetActive(false);
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -57,16 +57,8 @@ public abstract class APickup : MonoBehaviour
 
     protected virtual void onPickup()
     {
-        EventManager.instance.onPickupCollected(this);
-    }
-
-    public virtual void addToInventory()
-    {
-        EventManager.instance.addToInventory(this.getInventoryItem());
         this.gameObject.SetActive(false);
     }
-
-    protected abstract InventoryItem getInventoryItem();
 }
 
 public class DefaultPickupSpawnProperties : ISpawnProperties<APickup>

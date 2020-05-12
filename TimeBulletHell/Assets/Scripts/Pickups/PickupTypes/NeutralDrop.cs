@@ -12,13 +12,8 @@ public class NeutralDrop : APickup
 
     protected override void onPickup()
     {
+        base.onPickup();
         EventManager.instance.onNeutralDropPickup();
-        this.gameObject.SetActive(false);
-    }
-
-    protected override InventoryItem getInventoryItem()
-    {
-        return null;
     }
 
     protected override void start()

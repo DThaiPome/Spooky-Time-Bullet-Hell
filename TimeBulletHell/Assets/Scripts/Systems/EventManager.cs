@@ -28,8 +28,8 @@ public class EventManager : MonoBehaviour
     public event Action<PlayerHitbox, BulletBehaviour> onBulletHitsPlayerEvent;
 
     //** INVENTORY ADDED
-    //Pickup collected
-    public event Action<APickup> onPickupCollectedEvent;
+    //Inventory Pickup collected
+    public event Action<InventoryPickup> onInventoryItemCollectedEvent;
     //Add to inventory
     public event Action<InventoryItem> addToInventoryEvent;
 
@@ -117,11 +117,11 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void onPickupCollected(APickup ap)
+    public void onInventoryItemCollected(InventoryPickup ap)
     {
-        if (onPickupCollectedEvent != null)
+        if (onInventoryItemCollectedEvent != null)
         {
-            onPickupCollectedEvent(ap);
+            onInventoryItemCollectedEvent(ap);
         }
     }
 
