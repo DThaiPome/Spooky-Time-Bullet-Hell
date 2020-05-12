@@ -156,6 +156,16 @@ public class MobBehaviour : MonoBehaviour
         Vector2 mobToPlayer = PlayerInfoInGame.instance.getPosition() - this.transform.position;
         return Mathf.Atan2(mobToPlayer.y, mobToPlayer.x) * Mathf.Rad2Deg;
     }
+
+    void OnDestroy()
+    {
+        this.onDestroy();
+    }
+
+    protected virtual void onDestroy()
+    {
+        EventManager.instance.onPlayerBulletHitEvent -= this.onPlayerBulletHit;
+    }
 }
 
 public class DefaultSpawnProperties : ISpawnProperties<MobBehaviour>

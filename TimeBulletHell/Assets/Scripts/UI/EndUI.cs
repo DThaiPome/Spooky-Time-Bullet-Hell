@@ -14,4 +14,9 @@ public class EndUI : MonoBehaviour
     {
         this.gameObject.SetActive(true);
     }
+
+    void OnDestroy()
+    {
+        EventManager.instance.endLevelEvent -= this.onLevelEnd;
+    }
 }

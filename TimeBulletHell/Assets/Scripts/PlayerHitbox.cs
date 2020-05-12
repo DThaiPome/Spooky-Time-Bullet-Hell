@@ -34,7 +34,6 @@ public class PlayerHitbox : MonoBehaviour
     {
         if (!this.immune)
         {
-            Debug.Log("A");
             EventManager.instance.onPlayerHurt();
         }
         this.bulletHit = null;
@@ -74,5 +73,12 @@ public class PlayerHitbox : MonoBehaviour
                 this.immune = false;
             }
         }
+    }
+
+    void OnDestroy()
+    {
+        EventManager.instance.onBulletHitEvent -= this.onBulletHit;
+        EventManager.instance.hurtPlayerEvent -= this.hurtPlayer;
+        EventManager.instance.onPlayerHurtEvent -= this.onHurt;
     }
 }

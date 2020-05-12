@@ -29,4 +29,10 @@ public class RoomObject : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+
+    void OnDestroy()
+    {
+        EventManager.instance.setRoomActiveEvent -= this.setActive;
+        EventManager.instance.switchToRoomEvent -= this.onRoomChange;
+    }
 }

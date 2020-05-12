@@ -200,4 +200,10 @@ public class PlayerMovement : MonoBehaviour
     {
         return Mathf.Abs(this.moveInput);
     }
+
+    void OnDestroy()
+    {
+        EventManager.instance.onPlayerControlModeChangedEvent -= this.setControlMode;
+        EventManager.instance.onBossDefeatedEvent -= this.onBossDefeated;
+    }
 }

@@ -25,4 +25,9 @@ public class BulletManager : ObjectManager<BulletBehaviour>
             direction %= 360;*/
         }
     }
+
+    void OnDestroy()
+    {
+        EventManager.instance.onWarpedTickEvent -= this.onWarpedTick;
+    }
 }

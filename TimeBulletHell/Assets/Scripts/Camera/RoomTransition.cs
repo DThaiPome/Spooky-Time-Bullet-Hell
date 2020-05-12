@@ -48,4 +48,9 @@ public class RoomTransition : MonoBehaviour
             EventManager.instance.switchToRoom(to);
         }
     }
+
+    void OnDestroy()
+    {
+        EventManager.instance.switchToRoomEvent -= this.onRoomChange;
+    }
 }

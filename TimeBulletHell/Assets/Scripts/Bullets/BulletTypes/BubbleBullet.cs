@@ -79,6 +79,12 @@ public class BubbleBullet : BulletBehaviour
         }
         base.onBossDefeated();
     }
+
+    protected override void onDestroy()
+    {
+        base.onDestroy();
+        EventManager.instance.onPlayerBulletHitEvent -= this.onPlayerBulletHit;
+    }
 }
 
 public class BubbleBulletFireProperties : DefaultFireProperties

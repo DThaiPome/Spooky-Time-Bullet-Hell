@@ -124,6 +124,17 @@ public class BulletBehaviour : MonoBehaviour
     {
         return GameTime.instance.fixedDeltaTime();
     }
+
+    void OnDestroy()
+    {
+        this.onDestroy();
+    }
+
+    protected virtual void onDestroy()
+    {
+        EventManager.instance.onBulletHitsPlayerEvent -= this.onHitPlayer;
+        EventManager.instance.onBossDefeatedEvent -= this.onBossDefeated;
+    }
 }
 
 public class DefaultFireProperties : ISpawnProperties<BulletBehaviour>

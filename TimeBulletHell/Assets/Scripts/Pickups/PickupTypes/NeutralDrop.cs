@@ -52,4 +52,9 @@ public class NeutralDrop : APickup
     {
         this.onPickup();
     }
+
+    void OnDestroy()
+    {
+        EventManager.instance.onBossDefeatedEvent -= this.onBossDefeated;
+    }
 }

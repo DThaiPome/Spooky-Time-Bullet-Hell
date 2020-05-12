@@ -58,4 +58,9 @@ public class CameraControl : MonoBehaviour
 
         this.transform.position = new Vector3(newPos.x, newPos.y, this.transform.position.z);
     }
+
+    void OnDestroy()
+    {
+        EventManager.instance.switchToRoomEvent -= this.changeRoom;
+    }
 }

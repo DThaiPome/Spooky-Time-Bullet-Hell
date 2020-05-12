@@ -67,4 +67,14 @@ public abstract class ObjectManager<T> : MonoBehaviour
     {
         this.roomTransform = room.transform;
     }
+
+    void OnDestroy()
+    {
+        this.onDestroy();
+    }
+
+    protected virtual void onDestroy()
+    {
+        EventManager.instance.onRoomChangeEvent -= this.updateRoomTransform;
+    }
 }
