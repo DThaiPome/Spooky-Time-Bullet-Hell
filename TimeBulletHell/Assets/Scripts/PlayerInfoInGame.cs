@@ -12,10 +12,6 @@ public class PlayerInfoInGame : MonoBehaviour
     void Awake()
     {
         instance = this;
-    }
-
-    void Start()
-    {
         this.getObjects();
     }
 

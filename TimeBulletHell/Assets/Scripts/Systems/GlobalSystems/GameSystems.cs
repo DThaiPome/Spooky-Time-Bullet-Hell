@@ -9,7 +9,6 @@ public class GameSystems : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("GameSystems").Length > 1)
         {
-            Debug.Log("DESTROYED");
             Object.Destroy(this.gameObject);
         }
         Object.DontDestroyOnLoad(this);
