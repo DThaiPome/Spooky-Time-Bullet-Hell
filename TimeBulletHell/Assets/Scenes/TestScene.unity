@@ -1142,7 +1142,6 @@ GameObject:
   - component: {fileID: 579919710}
   - component: {fileID: 579919712}
   - component: {fileID: 579919713}
-  - component: {fileID: 579919714}
   - component: {fileID: 579919711}
   m_Layer: 0
   m_Name: SceneSystems
@@ -1263,26 +1262,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 579919705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 580bcfb8d086d0c41b0e1487ed712924, type: 3}
+  m_Script: {fileID: 11500000, guid: ea6772838aece0e40b1f17ac41a78058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryCapacity: 4
-  selectedIndex: 0
---- !u!114 &579919714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579919705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17524d02dd024a46a4a48195b680721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lives: 3
-  points: 0
-  pointsToExtraLife: 25
 --- !u!1 &619940733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +1929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c340a890447c84b9bd58db5a989bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
+  maxHealth: 50
   drops:
   - frequency: 1
     pickups:
@@ -2150,6 +2132,8 @@ GameObject:
   - component: {fileID: 1158682795}
   - component: {fileID: 1158682794}
   - component: {fileID: 1158682796}
+  - component: {fileID: 1158682798}
+  - component: {fileID: 1158682797}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: GameSystems
@@ -2200,6 +2184,35 @@ MonoBehaviour:
     sceneName: TestScene
   - levelId: otherTest
     sceneName: OtherLevelTest
+--- !u!114 &1158682797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158682793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580bcfb8d086d0c41b0e1487ed712924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryCapacity: 4
+  selectedIndex: 0
+--- !u!114 &1158682798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158682793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17524d02dd024a46a4a48195b680721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
+  points: 0
+  pointsToExtraLife: 25
 --- !u!1 &1261933832
 GameObject:
   m_ObjectHideFlags: 0

@@ -153,7 +153,7 @@ public class MobBehaviour : MonoBehaviour
 
     protected virtual float angleToPlayer()
     {
-        Vector2 mobToPlayer = PlayerMovement.player.transform.position - this.transform.position;
+        Vector2 mobToPlayer = PlayerInfoInGame.instance.getPosition() - this.transform.position;
         return Mathf.Atan2(mobToPlayer.y, mobToPlayer.x) * Mathf.Rad2Deg;
     }
 }

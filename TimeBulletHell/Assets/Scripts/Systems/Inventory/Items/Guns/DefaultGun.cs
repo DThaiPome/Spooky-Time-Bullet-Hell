@@ -18,7 +18,7 @@ public class DefaultGun : AGunWeapon
 
         for (int i = 0; i < this.bulletCount; i++)
         {
-            BulletManager.instance.spawn(this.bulletType, new DefaultFireProperties(this.player.transform.position, this.player.transform.localEulerAngles.z + minAngle + (i * dAngle), this.bulletSpeed));
+            BulletManager.instance.spawn(this.bulletType, new DefaultFireProperties(PlayerInfoInGame.instance.getPosition(), PlayerInfoInGame.instance.getEulerAngles().z + minAngle + (i * dAngle), this.bulletSpeed));
         }
     }
 

@@ -73,7 +73,10 @@ public class BubbleBullet : BulletBehaviour
 
     protected override void onBossDefeated()
     {
-        this.burst();
+        if (this.gameObject.activeSelf) {
+            this.burst();
+            this.gameObject.SetActive(false);
+        }
         base.onBossDefeated();
     }
 }
