@@ -9,8 +9,6 @@ public class PlayerInfo : MonoBehaviour
     private int lives;
     [SerializeField]
     private int points;
-    [SerializeField]
-    private int pointsToExtraLife;
 
     private int initialLives;
 
@@ -31,7 +29,6 @@ public class PlayerInfo : MonoBehaviour
         {
             this.timeElapsed -= 1;
             counter++;
-            //Debug.Log(counter);
         }
     }
 
@@ -41,6 +38,7 @@ public class PlayerInfo : MonoBehaviour
         if (this.lives < 0)
         {
             this.gameOver();
+            this.lives = this.initialLives;
         }
     }
 
@@ -52,11 +50,6 @@ public class PlayerInfo : MonoBehaviour
     private void pickupNeutralDrop()
     {
         this.points++;
-        if (this.points >= this.pointsToExtraLife)
-        {
-            this.addLife();
-            this.points = 0;
-        }
     }
 
     private void gameOver()
