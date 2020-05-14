@@ -21,7 +21,6 @@ public class DoOnHover : MonoBehaviour
 
     private void onHoverEnter(Transform t)
     {
-        Debug.Log("A");
         if (t.Equals(this.transform))
         {
             switch(this.hoverAction)

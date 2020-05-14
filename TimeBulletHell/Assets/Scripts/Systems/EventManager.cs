@@ -18,6 +18,9 @@ public class EventManager : MonoBehaviour
     public event Action<Transform> onHoverEnterEvent;
     //On Hover Exst
     public event Action<Transform> onHoverExitEvent;
+    //** LEVEL SELECT MENU EVENTS
+    //On arrow click
+    public event Action<LevelSelectArrowDirection> onLevelSelectArrowClickedEvent;
 
     //** ROOM EVENTS
     //Make a room change
@@ -234,6 +237,14 @@ public class EventManager : MonoBehaviour
         if (onHoverExitEvent != null)
         {
             onHoverExitEvent(t);
+        }
+    }
+
+    public void onLevelSelectArrowClicked(LevelSelectArrowDirection direction)
+    {
+        if (onLevelSelectArrowClickedEvent != null)
+        {
+            onLevelSelectArrowClickedEvent(direction);
         }
     }
 }
