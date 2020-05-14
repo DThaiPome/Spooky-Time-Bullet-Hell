@@ -579,18 +579,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: up
   to: Room01
---- !u!114 &413871471 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7415613366451241493, guid: 49cbc750c41aff34687ad192ff594312,
-    type: 3}
-  m_PrefabInstance: {fileID: 1828229158}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c290b95dd3b5bd4e852a746b239efde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,9 +805,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 413871471}
-        m_MethodName: loadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1261933837}
+        m_MethodName: toLevelSelect
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

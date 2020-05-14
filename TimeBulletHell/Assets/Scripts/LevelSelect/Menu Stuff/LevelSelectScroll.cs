@@ -6,7 +6,7 @@ public class LevelSelectScroll : MonoBehaviour
 {
     [SerializeField]
     private float distanceBetweenIcons;
-
+    [SerializeField]
     private List<LevelSelectOption> icons;
     private int selectedIndex;
 
@@ -67,5 +67,10 @@ public class LevelSelectScroll : MonoBehaviour
             this.transform.position += (Vector3)new Vector2(this.distanceBetweenIcons, 0);
             this.selectedIndex--;
         }
+    }
+
+    void OnDestroy()
+    {
+        EventManager.instance.onLevelSelectArrowClickedEvent -= this.arrowClicked;
     }
 }

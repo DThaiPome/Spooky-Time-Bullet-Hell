@@ -15,6 +15,11 @@ public class EndUI : MonoBehaviour
         this.gameObject.SetActive(true);
     }
 
+    public void toLevelSelect()
+    {
+        EventManager.instance.switchToLevel("levelSelect");
+    }
+
     void OnDestroy()
     {
         EventManager.instance.endLevelEvent -= this.onLevelEnd;

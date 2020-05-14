@@ -9,6 +9,16 @@ public class LevelSelectOption : MonoBehaviour
     [SerializeField]
     private LevelInfo levelInfo;
 
+    void Start()
+    {
+        EventManager.instance.onClickEvent += this.onClick;
+    }
+
+    void OnDestroy()
+    {
+        EventManager.instance.onClickEvent -= this.onClick;
+    }
+
     public LevelInfo getLevelInfo()
     {
         return this.levelInfo;
@@ -24,5 +34,13 @@ public class LevelSelectOption : MonoBehaviour
     {
         this.GetComponent<Collider>().enabled = false;
         this.GetComponent<DoOnHover>().enabled = false;
+    }
+
+    private void onClick(Transform t)
+    {
+        if (t.Equals(this.transform))
+        {
+            EventManager.instance.switchToLevel(this.levelInfo.levelTarget);
+        }
     }
 }

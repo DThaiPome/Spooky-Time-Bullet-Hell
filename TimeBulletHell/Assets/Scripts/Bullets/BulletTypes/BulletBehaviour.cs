@@ -18,7 +18,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         this.ableToHit = true;
         EventManager.instance.onBulletHitsPlayerEvent += this.onHitPlayer;
-        EventManager.instance.endLevelEvent += this.onBossDefeated;
+        EventManager.instance.onBossDefeatedEvent += this.onBossDefeated;
     }
 
     void OnEnable()

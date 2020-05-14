@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        EventManager.instance.switchToLevelEvent += this.loadLevel;
         this.levelMap = new Dictionary<string, string>();
         this.initLevels();
     }
@@ -24,11 +25,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void loadLevel(string levelId)
+    private void loadLevel(string levelId)
     {
         string s;
         if (this.levelMap.TryGetValue(levelId, out s)) {
             SceneManager.LoadScene(s);
+            EventManager.instance.onLevelSwitch(levelId);
         }
     }
 }
