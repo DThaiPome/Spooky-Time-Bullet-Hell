@@ -8,6 +8,16 @@ public class MobManager : ObjectManager<MobBehaviour>
     private float timeToSpawn = 2;
     private float count = 2;
 
+    public override MobBehaviour spawn(string name, ISpawnProperties<MobBehaviour> spawnProperties)
+    {
+        MobBehaviour mb = base.spawn(name, spawnProperties);
+        if (mb != null)
+        {
+            MobsSeen.instance.seeMob(name);
+        }
+        return mb;
+    }
+
     protected override void update()
     {
         base.update();

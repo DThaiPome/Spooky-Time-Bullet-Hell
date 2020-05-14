@@ -48,7 +48,7 @@ public abstract class ObjectManager<T> : MonoBehaviour
         this.pools.recallBullets();
     }
 
-    public T spawn(string name, ISpawnProperties<T> spawnProperties)
+    public virtual T spawn(string name, ISpawnProperties<T> spawnProperties)
     {
         T t;
         GameObject g;
