@@ -20,7 +20,10 @@ public class GameTime : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
     void Start()

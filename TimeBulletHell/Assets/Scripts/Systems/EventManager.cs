@@ -11,6 +11,14 @@ public class EventManager : MonoBehaviour
     public event Action onWarpedTickEvent;
     public event Action onFixedWarpedTickEvent;
 
+    //** UI EVENTS
+    //On Click
+    public event Action<Transform> onClickEvent;
+    //On Hover Enter
+    public event Action<Transform> onHoverEnterEvent;
+    //On Hover Exst
+    public event Action<Transform> onHoverExitEvent;
+
     //** ROOM EVENTS
     //Make a room change
     public event Action<string> switchToRoomEvent;
@@ -202,6 +210,30 @@ public class EventManager : MonoBehaviour
         if (onLevelSwitchedEvent != null)
         {
             onLevelSwitchedEvent(level);
+        }
+    }
+
+    public void onClick(Transform t)
+    {
+        if (onClickEvent != null)
+        {
+            onClickEvent(t);
+        }
+    }
+
+    public void onHoverEnter(Transform t)
+    {
+        if (onHoverEnterEvent != null)
+        {
+            onHoverEnterEvent(t);
+        }
+    }
+
+    public void onHoverExit(Transform t)
+    {
+        if (onHoverExitEvent != null)
+        {
+            onHoverExitEvent(t);
         }
     }
 }

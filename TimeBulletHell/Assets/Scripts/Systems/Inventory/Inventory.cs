@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
 
     private InventoryItem[] inventory;
 
+    private bool inventoryActive;
+
     void Start()
     {
         this.inventoryCapacity = this.inventoryCapacity > 1 ? this.inventoryCapacity : 1;
@@ -20,6 +22,12 @@ public class Inventory : MonoBehaviour
 
         EventManager.instance.onInventoryItemCollectedEvent += this.onPickupCollected;
         EventManager.instance.addToInventoryEvent += this.addToInventory;
+        EventManager.instance.onLevelSwitchedEvent += this.levelSwitched;
+    }
+
+    private void levelSwitched(string level)
+    {
+        this.inventoryActive = level != "levelSelect";
     }
 
     private void onPickupCollected(InventoryPickup ap)
@@ -51,7 +59,7 @@ public class Inventory : MonoBehaviour
     {
         foreach(InventoryItem ii in this.inventory)
         {
-            if (ii != null)
+            if (ii != null && this.inventoryActive)
             {
                 ii.update();
             }

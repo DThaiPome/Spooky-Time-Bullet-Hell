@@ -19,19 +19,6 @@ public class PlayerInfo : MonoBehaviour
         EventManager.instance.onNeutralDropPickupEvent += this.pickupNeutralDrop;
     }
 
-    private float timeElapsed;
-    private int counter;
-
-    void Update()
-    {
-        this.timeElapsed += GameTime.instance.deltaTime();
-        while(this.timeElapsed >= 1)
-        {
-            this.timeElapsed -= 1;
-            counter++;
-        }
-    }
-
     private void onHurt()
     {
         this.lives--;
