@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
 
     private InventoryItem[] inventory;
 
-    private bool inventoryActive;
+    private bool inventoryActive = true;
 
     void Start()
     {
