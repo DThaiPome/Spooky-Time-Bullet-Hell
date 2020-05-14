@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Inventory : MonoBehaviour
 
     private InventoryItem[] inventory;
 
-    private bool inventoryActive = true;
+    private bool inventoryActive;
 
     void Start()
     {
@@ -19,6 +20,8 @@ public class Inventory : MonoBehaviour
         this.selectedIndex = 0;
         this.inventory = new InventoryItem[this.inventoryCapacity];
         this.inventory[0] = new DefaultGun();
+
+        this.inventoryActive = SceneManager.GetActiveScene().name != "LevelSelect";
 
         EventManager.instance.onInventoryItemCollectedEvent += this.onPickupCollected;
         EventManager.instance.addToInventoryEvent += this.addToInventory;
