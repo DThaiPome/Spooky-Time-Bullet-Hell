@@ -30,6 +30,7 @@ public class RoomTransition : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(to + " Enter");
         if (other.tag == "Player")
         {
             if (this.direction == "left" || this.direction == "up" || this.direction == "right" || this.direction == "down")
@@ -42,6 +43,7 @@ public class RoomTransition : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log(to + " Exit");
         if (other.tag == "Player")
         {
             EventManager.instance.onPlayerControlModeChanged("");

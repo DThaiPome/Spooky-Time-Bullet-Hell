@@ -51,12 +51,12 @@ public class PlayerMovement : MonoBehaviour
                 this.moveInput = 0;
                 break;
             case "move left":
-                this.input.x = 1;
+                this.input.x = -1;
                 this.input.y = 0;
                 this.moveInput = 1;
                 break;
             case "move right":
-                this.input.x = -1;
+                this.input.x = 1;
                 this.input.y = 0;
                 this.moveInput = 1;
                 break;

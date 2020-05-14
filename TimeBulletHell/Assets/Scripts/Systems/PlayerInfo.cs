@@ -41,6 +41,6 @@ public class PlayerInfo : MonoBehaviour
 
     private void gameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        EventManager.instance.switchToLevel("levelSelect");
     }
 }
