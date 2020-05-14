@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class ObjectClicker : MonoBehaviour
 {
-    private Camera camera;
     private Transform hoverTransform;
-
-    void Start()
-    {
-        this.camera = Camera.main;
-    }
 
     // Update is called once per frame
     void Update()
@@ -25,7 +19,7 @@ public class ObjectClicker : MonoBehaviour
     private void click()
     {
         RaycastHit hit;
-        Ray ray = this.camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
             if (hit.transform != null)
@@ -38,7 +32,7 @@ public class ObjectClicker : MonoBehaviour
     private void hover()
     {
         RaycastHit hit;
-        Ray ray = this.camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
             Debug.Log("A");
