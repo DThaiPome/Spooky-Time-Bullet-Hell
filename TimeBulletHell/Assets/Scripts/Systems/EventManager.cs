@@ -21,6 +21,8 @@ public class EventManager : MonoBehaviour
     //** LEVEL SELECT MENU EVENTS
     //On arrow click
     public event Action<LevelSelectArrowDirection> onLevelSelectArrowClickedEvent;
+    //On level selected
+    public event Action<LevelInfo> onLevelSelectedEvent;
 
     //** ROOM EVENTS
     //Make a room change
@@ -246,5 +248,13 @@ public class EventManager : MonoBehaviour
         {
             onLevelSelectArrowClickedEvent(direction);
         }
+    }
+
+    public void onLevelSelected(LevelInfo info)
+    {
+        if (onLevelSelectedEvent != null) {
+            {
+                onLevelSelectedEvent(info);
+            } }
     }
 }

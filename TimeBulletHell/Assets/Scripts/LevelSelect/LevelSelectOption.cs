@@ -9,6 +9,11 @@ public class LevelSelectOption : MonoBehaviour
     [SerializeField]
     private LevelInfo levelInfo;
 
+    void Awake()
+    {
+        levelInfo.icon = this.GetComponent<SpriteRenderer>().sprite;
+    }
+
     void Start()
     {
         EventManager.instance.onClickEvent += this.onClick;
@@ -40,7 +45,8 @@ public class LevelSelectOption : MonoBehaviour
     {
         if (t.Equals(this.transform))
         {
-            EventManager.instance.switchToLevel(this.levelInfo.levelTarget);
+            //EventManager.instance.switchToLevel(this.levelInfo.levelTarget);
+            EventManager.instance.onLevelSelected(this.levelInfo);
         }
     }
 }

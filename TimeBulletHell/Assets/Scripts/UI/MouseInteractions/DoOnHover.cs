@@ -7,7 +7,7 @@ public class DoOnHover : MonoBehaviour
     [SerializeField]
     private HoverAction hoverAction;
     [SerializeField]
-    private float magnitude;
+    private float magnitude = 1.1f;
 
     private Vector3 defaultScale;
 
