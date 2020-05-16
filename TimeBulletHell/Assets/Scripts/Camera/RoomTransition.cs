@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class RoomTransition : MonoBehaviour
 {
+    private enum RoomTransitionDirection
+    {
+        Left, Up, Down, Right
+    }
+
     [SerializeField]
-    [Tooltip("left, up, down, or right")]
-    private string direction;
+    private RoomTransitionDirection direction;
     private string from;
     [SerializeField]
     private string to;
@@ -33,10 +37,20 @@ public class RoomTransition : MonoBehaviour
         Debug.Log(to + " Enter");
         if (other.tag == "Player")
         {
-            if (this.direction == "left" || this.direction == "up" || this.direction == "right" || this.direction == "down")
+            switch(this.direction)
             {
-                EventManager.instance.onPlayerControlModeChanged("move " + this.direction);
-                //EventManager.instance.setRoomActive(to);
+                case RoomTransitionDirection.Right:
+                    EventManager.instance.onPlayerControlModeChanged(PlayerControlMode.MoveRight);
+                    break;
+                case RoomTransitionDirection.Up:
+                    EventManager.instance.onPlayerControlModeChanged(PlayerControlMode.MoveUp);
+                    break;
+                case RoomTransitionDirection.Left:
+                    EventManager.instance.onPlayerControlModeChanged(PlayerControlMode.MoveLeft);
+                    break;
+                case RoomTransitionDirection.Down:
+                    EventManager.instance.onPlayerControlModeChanged(PlayerControlMode.MoveDown);
+                    break;
             }
         }
     }
@@ -46,7 +60,7 @@ public class RoomTransition : MonoBehaviour
         Debug.Log(to + " Exit");
         if (other.tag == "Player")
         {
-            EventManager.instance.onPlayerControlModeChanged("");
+            EventManager.instance.onPlayerControlModeChanged(PlayerControlMode.Default);
             EventManager.instance.switchToRoom(to);
         }
     }

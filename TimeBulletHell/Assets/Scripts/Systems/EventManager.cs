@@ -52,7 +52,7 @@ public class EventManager : MonoBehaviour
     //Normal player hurt
     public event Action onPlayerHurtEvent;
     //Control Mode Changed
-    public event Action<string> onPlayerControlModeChangedEvent;
+    public event Action<PlayerControlMode> onPlayerControlModeChangedEvent;
 
     //** LEVEL EVENTS
     //Boss defeated
@@ -160,7 +160,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void onPlayerControlModeChanged(string mode)
+    public void onPlayerControlModeChanged(PlayerControlMode mode)
     {
         if (onPlayerControlModeChangedEvent != null)
         {

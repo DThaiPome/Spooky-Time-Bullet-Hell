@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private string controlMode = "";
+    private PlayerControlMode controlMode = PlayerControlMode.Default;
 
     private float moveInput;
     private Vector2 input;
@@ -46,26 +46,26 @@ public class PlayerMovement : MonoBehaviour
     {
         switch(this.controlMode)
         {
-            case "no movement":
+            case PlayerControlMode.NoMovement:
                 this.input = new Vector2();
                 this.moveInput = 0;
                 break;
-            case "move left":
+            case PlayerControlMode.MoveLeft:
                 this.input.x = -1;
                 this.input.y = 0;
                 this.moveInput = 1;
                 break;
-            case "move right":
+            case PlayerControlMode.MoveRight:
                 this.input.x = 1;
                 this.input.y = 0;
                 this.moveInput = 1;
                 break;
-            case "move up":
+            case PlayerControlMode.MoveUp:
                 this.input.x = 0;
                 this.input.y = 1;
                 this.moveInput = 1;
                 break;
-            case "move down":
+            case PlayerControlMode.MoveDown:
                 this.input.x = 0;
                 this.input.y = -1;
                 this.moveInput = 1;
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void setControlMode(string mode)
+    private void setControlMode(PlayerControlMode mode)
     {
         this.controlMode = mode;
     }
@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void onBossDefeated()
     {
-        EventManager.instance.onPlayerControlModeChanged("no movement");
+        EventManager.instance.onPlayerControlModeChanged(PlayerControlMode.NoMovement);
     }
 
     void FixedUpdate()
@@ -206,4 +206,9 @@ public class PlayerMovement : MonoBehaviour
         EventManager.instance.onPlayerControlModeChangedEvent -= this.setControlMode;
         EventManager.instance.onBossDefeatedEvent -= this.onBossDefeated;
     }
+}
+
+public enum PlayerControlMode
+{
+    Default, MoveRight, MoveUp, MoveLeft, MoveDown, NoMovement
 }

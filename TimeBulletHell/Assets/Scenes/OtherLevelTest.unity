@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9a60d9790e08043b07b1c8199cc136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: left
+  direction: 0
   to: Room01
 --- !u!61 &1022999864
 BoxCollider2D:
@@ -2112,7 +2112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9a60d9790e08043b07b1c8199cc136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: right
+  direction: 3
   to: Room00
 --- !u!61 &1590265187
 BoxCollider2D:

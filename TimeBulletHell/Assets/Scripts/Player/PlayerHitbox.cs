@@ -20,7 +20,7 @@ public class PlayerHitbox : MonoBehaviour
         EventManager.instance.onBulletHitEvent += this.onBulletHit;
         EventManager.instance.hurtPlayerEvent += this.hurtPlayer;
         EventManager.instance.onPlayerHurtEvent += this.onHurt;
-        EventManager.instance.onBossDefeatedEvent += this.onBossDefeated;
+        EventManager.instance.onPlayerControlModeChangedEvent += this.onControlModeChanged;
     }
 
     private void onBulletHit(Transform t, BulletBehaviour bb)
@@ -79,9 +79,10 @@ public class PlayerHitbox : MonoBehaviour
         }
     }
 
-    private void onBossDefeated()
+    private void onControlModeChanged(PlayerControlMode mode)
     {
-        this.active = false;
+        this.active = mode == PlayerControlMode.Default;
+        Debug.Log(this.active);
     }
 
     void OnDestroy()
@@ -89,6 +90,6 @@ public class PlayerHitbox : MonoBehaviour
         EventManager.instance.onBulletHitEvent -= this.onBulletHit;
         EventManager.instance.hurtPlayerEvent -= this.hurtPlayer;
         EventManager.instance.onPlayerHurtEvent -= this.onHurt;
-        EventManager.instance.onBossDefeatedEvent -= this.onBossDefeated;
+        EventManager.instance.onPlayerControlModeChangedEvent -= this.onControlModeChanged;
     }
 }
