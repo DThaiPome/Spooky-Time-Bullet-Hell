@@ -23,6 +23,8 @@ public class EventManager : MonoBehaviour
     public event Action<LevelSelectArrowDirection> onLevelSelectArrowClickedEvent;
     //On level selected
     public event Action<LevelInfo> onLevelSelectedEvent;
+    //On start menu back button clicked
+    public event Action onStartViewBackButtonClickedEvent;
 
     //** ROOM EVENTS
     //Make a room change
@@ -252,9 +254,19 @@ public class EventManager : MonoBehaviour
 
     public void onLevelSelected(LevelInfo info)
     {
-        if (onLevelSelectedEvent != null) {
+        if (onLevelSelectedEvent != null)
+        {
             {
                 onLevelSelectedEvent(info);
-            } }
+            }
+        }
+    }
+
+    public void onStartViewBackButtonClicked()
+    {
+        if (onStartViewBackButtonClickedEvent != null)
+        {
+            onStartViewBackButtonClickedEvent();
+        }
     }
 }
