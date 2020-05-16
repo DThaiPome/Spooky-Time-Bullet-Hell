@@ -10,14 +10,17 @@ public class PlayerHitbox : MonoBehaviour
     private float immunityTimeElapsed;
     private float immunityDuration;
     private bool immune;
+    private bool active;
 
     private BulletBehaviour bulletHit;
 
     void Start()
     {
+        this.active = true;
         EventManager.instance.onBulletHitEvent += this.onBulletHit;
         EventManager.instance.hurtPlayerEvent += this.hurtPlayer;
         EventManager.instance.onPlayerHurtEvent += this.onHurt;
+        EventManager.instance.onBossDefeatedEvent += this.onBossDefeated;
     }
 
     private void onBulletHit(Transform t, BulletBehaviour bb)
@@ -32,8 +35,9 @@ public class PlayerHitbox : MonoBehaviour
 
     private void hurtPlayer()
     {
-        if (!this.immune)
+        if (this.active && !this.immune)
         {
+            Debug.Log("OUCH");
             EventManager.instance.onPlayerHurt();
         }
         this.bulletHit = null;
@@ -75,10 +79,16 @@ public class PlayerHitbox : MonoBehaviour
         }
     }
 
+    private void onBossDefeated()
+    {
+        this.active = false;
+    }
+
     void OnDestroy()
     {
         EventManager.instance.onBulletHitEvent -= this.onBulletHit;
         EventManager.instance.hurtPlayerEvent -= this.hurtPlayer;
         EventManager.instance.onPlayerHurtEvent -= this.onHurt;
+        EventManager.instance.onBossDefeatedEvent -= this.onBossDefeated;
     }
 }

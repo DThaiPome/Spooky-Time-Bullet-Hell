@@ -7,8 +7,6 @@ public class BulletBehaviour : MonoBehaviour
     protected float direction;
     protected float speed;
 
-    protected bool ableToHit;
-
     void Start()
     {
         this.start();
@@ -16,7 +14,6 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void start()
     {
-        this.ableToHit = true;
         EventManager.instance.onBulletHitsPlayerEvent += this.onHitPlayer;
         EventManager.instance.onBossDefeatedEvent += this.onBossDefeated;
     }
@@ -95,10 +92,7 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void onTriggerEnter2D(Collider2D other)
     {
-        if (this.ableToHit)
-        {
-            EventManager.instance.onBulletHit(other.transform, this);
-        }
+        EventManager.instance.onBulletHit(other.transform, this);
         this.gameObject.SetActive(false);
     }
 
@@ -117,7 +111,7 @@ public class BulletBehaviour : MonoBehaviour
 
     protected virtual void onBossDefeated()
     {
-        this.ableToHit = false;
+
     }
 
     protected virtual float fixedDeltaTime()
