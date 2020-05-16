@@ -37,7 +37,6 @@ public class PlayerHitbox : MonoBehaviour
     {
         if (this.active && !this.immune)
         {
-            Debug.Log("OUCH");
             EventManager.instance.onPlayerHurt();
         }
         this.bulletHit = null;
@@ -82,7 +81,6 @@ public class PlayerHitbox : MonoBehaviour
     private void onControlModeChanged(PlayerControlMode mode)
     {
         this.active = mode == PlayerControlMode.Default;
-        Debug.Log(this.active);
     }
 
     void OnDestroy()
