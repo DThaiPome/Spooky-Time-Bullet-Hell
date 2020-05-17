@@ -12,7 +12,8 @@ public abstract class AShopItem : ScriptableObject
     protected int price;
 
     //Do something when purchased
-    public abstract void onPurchase();
+    //Returns whether or not this item is still available
+    public abstract bool onPurchase();
 
     public virtual Sprite getIcon()
     {

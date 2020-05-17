@@ -25,6 +25,8 @@ public class EventManager : MonoBehaviour
     public event Action<LevelInfo> onLevelSelectedEvent;
     //On start menu back button clicked
     public event Action onStartViewBackButtonClickedEvent;
+    //On item purchased
+    public event Action<int> onItemPurchasedEvent;
 
     //** ROOM EVENTS
     //Make a room change
@@ -267,6 +269,14 @@ public class EventManager : MonoBehaviour
         if (onStartViewBackButtonClickedEvent != null)
         {
             onStartViewBackButtonClickedEvent();
+        }
+    }
+
+    public void onItemPurchased(int price)
+    {
+        if (onItemPurchasedEvent != null)
+        {
+            onItemPurchasedEvent(price);
         }
     }
 }

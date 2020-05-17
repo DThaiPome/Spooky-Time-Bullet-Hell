@@ -8,9 +8,10 @@ public class InventoryShopItem : AShopItem
     [SerializeField]
     protected InventoryShopItems item;
 
-    public override void onPurchase()
+    public override bool onPurchase()
     {
         EventManager.instance.addToInventory(this.enumToItem());
+        return true;
     }
 
     protected virtual InventoryItem enumToItem()
