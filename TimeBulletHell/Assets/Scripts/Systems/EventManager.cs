@@ -25,8 +25,10 @@ public class EventManager : MonoBehaviour
     public event Action<LevelInfo> onLevelSelectedEvent;
     //On start menu back button clicked
     public event Action onStartViewBackButtonClickedEvent;
-    //On item purchased
-    public event Action<int> onItemPurchasedEvent;
+    //On item purchase attempt
+    public event Action<AShopItem> onItemPurchaseAttemptEvent;
+    //On item purchase
+    public event Action<AShopItem> onItemPurchaseEvent;
 
     //** ROOM EVENTS
     //Make a room change
@@ -272,11 +274,19 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void onItemPurchased(int price)
+    public void onItemPurchaseAttempt(AShopItem item)
     {
-        if (onItemPurchasedEvent != null)
+        if (onItemPurchaseAttemptEvent != null)
         {
-            onItemPurchasedEvent(price);
+            onItemPurchaseAttemptEvent(item);
+        }
+    }
+
+    public void onItemPurchase(AShopItem item)
+    {
+        if (onItemPurchaseEvent != null)
+        {
+            onItemPurchaseEvent(item);
         }
     }
 }

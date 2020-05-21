@@ -15,6 +15,8 @@ public class ShopEntry : MonoBehaviour
 
     void Start()
     {
+        EventManager.instance.onItemPurchaseEvent += this.onPurchase;
+
         this.initFields();
     }
 
@@ -27,8 +29,18 @@ public class ShopEntry : MonoBehaviour
 
     public void purchase()
     {
-        this.available = this.item.onPurchase();
-        EventManager.instance.onItemPurchased(this.item.getPrice());
+        if (this.available)
+        {
+            EventManager.instance.onItemPurchaseAttempt(this.item);
+        }
+    }
+
+    private void onPurchase(AShopItem item)
+    {
+        if (item.Equals(this.item))
+        {
+            this.available = this.item.onPurchase();
+        }
     }
 
     public void setItem(AShopItem item)

@@ -17,6 +17,8 @@ public class PlayerInfo : MonoBehaviour
         this.initialLives = this.lives;
         EventManager.instance.onPlayerHurtEvent += this.onHurt;
         EventManager.instance.onNeutralDropPickupEvent += this.pickupNeutralDrop;
+        EventManager.instance.onItemPurchaseAttemptEvent += this.onPurchaseAttempt;
+        EventManager.instance.onItemPurchaseEvent += this.onPurchase;
     }
 
     private void onHurt()
@@ -37,6 +39,21 @@ public class PlayerInfo : MonoBehaviour
     private void pickupNeutralDrop()
     {
         this.points++;
+    }
+
+    private void onPurchaseAttempt(AShopItem item)
+    {
+        if (this.points >= item.getPrice())
+        {
+            Debug.Log("C");
+            EventManager.instance.onItemPurchase(item);
+        }   
+    }
+
+    private void onPurchase(AShopItem item)
+    {
+        this.points = Mathf.Max(0, this.points - item.getPrice());
+        Debug.Log(this.points);
     }
 
     private void gameOver()
