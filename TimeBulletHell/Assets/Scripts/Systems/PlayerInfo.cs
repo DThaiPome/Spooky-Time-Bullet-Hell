@@ -17,8 +17,8 @@ public class PlayerInfo : MonoBehaviour
         this.initialLives = this.lives;
         EventManager.instance.onPlayerHurtEvent += this.onHurt;
         EventManager.instance.onNeutralDropPickupEvent += this.pickupNeutralDrop;
-        EventManager.instance.onItemPurchaseAttemptEvent += this.onPurchaseAttempt;
         EventManager.instance.onItemPurchaseEvent += this.onPurchase;
+        EventManager.instance.queryPointsCountEvent += this.queryPointGreaterOrEqualToPrice;
     }
 
     private void onHurt()
@@ -41,13 +41,15 @@ public class PlayerInfo : MonoBehaviour
         this.points++;
     }
 
-    private void onPurchaseAttempt(AShopItem item)
+    private void queryPointGreaterOrEqualToPrice(System.Object o, int price)
     {
-        if (this.points >= item.getPrice())
+        if (this.points >= price)
         {
-            Debug.Log("C");
-            EventManager.instance.onItemPurchase(item);
-        }   
+            EventManager.instance.returnPointCountGreaterOrEqual(o);
+        } else
+        {
+            EventManager.instance.returnPointCountLess(o);
+        }
     }
 
     private void onPurchase(AShopItem item)

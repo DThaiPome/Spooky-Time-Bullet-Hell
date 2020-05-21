@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
         EventManager.instance.onInventoryItemCollectedEvent += this.onPickupCollected;
         EventManager.instance.addToInventoryEvent += this.addToInventory;
         EventManager.instance.onLevelSwitchedEvent += this.levelSwitched;
+        EventManager.instance.queryInventoryAvailabilityEvent += this.queryInventoryAvailability;
     }
 
     private void levelSwitched(string level)
@@ -46,6 +47,17 @@ public class Inventory : MonoBehaviour
         if (this.nextOpen() < this.inventoryCapacity)
         {
             this.inventory[this.nextOpen()] = ii;
+        }
+    }
+
+    private void queryInventoryAvailability(System.Object o)
+    {
+        if (this.nextOpen() < this.inventoryCapacity)
+        {
+            EventManager.instance.returnInventoryNotFull(o);
+        } else
+        {
+            EventManager.instance.returnInventoryFull(o);
         }
     }
 

@@ -25,8 +25,6 @@ public class EventManager : MonoBehaviour
     public event Action<LevelInfo> onLevelSelectedEvent;
     //On start menu back button clicked
     public event Action onStartViewBackButtonClickedEvent;
-    //On item purchase attempt
-    public event Action<AShopItem> onItemPurchaseAttemptEvent;
     //On item purchase
     public event Action<AShopItem> onItemPurchaseEvent;
 
@@ -51,10 +49,22 @@ public class EventManager : MonoBehaviour
     public event Action<InventoryPickup> onInventoryItemCollectedEvent;
     //Add to inventory
     public event Action<InventoryItem> addToInventoryEvent;
+    //Query inventory availability
+    public event Action<System.Object> queryInventoryAvailabilityEvent;
+    //Inventory full
+    public event Action<System.Object> returnInventoryFullEvent;
+    //Inventory not full
+    public event Action<System.Object> returnInventoryNotFullEvent;
 
     //** PLAYER EVEntS
     //Neutral drop collected
     public event Action onNeutralDropPickupEvent;
+    //Query points >= to a price
+    public event Action<System.Object, int> queryPointsCountEvent;
+    //Point count >= than price
+    public event Action<System.Object> returnPointCountGreaterOrEqualEvent;
+    //Point count less than price
+    public event Action<System.Object> returnPointCountLessEvent;
     //Attempt the damage the player
     public event Action hurtPlayerEvent;
     //Normal player hurt
@@ -274,19 +284,56 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void onItemPurchaseAttempt(AShopItem item)
-    {
-        if (onItemPurchaseAttemptEvent != null)
-        {
-            onItemPurchaseAttemptEvent(item);
-        }
-    }
-
     public void onItemPurchase(AShopItem item)
     {
         if (onItemPurchaseEvent != null)
         {
             onItemPurchaseEvent(item);
+        }
+    }
+    public void queryInventoryAvailability(System.Object o)
+    {
+        if (queryInventoryAvailabilityEvent != null)
+        {
+            queryInventoryAvailabilityEvent(o);
+        }
+    }
+
+    public void returnInventoryFull(System.Object o)
+    {
+        if (returnInventoryFullEvent != null)
+        {
+            returnInventoryFullEvent(o);
+        }
+    }
+    public void returnInventoryNotFull(System.Object o)
+    {
+        if (returnInventoryNotFullEvent != null)
+        {
+            returnInventoryNotFullEvent(o);
+        }
+    }
+
+    public void queryPointsCount(System.Object o, int price)
+    {
+        if (queryPointsCountEvent != null)
+        {
+            queryPointsCountEvent(o, price);
+        }
+    }
+
+    public void returnPointCountGreaterOrEqual(System.Object o)
+    {
+        if (returnPointCountGreaterOrEqualEvent != null)
+        {
+            returnPointCountGreaterOrEqualEvent(o);
+        }
+    }
+    public void returnPointCountLess(System.Object o)
+    {
+        if (returnPointCountLessEvent != null)
+        {
+            returnPointCountLessEvent(o);
         }
     }
 }
