@@ -55,6 +55,8 @@ public class InventoryShopItem : AShopItem
         {
             case InventoryShopItems.TimelessGun:
                 return new TimelessGun();
+            case InventoryShopItems.BurstGun:
+                return new BurstGun();
             default:
                 return null;
         }
@@ -63,5 +65,5 @@ public class InventoryShopItem : AShopItem
 
 public enum InventoryShopItems
 {
-    TimelessGun
+    TimelessGun, BurstGun
 }

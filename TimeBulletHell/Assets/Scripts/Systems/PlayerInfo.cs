@@ -55,7 +55,6 @@ public class PlayerInfo : MonoBehaviour
     private void onPurchase(AShopItem item)
     {
         this.points = Mathf.Max(0, this.points - item.getPrice());
-        Debug.Log(this.points);
     }
 
     private void gameOver()

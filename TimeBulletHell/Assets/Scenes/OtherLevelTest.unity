@@ -2008,6 +2008,7 @@ MonoBehaviour:
   - {fileID: 5701476821842896282, guid: 239f7deccd465c04e8b4878b3943762e, type: 3}
   - {fileID: 9065072925700377871, guid: e97231c31bcb21747b73c4194f3f78c5, type: 3}
   - {fileID: 9065072925700377871, guid: 45a4699e84b0bd649a810c208fcd4642, type: 3}
+  - {fileID: 5701476821842896282, guid: 68007e57b54eac54e8b8b62a828b10ad, type: 3}
   poolCounts: 1000
 --- !u!4 &1396565635
 Transform:
