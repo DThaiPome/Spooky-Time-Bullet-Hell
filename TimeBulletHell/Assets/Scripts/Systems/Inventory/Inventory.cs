@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour
         EventManager.instance.addToInventoryEvent += this.addToInventory;
         EventManager.instance.onLevelSwitchedEvent += this.levelSwitched;
         EventManager.instance.queryInventoryAvailabilityEvent += this.queryInventoryAvailability;
+        EventManager.instance.allLivesLostEvent += this.onAllLivesLost;
     }
 
     private void levelSwitched(string level)
@@ -147,5 +148,11 @@ public class Inventory : MonoBehaviour
         int i;
         for(i = 0; i < this.inventoryCapacity && this.inventory[i] != null; i++) { }
         return i;
+    }
+
+    private void onAllLivesLost()
+    {
+        this.inventory = new InventoryItem[this.inventoryCapacity];
+        this.inventory[0] = new DefaultGun();
     }
 }

@@ -28,7 +28,6 @@ public class PlayerInfo : MonoBehaviour
         if (this.lives < 0)
         {
             this.gameOver();
-            this.lives = this.initialLives;
         }
     }
 
@@ -65,7 +64,9 @@ public class PlayerInfo : MonoBehaviour
 
     private void gameOver()
     {
+        this.lives = this.initialLives;
         this.points = 0;
+        EventManager.instance.allLivesLost();
         EventManager.instance.switchToLevel("levelSelect");
     }
 }

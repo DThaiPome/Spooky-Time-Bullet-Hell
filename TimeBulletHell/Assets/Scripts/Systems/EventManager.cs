@@ -11,6 +11,9 @@ public class EventManager : MonoBehaviour
     public event Action onWarpedTickEvent;
     public event Action onFixedWarpedTickEvent;
 
+    //GAME OVER
+    public event Action allLivesLostEvent;
+
     //** UI EVENTS
     //On Click
     public event Action<Transform> onClickEvent;
@@ -89,6 +92,14 @@ public class EventManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+        }
+    }
+
+    public void allLivesLost()
+    {
+        if (allLivesLostEvent != null)
+        {
+            allLivesLostEvent();
         }
     }
 
