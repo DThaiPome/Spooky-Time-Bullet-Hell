@@ -19,6 +19,7 @@ public class PlayerInfo : MonoBehaviour
         EventManager.instance.onNeutralDropPickupEvent += this.pickupNeutralDrop;
         EventManager.instance.onItemPurchaseEvent += this.onPurchase;
         EventManager.instance.queryPointsCountEvent += this.queryPointGreaterOrEqualToPrice;
+        EventManager.instance.extraLifeEvent += this.extraLives;
     }
 
     private void onHurt()
@@ -52,6 +53,11 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
+    private void extraLives(int lives)
+    {
+        this.lives += lives;
+    }
+
     private void onPurchase(AShopItem item)
     {
         this.points = Mathf.Max(0, this.points - item.getPrice());
@@ -59,6 +65,7 @@ public class PlayerInfo : MonoBehaviour
 
     private void gameOver()
     {
+        this.points = 0;
         EventManager.instance.switchToLevel("levelSelect");
     }
 }

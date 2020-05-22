@@ -99,7 +99,7 @@ public class Inventory : MonoBehaviour
     private void useSelectedItem()
     {
         InventoryItem ii = this.inventory[this.selectedIndex];
-        if (ii != null)
+        if (this.inventoryActive && ii != null)
         {
             if (ii.usedContinuously() && Input.GetKey(KeyCode.Space))
             {

@@ -71,6 +71,8 @@ public class EventManager : MonoBehaviour
     public event Action onPlayerHurtEvent;
     //Control Mode Changed
     public event Action<PlayerControlMode> onPlayerControlModeChangedEvent;
+    //Life Up
+    public event Action<int> extraLifeEvent;
 
     //** LEVEL EVENTS
     //Boss defeated
@@ -334,6 +336,14 @@ public class EventManager : MonoBehaviour
         if (returnPointCountLessEvent != null)
         {
             returnPointCountLessEvent(o);
+        }
+    }
+
+    public void extraLife(int lives)
+    {
+        if (extraLifeEvent != null)
+        {
+            extraLifeEvent(lives);
         }
     }
 }

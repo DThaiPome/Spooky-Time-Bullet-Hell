@@ -358,6 +358,7 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: ce283785d4000c74da765375ebc20c89, type: 2}
   - {fileID: 11400000, guid: 682b15cdd592245438844ee218c740a3, type: 2}
+  - {fileID: 11400000, guid: 6ae69e28b66c9ee4ea18405957a762de, type: 2}
   shopEntryPrefab: {fileID: 2188589146807210533, guid: cba691b4876de0240aa5a21a5b2fd7ee,
     type: 3}
 --- !u!1 &441855265

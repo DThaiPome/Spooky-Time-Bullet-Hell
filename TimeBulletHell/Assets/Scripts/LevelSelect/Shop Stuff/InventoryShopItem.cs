@@ -53,6 +53,8 @@ public class InventoryShopItem : AShopItem
     {
         switch(this.item)
         {
+            case InventoryShopItems.ExtraLife:
+                return new ExtraLife();
             case InventoryShopItems.TimelessGun:
                 return new TimelessGun();
             case InventoryShopItems.BurstGun:
@@ -65,5 +67,5 @@ public class InventoryShopItem : AShopItem
 
 public enum InventoryShopItems
 {
-    TimelessGun, BurstGun
+    ExtraLife, TimelessGun, BurstGun
 }
