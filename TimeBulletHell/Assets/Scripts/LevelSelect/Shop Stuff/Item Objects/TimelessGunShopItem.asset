@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: eb5fcb8fbcdb1294ba8358b06a222b08, type: 3}
   itemName: Timeless Gun
   price: 110
-  item: 0
+  item: 1
