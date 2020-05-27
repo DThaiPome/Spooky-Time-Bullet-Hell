@@ -46,10 +46,7 @@ public class BubbleBullet : BulletBehaviour
     protected override void onTriggerEnter2D(Collider2D other)
     {
         base.onTriggerEnter2D(other);
-        if (other.tag == "Player")
-        {
-            this.burst();
-        }
+        this.burst();
     }
 
     protected virtual void onPlayerBulletHit(Transform t, PlayerBullet pb)
