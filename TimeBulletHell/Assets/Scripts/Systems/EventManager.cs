@@ -86,6 +86,8 @@ public class EventManager : MonoBehaviour
     public event Action<string> switchToLevelEvent;
     //On level switched
     public event Action<string> onLevelSwitchedEvent;
+    //On level complete
+    public event Action<string> onLevelCompleteEvent;
 
     void Awake()
     {
@@ -355,6 +357,14 @@ public class EventManager : MonoBehaviour
         if (extraLifeEvent != null)
         {
             extraLifeEvent(lives);
+        }
+    }
+
+    public void onLevelComplete(string id)
+    {
+        if (onLevelCompleteEvent != null)
+        {
+            onLevelCompleteEvent(id);
         }
     }
 }

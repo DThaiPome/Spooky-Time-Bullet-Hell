@@ -13,13 +13,17 @@ public class LevelDataMap : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
 
         this.levelMap = new Dictionary<string, LevelData>();
     }
 
     void Start()
     {
+        EventManager.instance.onLevelCompleteEvent += this.levelComplete;
         foreach(string s in levelIds)
         {
             LevelData ld = new LevelData();
@@ -43,5 +47,13 @@ public class LevelDataMap : MonoBehaviour
             return ld.completed;
         }
         return false;
+    }
+
+    private void levelComplete(string id)
+    {
+        if (this.levelMap.TryGetValue(id, out LevelData ld))
+        {
+            ld.completed = true;
+        }
     }
 }

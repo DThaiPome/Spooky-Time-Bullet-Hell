@@ -10,6 +10,16 @@ public class LevelManager : MonoBehaviour
 
     private Dictionary<string, string> levelMap;
 
+    public static LevelManager instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         EventManager.instance.switchToLevelEvent += this.loadLevel;
@@ -32,5 +42,22 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene(s);
             EventManager.instance.onLevelSwitch(levelId);
         }
+    }
+
+    public string getCurrentLevelName()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        foreach(string key in this.levelMap.Keys)
+        {
+            if (this.levelMap.TryGetValue(key, out string s))
+            {
+                if (s == sceneName)
+                {
+                    return key;
+                }
+            }
+        }
+
+        return "";
     }
 }

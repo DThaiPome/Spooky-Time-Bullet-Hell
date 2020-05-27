@@ -7,6 +7,7 @@ public class LevelEnderPickup : APickup
     protected override void onPickup()
     {
         base.onPickup();
+        EventManager.instance.onLevelComplete(LevelManager.instance.getCurrentLevelName());
         EventManager.instance.endLevel();
     }
 }
