@@ -6,6 +6,7 @@ public class BossBarrierGroup : ABarrierGroup
 {
     protected override void start()
     {
+        base.start();
         EventManager.instance.onBossDefeatedEvent += this.removeBarriers;
     }
 
