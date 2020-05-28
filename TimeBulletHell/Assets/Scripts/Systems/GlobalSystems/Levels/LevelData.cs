@@ -10,6 +10,8 @@ public class LevelData
     private string levelName;
     [SerializeField]
     private string sceneTarget;
+    [SerializeField]
+    private ALevelPrereq prereq;
 
     [HideInInspector]
     public bool completed;
@@ -35,5 +37,10 @@ public class LevelData
     public string getLevelName()
     {
         return levelName;
+    }
+
+    public bool preReqMet()
+    {
+        return this.prereq.isAvailable();
     }
 }
