@@ -1,10 +1,13 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BasicBarrier
     - BasicBullet
+    - BossBarrierGroup
     - BubbleBullet
     - BulletManager
     - CameraControl
+    - ClearSpawnersBarrierGroup
     - DoOnHover
     - EndUI
     - EventManager
@@ -267,6 +270,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11596}
     - Class: 114
       Script: {instanceID: 11624}
+    - Class: 114
+      Script: {instanceID: 13682}
+    - Class: 114
+      Script: {instanceID: 14614}
+    - Class: 114
+      Script: {instanceID: 16054}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -380,6 +389,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11596}
     - Class: 114
       Script: {instanceID: 11624}
+    - Class: 114
+      Script: {instanceID: 13682}
+    - Class: 114
+      Script: {instanceID: 14614}
+    - Class: 114
+      Script: {instanceID: 16054}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -1091,6 +1106,30 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BossMobBehaviour
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BasicBarrier
+  - hash:
+      serializedVersion: 2
+      Hash: 3e94bf2fcfb4f02891c9026bed59f3ce
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ABarrierGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 3e94bf2fcfb4f02891c9026bed59f3ce
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossBarrierGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 5132b0bbd8c215417907dad8adfc308a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ClearSpawnersBarrierGroup
   platform: 5
   scenePathNames:
   - Assets/Scenes/LevelSelect.unity
