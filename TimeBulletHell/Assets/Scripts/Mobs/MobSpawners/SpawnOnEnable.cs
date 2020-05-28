@@ -46,4 +46,9 @@ public class SpawnOnEnable : MobSpawner
         this.spawned = true;
         return new List<MobBehaviour>() { MobManager.instance.spawn(this.mobName, new DefaultSpawnProperties(this.transform.position)) };
     }
+
+    public override bool spawnerCleared()
+    {
+        return this.activeMobs.Count > 0;
+    }
 }

@@ -23,7 +23,7 @@ public abstract class MobSpawner : MonoBehaviour
 
     protected virtual void onEnable()
     {
-        
+        this.spawnIfReady();
     }
 
     void Update()
@@ -34,9 +34,15 @@ public abstract class MobSpawner : MonoBehaviour
     protected virtual void update()
     {
         this.updateActiveList();
+        this.spawnIfReady();
+    }
+
+    private void spawnIfReady()
+    {
+        this.updateActiveList();
         if (this.readyToSpawn())
         {
-            foreach(MobBehaviour mb in this.spawnMobs())
+            foreach (MobBehaviour mb in this.spawnMobs())
             {
                 this.activeMobs.Add(mb);
             }
@@ -70,4 +76,8 @@ public abstract class MobSpawner : MonoBehaviour
     }
 
     protected abstract void resetRoom();
+
+    //For opening barriers and stuff - is everything defeated.
+    //Infinite spawners should always return true for this.
+    public abstract bool spawnerCleared();
 }
