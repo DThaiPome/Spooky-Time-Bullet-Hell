@@ -49,6 +49,6 @@ public class SpawnOnEnable : MobSpawner
 
     public override bool spawnerCleared()
     {
-        return this.activeMobs.Count > 0;
+        return this.activeMobs.Count == 0;
     }
 }

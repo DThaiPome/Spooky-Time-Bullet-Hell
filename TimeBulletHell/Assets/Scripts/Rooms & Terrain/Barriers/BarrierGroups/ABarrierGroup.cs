@@ -18,13 +18,7 @@ public class ABarrierGroup : MonoBehaviour
 
     protected virtual void awake()
     {
-        this.barriers = new List<ABarrier>();
-        foreach(GameObject g in this.barrierObjects)
-        {
-            ABarrier ab = g.GetComponent<ABarrier>();
-            this.barriers.Add(ab);
-        }
-        this.matchBarriersToActive();
+        
     }
 
     void Start()
@@ -34,7 +28,13 @@ public class ABarrierGroup : MonoBehaviour
 
     protected virtual void start()
     {
-
+        this.barriers = new List<ABarrier>();
+        foreach (GameObject g in this.barrierObjects)
+        {
+            ABarrier ab = g.GetComponent<ABarrier>();
+            this.barriers.Add(ab);
+        }
+        this.matchBarriersToActive();
     }
 
     void Update()

@@ -6,6 +6,16 @@ public abstract class MobSpawner : MonoBehaviour
 {
     protected List<MobBehaviour> activeMobs;
 
+    void Awake()
+    {
+        this.awake();
+    }
+
+    protected virtual void awake()
+    {
+        this.activeMobs = new List<MobBehaviour>();
+    }
+
     void Start()
     {
         this.start();
@@ -13,7 +23,7 @@ public abstract class MobSpawner : MonoBehaviour
 
     protected virtual void start()
     {
-        this.activeMobs = new List<MobBehaviour>();
+
     }
 
     void OnEnable()
@@ -23,7 +33,7 @@ public abstract class MobSpawner : MonoBehaviour
 
     protected virtual void onEnable()
     {
-        this.spawnIfReady();
+
     }
 
     void Update()
