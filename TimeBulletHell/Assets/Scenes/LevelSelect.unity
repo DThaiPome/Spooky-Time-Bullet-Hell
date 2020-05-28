@@ -745,27 +745,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLevelPos: {x: 0, y: -20}
---- !u!1 &774785522 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7415613366451241488, guid: 49cbc750c41aff34687ad192ff594312,
-    type: 3}
-  m_PrefabInstance: {fileID: 1337554304}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &774785523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774785522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b004cbf9a9177e34bad7acc418bec1d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelIds:
-  - test
-  - otherTest
 --- !u!1 &964234116
 GameObject:
   m_ObjectHideFlags: 0

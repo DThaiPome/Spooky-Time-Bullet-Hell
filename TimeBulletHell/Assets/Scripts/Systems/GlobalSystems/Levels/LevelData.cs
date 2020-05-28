@@ -1,9 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Serializable]
 public class LevelData
 {
+    [SerializeField]
+    private string levelName;
+    [SerializeField]
+    private string sceneTarget;
+
+    [HideInInspector]
     public bool completed;
     public int highScore { get; private set; }
 
@@ -22,5 +30,10 @@ public class LevelData
     public int resetHighScore()
     {
         return this.highScore = 0;
+    }
+
+    public string getLevelName()
+    {
+        return levelName;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelDataMap : MonoBehaviour
 {
     [SerializeField]
-    private List<string> levelIds;
+    private List<LevelData> levelData;
 
     private Dictionary<string, LevelData> levelMap;
 
@@ -24,10 +24,9 @@ public class LevelDataMap : MonoBehaviour
     void Start()
     {
         EventManager.instance.onLevelCompleteEvent += this.levelComplete;
-        foreach(string s in levelIds)
+        foreach(LevelData ld in this.levelData)
         {
-            LevelData ld = new LevelData();
-            this.levelMap.Add(s, ld);
+            this.levelMap.Add(ld.getLevelName(), ld);
         }
     }
 

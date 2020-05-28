@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7415613366451241494}
   - component: {fileID: 1343423761283006495}
   - component: {fileID: 2802032615656320419}
+  - component: {fileID: 774785523}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: GameSystems
@@ -133,3 +134,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3649d9bcc709c468db13b306ab02fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &774785523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415613366451241488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b004cbf9a9177e34bad7acc418bec1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelData:
+  - levelName: test
+    sceneTarget: TestScene
+    completed: 0
+  - levelName: otherTest
+    sceneTarget: OtherTestLevel
+    completed: 0
