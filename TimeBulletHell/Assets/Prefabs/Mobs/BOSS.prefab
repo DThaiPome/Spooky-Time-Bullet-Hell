@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c340a890447c84b9bd58db5a989bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
+  maxHealth: 10
   drops:
   - frequency: 1
     pickups:
