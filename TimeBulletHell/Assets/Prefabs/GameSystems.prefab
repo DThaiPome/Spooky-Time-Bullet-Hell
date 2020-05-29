@@ -65,10 +65,6 @@ MonoBehaviour:
   levels:
   - levelId: levelSelect
     sceneName: LevelSelect
-  - levelId: test
-    sceneName: TestScene
-  - levelId: otherTest
-    sceneName: OtherLevelTest
 --- !u!114 &7415613366451241495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +148,6 @@ MonoBehaviour:
     prereq: {fileID: 11400000, guid: 0bae46d49cea6254cb3d2fb90a9b99b2, type: 2}
     completed: 0
   - levelName: otherTest
-    sceneTarget: OtherTestLevel
+    sceneTarget: OtherLevelTest
     prereq: {fileID: 11400000, guid: ab8e8e849b3a8644580ba258cefca672, type: 2}
     completed: 0

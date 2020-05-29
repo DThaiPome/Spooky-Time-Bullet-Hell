@@ -39,6 +39,11 @@ public class LevelDataMap : MonoBehaviour
         return null;
     }
 
+    public List<LevelData> getAllData()
+    {
+        return new List<LevelData>(this.levelData);
+    }
+
     public bool isComplete(string id)
     {
         if (this.levelMap.TryGetValue(id, out LevelData ld))

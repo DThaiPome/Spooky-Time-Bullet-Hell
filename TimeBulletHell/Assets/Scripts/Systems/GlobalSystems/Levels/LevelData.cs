@@ -43,4 +43,9 @@ public class LevelData
     {
         return this.prereq.isAvailable();
     }
+
+    public string getScene()
+    {
+        return this.sceneTarget;
+    }
 }

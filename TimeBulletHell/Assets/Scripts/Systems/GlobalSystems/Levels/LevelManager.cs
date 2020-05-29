@@ -33,6 +33,10 @@ public class LevelManager : MonoBehaviour
         {
             this.levelMap.Add(lsp.levelId, lsp.sceneName);
         }
+        foreach(LevelData ld in LevelDataMap.instance.getAllData())
+        {
+            this.levelMap.Add(ld.getLevelName(), ld.getScene());
+        }
     }
 
     private void loadLevel(string levelId)
