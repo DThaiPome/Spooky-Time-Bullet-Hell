@@ -13,7 +13,7 @@ public class LevelSelectOption : MonoBehaviour
 
     void Awake()
     {
-        levelInfo.icon = this.GetComponent<SpriteRenderer>().sprite;
+        levelInfo.icon = null;
     }
 
     void Start()
