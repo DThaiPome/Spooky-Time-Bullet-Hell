@@ -12,6 +12,7 @@ public class LevelInfo
     public int roomCount;
     [SerializeField]
     public List<GameObject> mobTypePrefabs;
+    [SerializeField]
+    public string displayName;
 
-    public Sprite icon;
 }

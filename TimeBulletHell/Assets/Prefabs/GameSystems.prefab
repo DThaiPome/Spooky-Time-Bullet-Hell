@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - levelId: levelSelect
-    sceneName: LevelSelect
+    sceneName: AlphaLevelSelect
 --- !u!114 &7415613366451241495
 MonoBehaviour:
   m_ObjectHideFlags: 0

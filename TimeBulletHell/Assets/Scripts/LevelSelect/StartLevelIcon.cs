@@ -23,6 +23,6 @@ public class StartLevelIcon : MonoBehaviour
 
     private void onLevelSelected(LevelInfo info)
     {
-        this.sr.sprite = info.icon;
+
     }
 }

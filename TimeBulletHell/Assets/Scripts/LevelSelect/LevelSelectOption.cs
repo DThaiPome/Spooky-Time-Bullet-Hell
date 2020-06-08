@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(DoOnHover))]
 [RequireComponent(typeof(Collider))]
@@ -10,10 +11,12 @@ public class LevelSelectOption : MonoBehaviour
     private LevelInfo levelInfo;
     [SerializeField]
     private GameObject checkObject;
+    [SerializeField]
+    private Text displayText;
 
     void Awake()
     {
-        levelInfo.icon = null;
+
     }
 
     void Start()
@@ -25,6 +28,12 @@ public class LevelSelectOption : MonoBehaviour
     void OnDestroy()
     {
         EventManager.instance.onClickEvent -= this.onClick;
+    }
+
+    public void setLevelInfo(LevelInfo levelInfo)
+    {
+        this.levelInfo = levelInfo;
+        this.displayText.text = levelInfo.displayName;
     }
 
     public LevelInfo getLevelInfo()
@@ -48,7 +57,6 @@ public class LevelSelectOption : MonoBehaviour
     {
         if (t.Equals(this.transform))
         {
-            //EventManager.instance.switchToLevel(this.levelInfo.levelTarget);
             EventManager.instance.onLevelSelected(this.levelInfo);
         }
     }
