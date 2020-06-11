@@ -10,7 +10,7 @@ This project does not yet have a name, and right now it is very early in develop
 
 This unnamed project is a bullet-hell game with time mechanics inspired by the popular VR game *Superhot*. The player battles against swarms of enemies, which fire large clusters of bullets at the player that they must dodge. In the game, time will only flow normally as long as the player is moving. This means that if the player stops moving entirely, enemies, bullets, and other objects will nearly cease to move. Slowing down the flow of time can allow the player to better navigate through extremely narrow gaps or other tough obstacles.
 
-![boss_action](/PagesAssets/boss_action)
+![boss_action](/PagesAssets/boss_action.png)
 
 The player will navigate through several individual levels, each one a large network of rooms that each contain enemies to deal with. The goal of each level of is to explore each room until the player finds and defeats the boss enemy, allowing them to leave. The difficulty of this comes with the unforgiving consequences of taking a hit. The player can only be hit by a few bullets before they lose all of their lives and their game is ended.
 
