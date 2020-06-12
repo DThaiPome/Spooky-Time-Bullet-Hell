@@ -6,6 +6,8 @@ using UnityEngine;
 public class LevelSelectCollapsibleWindow : MonoBehaviour, ILevelSelectPanel
 {
     [SerializeField]
+    private KeyCode key;
+    [SerializeField]
     private float expandedHeight;
     [SerializeField]
     private float collapsedHeight;
@@ -30,7 +32,7 @@ public class LevelSelectCollapsibleWindow : MonoBehaviour, ILevelSelectPanel
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(this.key))
         {
             if (this.hasFocus)
             {
