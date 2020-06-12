@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
         this.inventory = new InventoryItem[this.inventoryCapacity];
         this.inventory[0] = new DefaultGun();
 
-        this.inventoryActive = SceneManager.GetActiveScene().name != "LevelSelect";
+        this.inventoryActive = SceneManager.GetActiveScene().name != "AlphaLevelSelect";
 
         EventManager.instance.onInventoryItemCollectedEvent += this.onPickupCollected;
         EventManager.instance.addToInventoryEvent += this.addToInventory;

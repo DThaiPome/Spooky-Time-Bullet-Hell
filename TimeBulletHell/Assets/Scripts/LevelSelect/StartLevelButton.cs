@@ -34,7 +34,7 @@ public class StartLevelButton : MonoBehaviour
 
     private void loadLevel()
     {
-        if (LevelDataMap.instance.getData(this.target).preReqMet())
+        if (this.target != null && LevelDataMap.instance.getData(this.target).preReqMet())
         {
             EventManager.instance.switchToLevel(this.target);
         }
