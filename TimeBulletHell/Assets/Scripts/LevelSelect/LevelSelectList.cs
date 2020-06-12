@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSelectList : MonoBehaviour
+public class LevelSelectList : ALevelSelectPanel
 {
     [SerializeField]
     private List<LevelInfo> levels;
     [SerializeField]
     private GameObject levelOptionPrefab;
+    [SerializeField]
+    private float growMagnitude;
+
+    private Vector2 initScale;
 
     void Start()
     {
@@ -18,5 +22,16 @@ public class LevelSelectList : MonoBehaviour
             LevelSelectOption lso = g.GetComponent<LevelSelectOption>();
             lso.setLevelInfo(li);
         }
+
+        this.initScale = this.transform.localScale;
+    }
+    public override void defocus()
+    {
+        this.transform.localScale = this.initScale;
+    }
+
+    public override void focus()
+    {
+        this.transform.localScale = this.initScale * this.growMagnitude;
     }
 }

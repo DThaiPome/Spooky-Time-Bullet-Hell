@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(RectTransform))]
-public class LevelSelectCollapsibleWindow : MonoBehaviour, ILevelSelectPanel
+public class LevelSelectCollapsibleWindow : ALevelSelectPanel
 {
     [SerializeField]
     private KeyCode key;
@@ -27,7 +27,7 @@ public class LevelSelectCollapsibleWindow : MonoBehaviour, ILevelSelectPanel
 
     void Start()
     {
-        this.focus();
+        
     }
 
     void Update()
@@ -44,14 +44,14 @@ public class LevelSelectCollapsibleWindow : MonoBehaviour, ILevelSelectPanel
         }
     }
 
-    public void defocus()
+    public override void defocus()
     {
         this.rectTransform.sizeDelta = new Vector2(this.rectTransform.sizeDelta.x, this.collapsedHeight);
         this.contents.hideContents();
         this.hasFocus = false;
     }
 
-    public void focus()
+    public override void focus()
     {
         this.rectTransform.sizeDelta = new Vector2(this.rectTransform.sizeDelta.x, this.expandedHeight);
         this.contents.showContents();

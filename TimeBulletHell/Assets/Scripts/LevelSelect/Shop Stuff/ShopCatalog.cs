@@ -38,6 +38,7 @@ public class ShopCatalog : ALevelSelectWindowContents
         {
             entry.gameObject.SetActive(false);
         }
+        this.gameObject.SetActive(false);
     }
 
     public override void showContents()
@@ -46,5 +47,6 @@ public class ShopCatalog : ALevelSelectWindowContents
         {
             entry.gameObject.SetActive(true);
         }
+        this.gameObject.SetActive(true);
     }
 }
