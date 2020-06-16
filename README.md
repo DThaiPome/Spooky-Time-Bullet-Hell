@@ -22,6 +22,8 @@ The enemies defeated by the player may drop power-ups that can make the player s
 
 # Code Design & Implementation
 
+Below are some notes & reflections about certain design choices made during this game's development:
+
 ## Spawning Objects
 
 To make a bullet hell, I needed a way to create a lot of bullets really fast during runtime. In Unity, I am able to create a reference object, then have a script create a clone of that object whenever necessary. However, making a clone is not a very memory-light process, and using this to spawn, say, one-thousand bullets on-screen all at once would certainly cause the game to run at snails pace. I instead opted for a different solution: I created all of the bullet-clones I would ever use before the game started, and then pull from this pool of objects whenever a bullet had to be fired. 
