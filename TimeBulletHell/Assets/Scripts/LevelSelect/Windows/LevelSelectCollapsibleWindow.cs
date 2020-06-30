@@ -6,8 +6,6 @@ using UnityEngine;
 public class LevelSelectCollapsibleWindow : ALevelSelectPanel
 {
     [SerializeField]
-    private KeyCode key;
-    [SerializeField]
     private float expandedHeight;
     [SerializeField]
     private float collapsedHeight;
@@ -32,16 +30,7 @@ public class LevelSelectCollapsibleWindow : ALevelSelectPanel
 
     void Update()
     {
-        if (Input.GetKeyDown(this.key))
-        {
-            if (this.hasFocus)
-            {
-                this.defocus();
-            } else
-            {
-                this.focus();
-            }
-        }
+        
     }
 
     public override void defocus()

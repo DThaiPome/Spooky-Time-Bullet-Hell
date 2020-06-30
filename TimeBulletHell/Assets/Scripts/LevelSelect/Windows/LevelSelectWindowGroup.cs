@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSelectWindowGroup : ALevelSelectPanel
+public class LevelSelectWindowGroup : ALevelSelectPanelList
 {
     [SerializeField]
     private List<ALevelSelectPanel> aPanels;
     private List<ILevelSelectPanel> panels;
+
+    [SerializeField]
+    private int selectedPanel;
+
+    private int previousSelectedPanel;
 
     void Awake()
     {
@@ -19,29 +24,80 @@ public class LevelSelectWindowGroup : ALevelSelectPanel
 
     void Start()
     {
-        foreach(ILevelSelectPanel panel in this.panels)
+        if (this.selectedPanel < 0 || this.selectedPanel >= this.panels.Count)
         {
-            this.defocus();
+            this.selectedPanel = 0;
         }
+        this.previousSelectedPanel = this.selectedPanel;
+        this._defocus();
     }
 
     void Update()
     {
-        
+        this.focusIfSelectedPanelChanges();
+    }
+
+    private void focusIfSelectedPanelChanges()
+    {
+        if (this.previousSelectedPanel != this.selectedPanel)
+        {
+            this.previousSelectedPanel = this.selectedPanel;
+            this._focus();
+        }
     }
 
     public override void defocus()
     {
-        foreach(ILevelSelectPanel panel in this.panels) {
+        this._defocus();
+    }
+
+    private void _defocus()
+    {
+        foreach (ILevelSelectPanel panel in this.panels)
+        {
             panel.defocus();
         }
     }
 
     public override void focus()
     {
+        this._focus();
+    }
+
+    private void _focus()
+    {
+        ILevelSelectPanel selectedPanel = this.panels[this.selectedPanel];
         foreach (ILevelSelectPanel panel in this.panels)
         {
-            panel.focus();
+            if (selectedPanel == panel)
+            {
+                panel.focus();
+            }
+            else
+            {
+                panel.defocus();
+            }
         }
+    }
+
+    public override void nextPanel()
+    {
+        if (this.selectedPanel < this.panels.Count - 1)
+        {
+            this.selectedPanel++;
+        }
+    }
+
+    public override void prevPanel()
+    {
+        if (this.selectedPanel > 0)
+        {
+            this.selectedPanel--;
+        }
+    }
+
+    public override void selectDefaultPanel()
+    {
+        this.selectedPanel = 0;
     }
 }

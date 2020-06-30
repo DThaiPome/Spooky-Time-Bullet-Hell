@@ -293,11 +293,9 @@ Assets\Scripts\Bullets\BulletTypes\PlayerBullet.cs
 Assets\Scripts\Bullets\BulletTypes\PlayerTimelessBullet.cs
 Assets\Scripts\Camera\CameraControl.cs
 Assets\Scripts\ISpawnProperties.cs
-Assets\Scripts\LevelSelect\ILevelSelectPanel.cs
-Assets\Scripts\LevelSelect\ILevelSelectWindowContents.cs
 Assets\Scripts\LevelSelect\LevelInfo.cs
 Assets\Scripts\LevelSelect\LevelSelectCameraControl.cs
-Assets\Scripts\LevelSelect\LevelSelectCollapsibleWindow.cs
+Assets\Scripts\LevelSelect\LevelSelectController.cs
 Assets\Scripts\LevelSelect\LevelSelectList.cs
 Assets\Scripts\LevelSelect\LevelSelectOption.cs
 "Assets\Scripts\LevelSelect\Menu Stuff\LevelSelectScroll.cs"
@@ -309,6 +307,14 @@ Assets\Scripts\LevelSelect\LevelSelectOption.cs
 "Assets\Scripts\LevelSelect\Shop Stuff\ShopEntry.cs"
 Assets\Scripts\LevelSelect\StartLevelButton.cs
 Assets\Scripts\LevelSelect\StartLevelIcon.cs
+Assets\Scripts\LevelSelect\Windows\ALevelSelectPanel.cs
+Assets\Scripts\LevelSelect\Windows\ALevelSelectPanelList.cs
+Assets\Scripts\LevelSelect\Windows\ALevelSelectWindowContents.cs
+Assets\Scripts\LevelSelect\Windows\ILevelSelectPanel.cs
+Assets\Scripts\LevelSelect\Windows\ILevelSelectPanelList.cs
+Assets\Scripts\LevelSelect\Windows\ILevelSelectWindowContents.cs
+Assets\Scripts\LevelSelect\Windows\LevelSelectCollapsibleWindow.cs
+Assets\Scripts\LevelSelect\Windows\LevelSelectWindowGroup.cs
 Assets\Scripts\Mobs\MobDropData.cs
 Assets\Scripts\Mobs\MobHurtbox.cs
 Assets\Scripts\Mobs\MobManager.cs

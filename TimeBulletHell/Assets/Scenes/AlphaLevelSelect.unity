@@ -868,6 +868,7 @@ MonoBehaviour:
   - {fileID: 483844455}
   - {fileID: 372789965}
   - {fileID: 1504838288}
+  selectedPanel: 0
 --- !u!1 &1155841469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,8 +1531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e234fe6f3db5dd4dacd52e37cbf1efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftGroup: {fileID: 2084658638}
-  rightGroup: {fileID: 933009188}
+  leftPanelGroup: {fileID: 2084658638}
+  rightPanelGroup: {fileID: 933009188}
 --- !u!1 &1749680742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,3 +1638,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aPanels:
   - {fileID: 178991698}
+  selectedPanel: 0
