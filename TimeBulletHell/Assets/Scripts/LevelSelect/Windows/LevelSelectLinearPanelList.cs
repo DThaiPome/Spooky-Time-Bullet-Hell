@@ -44,7 +44,8 @@ public abstract class LevelSelectLinearPanelList : ALevelSelectPanelList
             this.selectedPanel = 0;
         }
         this.previousSelectedPanel = this.selectedPanel;
-        this._defocus();
+        this.selectDefaultPanel();
+        this.defocus();
     }
 
     private bool indexInRange(int i)

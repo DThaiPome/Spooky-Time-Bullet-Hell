@@ -11,10 +11,10 @@ public class LevelSelectController : LevelSelectPanelListGroup
         base.update();
         if (Input.GetKeyDown(KeyCode.A))
         {
-            this.selectedGroup = (ILevelSelectPanelList)this.prevPanel();
+            this.prevPanel();
         } else if (Input.GetKeyDown(KeyCode.D))
         {
-            this.selectedGroup = (ILevelSelectPanelList)this.nextPanel();
+            this.nextPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -24,5 +24,27 @@ public class LevelSelectController : LevelSelectPanelListGroup
         {
             this.selectedGroup.prevPanel();
         }
+    }
+
+    public override ILevelSelectPanel nextPanel()
+    {
+        return this.selectPanel(base.nextPanel());
+    }
+
+    public override ILevelSelectPanel prevPanel()
+    {
+        return this.selectPanel(base.prevPanel());
+    }
+
+    public override ILevelSelectPanel selectDefaultPanel()
+    {
+        return this.selectPanel(base.selectDefaultPanel());
+    }
+
+    private ILevelSelectPanel selectPanel(ILevelSelectPanel panel)
+    {
+        ILevelSelectPanelList panelList = (ILevelSelectPanelList)panel;
+        this.selectedGroup = panelList;
+        return panel;
     }
 }
