@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f195dcebbd9797646b071e5bdbdf4ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectButton: 32
 --- !u!65 &387779870
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1531,6 +1532,7 @@ MonoBehaviour:
   aPanels:
   - {fileID: 2084658638}
   - {fileID: 933009188}
+  - {fileID: 387779869}
 --- !u!1 &1749680742
 GameObject:
   m_ObjectHideFlags: 0
