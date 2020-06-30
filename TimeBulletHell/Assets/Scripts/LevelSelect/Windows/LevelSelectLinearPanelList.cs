@@ -12,6 +12,11 @@ public abstract class LevelSelectLinearPanelList : ALevelSelectPanelList
 
     void Awake()
     {
+        this.awake();
+    }
+
+    protected virtual void awake()
+    {
         this.panels = this.makePanelList(this.getPanelList());
     }
 
@@ -29,6 +34,11 @@ public abstract class LevelSelectLinearPanelList : ALevelSelectPanelList
 
     void Start()
     {
+        this.start();
+    }
+
+    protected virtual void start()
+    {
         if (this.indexInRange(this.selectedPanel))
         {
             this.selectedPanel = 0;
@@ -43,6 +53,11 @@ public abstract class LevelSelectLinearPanelList : ALevelSelectPanelList
     }
 
     void Update()
+    {
+        this.update();
+    }
+
+    protected virtual void update()
     {
         this.focusIfSelectedPanelChanges();
     }
@@ -94,24 +109,38 @@ public abstract class LevelSelectLinearPanelList : ALevelSelectPanelList
         }
     }
 
-    public override void nextPanel()
+    public override ILevelSelectPanel nextPanel()
     {
         if (this.selectedPanel < this.panels.Count - 1)
         {
             this.selectedPanel++;
         }
+        return this.getPanelAt(this.selectedPanel);
     }
 
-    public override void prevPanel()
+    public override ILevelSelectPanel prevPanel()
     {
         if (this.selectedPanel > 0)
         {
             this.selectedPanel--;
         }
+        return this.getPanelAt(this.selectedPanel);
     }
 
-    public override void selectDefaultPanel()
+    public override ILevelSelectPanel selectDefaultPanel()
     {
         this.selectedPanel = 0;
+        return this.getPanelAt(this.selectedPanel);
+    }
+
+    private ILevelSelectPanel getPanelAt(int index)
+    {
+        if (this.indexInRange(index))
+        {
+            return this.panels[index];
+        } else
+        {
+            return null;
+        }
     }
 }

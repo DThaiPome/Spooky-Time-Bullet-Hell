@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class ALevelSelectPanelList : ALevelSelectPanel, ILevelSelectPanelList
 {
-    public abstract void nextPanel();
-    public abstract void prevPanel();
-    public abstract void selectDefaultPanel();
+    public abstract ILevelSelectPanel nextPanel();
+    public abstract ILevelSelectPanel prevPanel();
+    public abstract ILevelSelectPanel selectDefaultPanel();
 }

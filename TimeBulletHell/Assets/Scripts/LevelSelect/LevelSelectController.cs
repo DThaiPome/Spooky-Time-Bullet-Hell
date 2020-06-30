@@ -2,70 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSelectController : MonoBehaviour
+public class LevelSelectController : LevelSelectPanelListGroup
 {
-    [SerializeField]
-    private ALevelSelectPanelList leftPanelGroup;
-    [SerializeField]
-    private ALevelSelectPanelList rightPanelGroup;
-
-    private ILevelSelectPanelList leftGroup;
-    private ILevelSelectPanelList rightGroup;
     private ILevelSelectPanelList selectedGroup;
 
-    void Awake()
+    protected override void update()
     {
-        this.leftGroup = this.leftPanelGroup;
-        this.rightGroup = this.rightPanelGroup;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.focusRight();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        base.update();
         if (Input.GetKeyDown(KeyCode.A))
         {
-            this.focusLeft();
+            this.selectedGroup = (ILevelSelectPanelList)this.prevPanel();
         } else if (Input.GetKeyDown(KeyCode.D))
         {
-            this.focusRight();
+            this.selectedGroup = (ILevelSelectPanelList)this.nextPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            this.nextPanel();
+            this.selectedGroup.nextPanel();
         } else if (Input.GetKeyDown(KeyCode.W))
         {
-            this.prevPanel();
+            this.selectedGroup.prevPanel();
         }
-    }
-
-    private void focusLeft()
-    {
-        this.leftGroup.focus();
-        this.rightGroup.defocus();
-        this.selectedGroup = this.leftGroup;
-    }
-
-    private void focusRight()
-    {
-        this.leftGroup.defocus();
-        this.rightGroup.focus();
-        this.selectedGroup = this.rightGroup;
-    }
-
-    private void nextPanel()
-    {
-        this.selectedGroup.nextPanel();
-    }
-
-    private void prevPanel()
-    {
-        this.selectedGroup.prevPanel();
     }
 }

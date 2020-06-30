@@ -7,15 +7,18 @@ public interface ILevelSelectPanelList : ILevelSelectPanel
     /// <summary>
     /// Select the next panel in the list
     /// </summary>
-    void nextPanel();
+    /// <returns>the newly selected panel</returns>
+    ILevelSelectPanel nextPanel();
 
     /// <summary>
     /// Select the previous panel in the list
     /// </summary>
-    void prevPanel();
+    /// <returns>the newly selected panel</returns>
+    ILevelSelectPanel prevPanel();
 
     /// <summary>
     /// Select the defualt panel in the list
     /// </summary>
-    void selectDefaultPanel();
+    /// <returns>the newly selected panel</returns>
+    ILevelSelectPanel selectDefaultPanel();
 }
