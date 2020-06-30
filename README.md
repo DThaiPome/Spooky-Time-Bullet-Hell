@@ -1,12 +1,20 @@
 *The art for this game is still being made, so in the meantime all screenshots from the game will include my placeholder art assets.*
 
+Ryan Gehrlein - Design & Development
+
+Elena Kosowski - Art & Writing
+
+[Kat Minor](https://www.katminor.com/) - UI Design & UI Art
+
+*(Author - Ryan Gehrlein)*
+
 ![room_action](/PagesAssets/room_action.png)
 
 *The player, the red arrow, skirmishes with a group of bat enemies.*
 
 # Overview - Time Bullet Hell (6/11/2020)
 
-This project does not yet have a name, and right now it is very early in development. I am working on this project alongside [Kat Minor](https://www.katminor.com/) and Elena Kosowski, but all of the code and other Unity assetts found in this repository thus far are all mine. The scope of the project is fairly small, and as of now it is uncertain what exactly we will do with the finished product.
+This project does not yet have a name, and right now it is very early in development. I am working on this project alongside Kat Minor and Elena Kosowski, but all of the code and other Unity assetts found in this repository thus far are all mine. The scope of the project is fairly small, and as of now it is uncertain what exactly we will do with the finished product.
 
 ## Concept
 
@@ -21,6 +29,8 @@ The player will navigate through several individual levels, each one a large net
 The enemies defeated by the player may drop power-ups that can make the player stronger or give them an extra life. They also can drop coins, which can be used to purchase some of these items in the shop later on. The player can only hold so many items, though, so it is important that they effectively plan what items they buy and how and when they will use them.
 
 # Code Design & Implementation
+
+Below are some notes & reflections about certain design choices made during this game's development:
 
 ## Spawning Objects
 
