@@ -25,13 +25,7 @@ public class LevelSelectOption : ALevelSelectPanel
 
     void Start()
     {
-        EventManager.instance.onClickEvent += this.onClick;
         this.checkObject.SetActive(LevelDataMap.instance.isComplete(this.levelInfo.levelTarget));
-    }
-
-    void OnDestroy()
-    {
-        EventManager.instance.onClickEvent -= this.onClick;
     }
 
     public void setLevelInfo(LevelInfo levelInfo)
@@ -57,14 +51,6 @@ public class LevelSelectOption : ALevelSelectPanel
         this.GetComponent<DoOnHover>().enabled = false;
     }
 
-    private void onClick(Transform t)
-    {
-        if (t.Equals(this.transform))
-        {
-            EventManager.instance.onLevelSelected(this.levelInfo);
-        }
-    }
-
     public override void defocus()
     {
         this.transform.localScale = this.initScale;
@@ -73,5 +59,6 @@ public class LevelSelectOption : ALevelSelectPanel
     public override void focus()
     {
         this.transform.localScale = this.initScale * this.growMagnitude;
+        EventManager.instance.onLevelSelected(this.levelInfo);
     }
 }
