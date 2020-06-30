@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(DoOnHover))]
 [RequireComponent(typeof(Collider))]
-public class LevelSelectOption : MonoBehaviour
+public class LevelSelectOption : ALevelSelectPanel
 {
     [SerializeField]
     private LevelInfo levelInfo;
@@ -13,10 +13,14 @@ public class LevelSelectOption : MonoBehaviour
     private GameObject checkObject;
     [SerializeField]
     private Text displayText;
+    [SerializeField]
+    private float growMagnitude;
+
+    private Vector2 initScale;
 
     void Awake()
     {
-
+        this.initScale = this.transform.localScale;
     }
 
     void Start()
@@ -59,5 +63,15 @@ public class LevelSelectOption : MonoBehaviour
         {
             EventManager.instance.onLevelSelected(this.levelInfo);
         }
+    }
+
+    public override void defocus()
+    {
+        this.transform.localScale = this.initScale;
+    }
+
+    public override void focus()
+    {
+        this.transform.localScale = this.initScale * this.growMagnitude;
     }
 }

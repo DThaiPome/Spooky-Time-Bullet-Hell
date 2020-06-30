@@ -211,6 +211,7 @@ MonoBehaviour:
     displayName: 
   checkObject: {fileID: 897802493}
   displayText: {fileID: 5808963449162216435}
+  growMagnitude: 1.1
 --- !u!1 &5808963449162216437
 GameObject:
   m_ObjectHideFlags: 0

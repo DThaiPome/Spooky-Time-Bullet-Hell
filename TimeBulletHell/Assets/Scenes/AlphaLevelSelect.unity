@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358da7a253b1aad48a827dba036ed0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlPanel: {fileID: 2084658638}
   levels:
   - levelTarget: test
     roomCount: 2
@@ -218,7 +219,6 @@ MonoBehaviour:
     displayName: BAT SIDEWAYS
   levelOptionPrefab: {fileID: 5808963448559861054, guid: aaae705e57d72914996d21d54b4e1773,
     type: 3}
-  growMagnitude: 1.1
 --- !u!1 &372789963
 GameObject:
   m_ObjectHideFlags: 0

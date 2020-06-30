@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class LevelSelectMutableWindowGroup : LevelSelectWindowGroup, ILevelSelectPanelMutableList
 {
+
     private List<ILevelSelectPanel> panelsDelegate;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-
-    }
 
     protected override List<ILevelSelectPanel> makePanelList(List<ALevelSelectPanel> panelList)
     {
@@ -36,7 +27,7 @@ public class LevelSelectMutableWindowGroup : LevelSelectWindowGroup, ILevelSelec
 
     private void destroyAllPanels()
     {
-        foreach(ILevelSelectPanel panel in this.panelsDelegate)
+        foreach (ILevelSelectPanel panel in this.panelsDelegate)
         {
             Object.Destroy(((ALevelSelectPanel)panel).gameObject);
         }
