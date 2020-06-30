@@ -270,7 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca21a54975810d43a2dcb1aae9fc59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 51
   expandedHeight: 5
   collapsedHeight: 0.5
   aContents: {fileID: 1572234735}
@@ -579,7 +578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca21a54975810d43a2dcb1aae9fc59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 50
   expandedHeight: 5
   collapsedHeight: 0.5
   aContents: {fileID: 729187706}
@@ -920,7 +918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca21a54975810d43a2dcb1aae9fc59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 49
   expandedHeight: 5
   collapsedHeight: 0.5
   aContents: {fileID: 1463422322}
@@ -1355,7 +1352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca21a54975810d43a2dcb1aae9fc59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 52
   expandedHeight: 5
   collapsedHeight: 0.5
   aContents: {fileID: 423625659}
@@ -1633,9 +1629,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2084658635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945956e4049e1c647be336888a1ab50c, type: 3}
+  m_Script: {fileID: 11500000, guid: fc27d53bbfabfc64aa4fe521f25c4be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aPanels:
-  - {fileID: 178991698}
+  aPanels: []
   selectedPanel: 0

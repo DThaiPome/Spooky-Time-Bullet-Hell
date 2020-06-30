@@ -15,21 +15,22 @@ public class LevelSelectWindowGroup : ALevelSelectPanelList
 
     void Awake()
     {
-        this.panels = new List<ILevelSelectPanel>();
-        foreach(ALevelSelectPanel aPanel in this.aPanels)
-        {
-            this.panels.Add(aPanel);
-        }
+        this.panels = this.makePanelList(this.aPanels);
     }
 
     void Start()
     {
-        if (this.selectedPanel < 0 || this.selectedPanel >= this.panels.Count)
+        if (this.indexInRange(this.selectedPanel))
         {
             this.selectedPanel = 0;
         }
         this.previousSelectedPanel = this.selectedPanel;
         this._defocus();
+    }
+
+    private bool indexInRange(int i)
+    {
+        return i >= 0 && i < this.panels.Count;
     }
 
     void Update()
@@ -66,7 +67,11 @@ public class LevelSelectWindowGroup : ALevelSelectPanelList
 
     private void _focus()
     {
-        ILevelSelectPanel selectedPanel = this.panels[this.selectedPanel];
+        ILevelSelectPanel selectedPanel = null;
+        if (this.indexInRange(this.selectedPanel))
+        {
+            selectedPanel = this.panels[this.selectedPanel];
+        }
         foreach (ILevelSelectPanel panel in this.panels)
         {
             if (selectedPanel == panel)
