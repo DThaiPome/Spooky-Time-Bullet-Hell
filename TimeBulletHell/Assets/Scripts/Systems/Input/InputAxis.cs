@@ -7,7 +7,8 @@ using UnityEngine;
 public class InputAxis
 {
     [SerializeField]
-    private string name;
+    private string axisName;
+    public string name { get; private set; }
     [SerializeField]
     private string positiveName;
     [SerializeField]
@@ -58,6 +59,7 @@ public class InputAxis
 
     public void updateAxis()
     {
+        this.name = this.axisName;
         if (this.rawAxis != 0)
         {
             this.updateAxisHelper();

@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes:
-  - name: Vertical
+  - axisName: Vertical
     positiveName: Up
     negativeName: Down
     negativeButton: 115
@@ -486,7 +486,7 @@ MonoBehaviour:
     sensitivity: 4
     snap: 1
     invert: 0
-  - name: Horizontal
+  - axisName: Horizontal
     positiveName: Right
     negativeName: Left
     negativeButton: 97

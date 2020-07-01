@@ -20,9 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement player;
 
+    private InputAxis vertical;
+    private InputAxis horizontal;
+
     void Awake()
     {
         player = this;
+        this.vertical = GameInput.input.getAxis("Vertical");
+        this.horizontal = GameInput.input.getAxis("Horizontal");
     }
 
     void Start()
@@ -71,8 +76,8 @@ public class PlayerMovement : MonoBehaviour
                 this.moveInput = 1;
                 break;
             default:
-                this.input.x = GameInput.input.getAxis("Horizontal").rawAxis;
-                this.input.y = GameInput.input.getAxis("Vertical").rawAxis;
+                this.input.x = this.horizontal.rawAxis;
+                this.input.y = this.vertical.rawAxis;
 
                 bool atMaxSpeed = this.moveInput == 1;
                 bool stopped = this.input.magnitude == 0 && this.noKeysReleased();
@@ -90,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
 
-                this.moveInput = inMotion ? 1 : Mathf.Max(Mathf.Abs(GameInput.input.getAxis("Horizontal").axis), Mathf.Abs(GameInput.input.getAxis("Vertical").axis));
+                this.moveInput = inMotion ? 1 : Mathf.Max(Mathf.Abs(this.horizontal.axis), Mathf.Abs(this.vertical.axis));
                 break;
         }
     }
@@ -125,10 +130,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool noKeysReleased()
     {
-        return !(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) ||
-            Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow) ||
-            Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow) ||
-            Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow));
+        return !(this.vertical.positiveUp() ||
+            this.vertical.negativeUp() ||
+            this.horizontal.negativeUp()||
+            this.horizontal.positiveUp());
     }
 
     private void correctDirection()
@@ -137,40 +142,40 @@ public class PlayerMovement : MonoBehaviour
         switch (angle)
         {
             case 0:
-                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+                if (this.vertical.positiveUp())
                 {
                     angle = 45;
-                } else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+                } else if (this.vertical.negativeUp())
                 {
                     angle = -45;
                 }
                 break;
             case 90:
-                if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+                if (this.horizontal.negativeUp())
                 {
                     angle = 135;
                 }
-                else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+                else if (this.horizontal.positiveUp())
                 {
                     angle = 45;
                 }
                 break;
             case 180:
-                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+                if (this.vertical.positiveUp())
                 {
                     angle = 135;
                 }
-                else if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+                else if (this.vertical.negativeUp())
                 {
                     angle = -135;
                 }
                 break;
             case -90:
-                if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+                if (this.horizontal.negativeUp())
                 {
                     angle = -135;
                 }
-                else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+                else if (this.horizontal.positiveUp())
                 {
                     angle = -45;
                 }
