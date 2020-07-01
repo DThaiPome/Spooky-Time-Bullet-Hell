@@ -22,12 +22,14 @@ public class PlayerMovement : MonoBehaviour
 
     private InputAxis vertical;
     private InputAxis horizontal;
+    private InputAxis lockAim;
 
     void Awake()
     {
         player = this;
         this.vertical = GameInput.input.getAxis("Vertical");
         this.horizontal = GameInput.input.getAxis("Horizontal");
+        this.lockAim = GameInput.input.getAxis("LockAim");
     }
 
     void Start()
@@ -115,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
             this.correctDirection();
         }
 
-        this.directionLocked = Input.GetKey(KeyCode.LeftShift);
+        this.directionLocked = this.lockAim.positive();
 
         if (!this.directionLocked)
         {

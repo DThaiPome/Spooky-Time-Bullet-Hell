@@ -498,6 +498,18 @@ MonoBehaviour:
     sensitivity: 4
     snap: 1
     invert: 0
+  - axisName: LockAim
+    positiveName: Lock
+    negativeName: 
+    negativeButton: 0
+    positiveButton: 304
+    altNegativeButton: 0
+    altPositiveButton: 303
+    gravity: 10000
+    dead: 0.1
+    sensitivity: 10000
+    snap: 0
+    invert: 0
 --- !u!1 &601979271
 GameObject:
   m_ObjectHideFlags: 0
