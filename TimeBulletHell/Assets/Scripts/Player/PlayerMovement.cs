@@ -71,8 +71,8 @@ public class PlayerMovement : MonoBehaviour
                 this.moveInput = 1;
                 break;
             default:
-                this.input.x = Input.GetAxisRaw("Horizontal");
-                this.input.y = Input.GetAxisRaw("Vertical");
+                this.input.x = GameInput.input.getAxis("Horizontal").rawAxis;
+                this.input.y = GameInput.input.getAxis("Vertical").rawAxis;
 
                 bool atMaxSpeed = this.moveInput == 1;
                 bool stopped = this.input.magnitude == 0 && this.noKeysReleased();
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
 
-                this.moveInput = inMotion ? 1 : Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
+                this.moveInput = inMotion ? 1 : Mathf.Max(Mathf.Abs(GameInput.input.getAxis("Horizontal").axis), Mathf.Abs(GameInput.input.getAxis("Vertical").axis));
                 break;
         }
     }

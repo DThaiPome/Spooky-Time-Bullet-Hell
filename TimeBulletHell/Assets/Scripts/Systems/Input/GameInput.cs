@@ -11,7 +11,10 @@ public class GameInput : MonoBehaviour
 
     void Awake()
     {
-        input = this;
+        if (input == null)
+        {
+            input = this;
+        }
     }
 
     void Update()

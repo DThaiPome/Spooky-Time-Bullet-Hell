@@ -455,6 +455,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1096972d6e6432940bc2511a23e380e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &529596484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7415613366451241488, guid: 49cbc750c41aff34687ad192ff594312,
+    type: 3}
+  m_PrefabInstance: {fileID: 1421804302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &529596485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529596484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a3e4180ef99fa4e9610692134e7639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axes:
+  - name: Vertical
+    positiveName: Up
+    negativeName: Down
+    negativeButton: 115
+    positiveButton: 119
+    altNegativeButton: 274
+    altPositiveButton: 273
+    gravity: 4
+    dead: 0.1
+    sensitivity: 4
+    snap: 1
+    invert: 0
+  - name: Horizontal
+    positiveName: Right
+    negativeName: Left
+    negativeButton: 97
+    positiveButton: 100
+    altNegativeButton: 276
+    altPositiveButton: 275
+    gravity: 4
+    dead: 0.1
+    sensitivity: 4
+    snap: 1
+    invert: 0
 --- !u!1 &601979271
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,7 +694,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.86185145, y: 1}
-  m_AnchoredPosition: {x: 0.053220358, y: -0.089}
+  m_AnchoredPosition: {x: 0.053220358, y: -2.09}
   m_SizeDelta: {x: -0.012424514, y: 0.178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933009186

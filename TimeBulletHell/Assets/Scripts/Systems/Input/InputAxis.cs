@@ -6,21 +6,33 @@ using UnityEngine;
 [Serializable]
 public class InputAxis
 {
-    public string name;
-    public string positiveName;
-    public string negativeName;
+    [SerializeField]
+    private string name;
+    [SerializeField]
+    private string positiveName;
+    [SerializeField]
+    private string negativeName;
 
-    public KeyCode negativeButton;
-    public KeyCode positiveButton;
-    public KeyCode altNegativeButton;
-    public KeyCode altPositiveButton;
+    [SerializeField]
+    private KeyCode negativeButton;
+    [SerializeField]
+    private KeyCode positiveButton;
+    [SerializeField]
+    private KeyCode altNegativeButton;
+    [SerializeField]
+    private KeyCode altPositiveButton;
 
-    public float gravity;
-    public float dead;
-    public float sensitivity;
+    [SerializeField]
+    private float gravity;
+    [SerializeField]
+    private float dead;
+    [SerializeField]
+    private float sensitivity;
 
-    public bool snap;
-    public bool invert;
+    [SerializeField]
+    private bool snap;
+    [SerializeField]
+    private bool invert;
 
     public float axis { get; private set; }
     public int rawAxis { get; private set; }
