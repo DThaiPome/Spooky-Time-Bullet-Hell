@@ -6,21 +6,31 @@ public class LevelSelectController : LevelSelectPanelListGroup
 {
     private ILevelSelectPanelList selectedGroup;
 
+    private InputAxis vertical;
+    private InputAxis horizontal;
+
+    protected override void awake()
+    {
+        base.awake();
+        this.vertical = GameInput.input.getAxis("Vertical");
+        this.horizontal = GameInput.input.getAxis("Horizontal");
+    }
+
     protected override void update()
     {
         base.update();
-        if (Input.GetKeyDown(KeyCode.A))
+        if (this.horizontal.negativeDown())
         {
             this.prevPanel();
-        } else if (Input.GetKeyDown(KeyCode.D))
+        } else if (this.horizontal.positiveDown())
         {
             this.nextPanel();
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (this.vertical.negativeDown())
         {
             this.selectedGroup.nextPanel();
-        } else if (Input.GetKeyDown(KeyCode.W))
+        } else if (this.vertical.positiveUp())
         {
             this.selectedGroup.prevPanel();
         }

@@ -15,6 +15,11 @@ public class GameInput : MonoBehaviour
         {
             input = this;
         }
+        
+        foreach(InputAxis axis in this.axes)
+        {
+            axis.init();
+        }
     }
 
     void Update()

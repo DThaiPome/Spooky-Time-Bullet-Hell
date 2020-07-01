@@ -55,11 +55,16 @@ public class InputAxis
         this.sensitivity = sensitivity;
         this.snap = snap;
         this.invert = invert;
+        this.init();
+    }
+
+    public void init()
+    {
+        this.name = this.axisName;
     }
 
     public void updateAxis()
     {
-        this.name = this.axisName;
         if (this.rawAxis != 0)
         {
             this.updateAxisHelper();
