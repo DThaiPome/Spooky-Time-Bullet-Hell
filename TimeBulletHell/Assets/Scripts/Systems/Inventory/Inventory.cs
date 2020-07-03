@@ -14,6 +14,9 @@ public class Inventory : MonoBehaviour
 
     private bool inventoryActive;
 
+    private InputAxis fire;
+    private List<InputAxis> inventorySlots;
+
     void Start()
     {
         this.inventoryCapacity = this.inventoryCapacity > 1 ? this.inventoryCapacity : 1;
@@ -28,6 +31,14 @@ public class Inventory : MonoBehaviour
         EventManager.instance.onLevelSwitchedEvent += this.levelSwitched;
         EventManager.instance.queryInventoryAvailabilityEvent += this.queryInventoryAvailability;
         EventManager.instance.allLivesLostEvent += this.onAllLivesLost;
+
+        this.fire = GameInput.input.getAxis("Fire");
+        this.inventorySlots = new List<InputAxis>();
+        this.inventorySlots.Insert(0, GameInput.input.getAxis("DefaultInventorySlot"));
+        for(int i = 1; i < this.inventoryCapacity; i++)
+        {
+            this.inventorySlots.Insert(i, GameInput.input.getAxis("InventorySlot" + i));
+        }
     }
 
     private void levelSwitched(string level)
@@ -102,10 +113,10 @@ public class Inventory : MonoBehaviour
         InventoryItem ii = this.inventory[this.selectedIndex];
         if (this.inventoryActive && ii != null)
         {
-            if (ii.usedContinuously() && Input.GetKey(KeyCode.Space))
+            if (ii.usedContinuously() && this.fire.positive())
             {
                 ii.use();
-            } else if (!ii.usedContinuously() && Input.GetKeyDown(KeyCode.Space))
+            } else if (!ii.usedContinuously() && this.fire.positiveDown())
             {
                 ii.use();
             }
@@ -115,21 +126,14 @@ public class Inventory : MonoBehaviour
     private void updateSelectedIndex()
     {
         int prevIndex = this.selectedIndex;
-        if (Input.GetKeyDown(KeyCode.Q))
+        for(int i = 0; i < this.inventoryCapacity; i++)
         {
-            this.selectedIndex = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            this.selectedIndex = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            this.selectedIndex = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            this.selectedIndex = 3;
+            InputAxis slotInput = this.inventorySlots[i];
+            if (slotInput.positiveDown())
+            {
+                this.selectedIndex = i;
+                break;
+            }
         }
         if (this.inventory[this.selectedIndex] == null)
         {

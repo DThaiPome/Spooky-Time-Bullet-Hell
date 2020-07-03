@@ -510,6 +510,66 @@ MonoBehaviour:
     sensitivity: 10000
     snap: 0
     invert: 0
+  - axisName: Fire
+    positiveName: Fire
+    negativeName: 
+    negativeButton: 0
+    positiveButton: 32
+    altNegativeButton: 0
+    altPositiveButton: 32
+    gravity: 10000
+    dead: 0.1
+    sensitivity: 10000
+    snap: 0
+    invert: 0
+  - axisName: InventorySlot1
+    positiveName: InventorySlot1
+    negativeName: 
+    negativeButton: 0
+    positiveButton: 257
+    altNegativeButton: 0
+    altPositiveButton: 49
+    gravity: 10000
+    dead: 0.1
+    sensitivity: 10000
+    snap: 0
+    invert: 0
+  - axisName: InventorySlot2
+    positiveName: InventorySlot2
+    negativeName: 
+    negativeButton: 0
+    positiveButton: 258
+    altNegativeButton: 0
+    altPositiveButton: 50
+    gravity: 10000
+    dead: 0.1
+    sensitivity: 10000
+    snap: 0
+    invert: 0
+  - axisName: InventorySlot3
+    positiveName: InventorySlot3
+    negativeName: 
+    negativeButton: 0
+    positiveButton: 259
+    altNegativeButton: 0
+    altPositiveButton: 51
+    gravity: 10000
+    dead: 0.1
+    sensitivity: 10000
+    snap: 0
+    invert: 0
+  - axisName: DefaultInventorySlot
+    positiveName: DefaultInventorySlot
+    negativeName: 
+    negativeButton: 0
+    positiveButton: 113
+    altNegativeButton: 0
+    altPositiveButton: 113
+    gravity: 10000
+    dead: 0.1
+    sensitivity: 10000
+    snap: 0
+    invert: 0
 --- !u!1 &601979271
 GameObject:
   m_ObjectHideFlags: 0
