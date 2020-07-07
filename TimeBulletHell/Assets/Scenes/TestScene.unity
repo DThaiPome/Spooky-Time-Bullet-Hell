@@ -506,8 +506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ced4358dc1bd6846b334a1810695b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalColor: {r: 0, g: 0.22655034, b: 1, a: 0}
-  slowColor: {r: 1, g: 0.61149544, b: 0, a: 0}
+  normalColor: {r: 1, g: 0.6117647, b: 0, a: 0}
+  slowColor: {r: 0, g: 0.11084986, b: 1, a: 0}
 --- !u!114 &457139062
 MonoBehaviour:
   m_ObjectHideFlags: 0
