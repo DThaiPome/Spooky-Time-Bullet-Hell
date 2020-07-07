@@ -376,3 +376,4 @@ Assets\Scripts\Systems\PlayerInfo.cs
 Assets\Scripts\UI\EndUI.cs
 Assets\Scripts\UI\MouseInteractions\DoOnHover.cs
 Assets\Scripts\UI\MouseInteractions\ObjectClicker.cs
+Assets\TimeAuraColorChange.cs

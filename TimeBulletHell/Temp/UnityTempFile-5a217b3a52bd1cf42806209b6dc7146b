@@ -323,6 +323,7 @@ Assets\Scripts\LevelSelect\Windows\LevelSelectPanelListGroup.cs
 Assets\Scripts\LevelSelect\Windows\LevelSelectWindowGroup.cs
 Assets\Scripts\Mobs\MobDropData.cs
 Assets\Scripts\Mobs\MobHurtbox.cs
+Assets\Scripts\Mobs\MobInfo\MobInfo.cs
 Assets\Scripts\Mobs\MobManager.cs
 Assets\Scripts\Mobs\MobSpawners\MobSpawner.cs
 Assets\Scripts\Mobs\MobSpawners\SpawnOnEnable.cs
@@ -372,6 +373,7 @@ Assets\Scripts\Systems\Inventory\Items\Guns\BurstGun.cs
 Assets\Scripts\Systems\Inventory\Items\Guns\DefaultGun.cs
 Assets\Scripts\Systems\Inventory\Items\Guns\TimelessGun.cs
 Assets\Scripts\Systems\PlayerInfo.cs
+Assets\Scripts\TimeAuraColorChange.cs
 Assets\Scripts\UI\EndUI.cs
 Assets\Scripts\UI\MouseInteractions\DoOnHover.cs
 Assets\Scripts\UI\MouseInteractions\ObjectClicker.cs
