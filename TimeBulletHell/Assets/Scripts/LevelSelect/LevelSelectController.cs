@@ -30,7 +30,7 @@ public class LevelSelectController : LevelSelectPanelListGroup
         if (this.vertical.negativeDown())
         {
             this.selectedGroup.nextPanel();
-        } else if (this.vertical.positiveUp())
+        } else if (this.vertical.positiveDown())
         {
             this.selectedGroup.prevPanel();
         }
