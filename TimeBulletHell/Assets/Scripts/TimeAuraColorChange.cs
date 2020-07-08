@@ -23,6 +23,5 @@ public class TimeAuraColorChange : MonoBehaviour
     void Update()
     {
         this.image.color = Color.Lerp(this.slowColor, this.normalColor, this.pm.getSpeedPercent());
-        this.image.color = new Color(this.image.color.r, this.image.color.g, this.image.color.b, 1);
     }
 }

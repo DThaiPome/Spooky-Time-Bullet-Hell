@@ -506,8 +506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ced4358dc1bd6846b334a1810695b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalColor: {r: 1, g: 0.6117647, b: 0, a: 0}
-  slowColor: {r: 0, g: 0.11084986, b: 1, a: 0}
+  normalColor: {r: 1, g: 0.5506037, b: 0, a: 0.2509804}
+  slowColor: {r: 0, g: 0.34509805, b: 1, a: 1}
 --- !u!114 &457139062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,7 +1523,7 @@ GameObject:
   - component: {fileID: 1171015521}
   - component: {fileID: 1171015520}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: AuraCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1577,7 +1577,7 @@ Canvas:
   m_GameObject: {fileID: 1171015519}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 351844800}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
