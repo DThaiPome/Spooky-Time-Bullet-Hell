@@ -1229,7 +1229,7 @@ ScriptsOnlyBuild:
     className: TimeAuraColorChange
   platform: 5
   scenePathNames:
+  - Assets/Scenes/AlphaLevelSelect.unity
   - Assets/Scenes/TestScene.unity
   - Assets/Scenes/OtherLevelTest.unity
-  - Assets/Scenes/AlphaLevelSelect.unity
   playerPath: D:/Unity/Projects/TimeBulletHell/TimeBulletHell/Builds/TimeBulletHell.exe
