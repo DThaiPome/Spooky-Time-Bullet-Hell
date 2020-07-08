@@ -7,9 +7,9 @@
 /preferreduilang:en-US
 /langversion:latest
 /reference:Library/ScriptAssemblies/Unity.Timeline.dll
-/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
 /reference:Library/ScriptAssemblies/UnityEditor.UI.dll
 /reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
 /reference:Library/ScriptAssemblies/UnityEditor.TestRunner.dll
 /reference:Library/ScriptAssemblies/UnityEngine.TestRunner.dll
 /reference:D:/Unity/2019.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll
