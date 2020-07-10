@@ -12,6 +12,16 @@ public class PlayerInfo : MonoBehaviour
 
     private int initialLives;
 
+    public static PlayerInfo instance;
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         this.initialLives = this.lives;
@@ -68,5 +78,15 @@ public class PlayerInfo : MonoBehaviour
         this.points = 0;
         EventManager.instance.allLivesLost();
         EventManager.instance.switchToLevel("levelSelect");
+    }
+
+    public int getLives()
+    {
+        return this.lives;
+    }
+
+    public int getCoins()
+    {
+        return this.points;
     }
 }

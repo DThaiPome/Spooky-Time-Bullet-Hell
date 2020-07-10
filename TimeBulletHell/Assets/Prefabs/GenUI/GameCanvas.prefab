@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2067080023723504247}
   - component: {fileID: 2067080023723504244}
   - component: {fileID: 1516090854083352345}
+  - component: {fileID: 1597008407}
+  - component: {fileID: 1597008406}
+  - component: {fileID: 1597008405}
   m_Layer: 5
   m_Name: GameCanvas
   m_TagString: Untagged
@@ -113,9 +116,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bd7877935766b4286523612650d751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  livesGetter: {fileID: 1597008407}
   livesText: {fileID: 0}
+  coinsGetter: {fileID: 1597008406}
   coinsText: {fileID: 0}
+  scoreGetter: {fileID: 1597008405}
   scoreText: {fileID: 0}
+--- !u!114 &1597008407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067080023723504234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98617de2eab70040a7dcb9ffa10f5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1597008406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067080023723504234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32827bbc7950cf40bd742343b3896d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1597008405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067080023723504234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55d6f2b4c420944aace53d3e1131fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7242507329434941404
 PrefabInstance:
   m_ObjectHideFlags: 0

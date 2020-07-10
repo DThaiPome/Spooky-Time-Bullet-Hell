@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetLivesForUI : AGetTextForUI
+public class GetEmptyTextForUI : AGetTextForUI
 {
     public override string getText()
     {
-        return PlayerInfo.instance.getLives().ToString();
+        return "";
     }
 }
