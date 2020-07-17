@@ -113,7 +113,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 494}
   m_MaxSize: {x: 12006, y: 14044}
   vertical: 0
-  controlID: 92
+  controlID: 61
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 494}
   m_MaxSize: {x: 12006, y: 14044}
   vertical: 1
-  controlID: 93
+  controlID: 62
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -381,9 +381,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 8e32ebffa232ebff3e84000048840000
+      m_SelectedIDs: 84340000
+      m_LastClickedID: 13444
+      m_ExpandedIDs: 74fbffff40340000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -436,16 +436,16 @@ MonoBehaviour:
   m_ShowContextualTools: 0
   m_WindowGUID: 24080d58b0369394096b3cc7cbdcff8d
   m_Gizmos: 1
-  m_SceneIsLit: 0
+  m_SceneIsLit: 1
   m_SceneLighting: 1
   m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 478.88782, y: 205.57312, z: -101.14392}
+    m_Target: {x: 183.64095, y: 193.13414, z: -55.53723}
     speed: 2
-    m_Value: {x: 441.26382, y: 358.02768, z: -4.632853}
+    m_Value: {x: 183.64095, y: 193.13414, z: -55.53723}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_SceneViewState:
     showFog: 1
     showMaterialUpdate: 0
-    showSkybox: 0
+    showSkybox: 1
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -478,9 +478,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 836.5717
+    m_Target: 588.87897
     speed: 2
-    m_Value: 1076.0387
+    m_Value: 588.87897
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -581,34 +581,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Barriers
+    - Assets/Scripts/Player
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Barriers
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity\Projects\TimeBulletHell\TimeBulletHell
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e0310000
-    m_LastClickedID: 12768
-    m_ExpandedIDs: 00000000022e0000222e0000242e00003c2e0000ba2e0000422f00005c2f00006a2f0000183000005e3000006e300000fa300000ce3100000c320000103200003a32000096320000be64000000ca9a3b
+    scrollPos: {x: 0, y: 422}
+    m_SelectedIDs: 402e0000
+    m_LastClickedID: 11840
+    m_ExpandedIDs: 00000000142e0000342e0000362e00004e2e0000ce2e0000562f0000702f00007e2f000030300000763000008630000014310000ec3100002a3200002e32000058320000b432000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Prefabs
-      m_OriginalName: Prefabs
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 12124
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -622,7 +622,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000022e0000222e0000242e00003c2e0000ba2e0000422f00005c2f00006a2f0000183000005e3000006e300000fa300000ce3100000c320000103200003a32000096320000
+    m_ExpandedIDs: 00000000142e0000342e0000362e00004e2e0000ce2e0000562f0000702f00007e2f000030300000763000008630000014310000ec3100002a3200002e32000058320000b4320000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
