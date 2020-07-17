@@ -256,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRoom: Room00
   moveRate: 0.3
+  cameraFreedom: 0
 --- !u!81 &8497934558243675587
 AudioListener:
   m_ObjectHideFlags: 0

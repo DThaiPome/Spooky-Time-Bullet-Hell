@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class RoomObject : MonoBehaviour
 {
+    [SerializeField]
+    private float roomWidth = 0;
+    [SerializeField]
+    private float roomHeight = 0;
+
     void Start()
     {
         EventManager.instance.setRoomActiveEvent += this.setActive;
@@ -28,6 +33,11 @@ public class RoomObject : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+    }
+
+    public Vector2 getRoomDimensions()
+    {
+        return new Vector2(this.roomWidth, this.roomHeight);
     }
 
     void OnDestroy()
