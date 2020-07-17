@@ -32,7 +32,6 @@ public class CameraControl : MonoBehaviour
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Room"))
         {
             string id = g.name;
-            Debug.Log(id);
             this.rooms.Add(id, g.GetComponent<RoomObject>());
         }
     }

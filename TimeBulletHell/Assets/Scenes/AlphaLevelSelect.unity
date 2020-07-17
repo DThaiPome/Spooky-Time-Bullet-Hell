@@ -217,6 +217,10 @@ MonoBehaviour:
     - {fileID: 5039416365036288553, guid: 64aaf1e0e96f5aa448119c0f201b04fe, type: 3}
     - {fileID: 6116504583890057018, guid: a5f49ad4fe27d1246914a72c1d41116f, type: 3}
     displayName: BAT SIDEWAYS
+  - levelTarget: theMoleLevel
+    roomCount: 2
+    mobTypePrefabs: []
+    displayName: THE MOLE LEVEL
   levelOptionPrefab: {fileID: 5808963448559861054, guid: aaae705e57d72914996d21d54b4e1773,
     type: 3}
 --- !u!1 &387779866

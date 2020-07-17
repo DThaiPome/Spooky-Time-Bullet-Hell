@@ -152,6 +152,10 @@ MonoBehaviour:
     sceneTarget: OtherLevelTest
     prereq: {fileID: 11400000, guid: ab8e8e849b3a8644580ba258cefca672, type: 2}
     completed: 0
+  - levelName: theMoleLevel
+    sceneTarget: TheMoleLevel
+    prereq: {fileID: 11400000, guid: 0bae46d49cea6254cb3d2fb90a9b99b2, type: 2}
+    completed: 0
 --- !u!114 &529596485
 MonoBehaviour:
   m_ObjectHideFlags: 0
