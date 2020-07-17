@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OtherLevelTest.unity
     guid: 5ca2c1d82bb653845b605e8d7720b0e4
+  - enabled: 1
+    path: Assets/Scenes/TheMoleLevel.unity
+    guid: 1792f386912a5f54b96630e36b2fe8e8
   m_configObjects: {}
