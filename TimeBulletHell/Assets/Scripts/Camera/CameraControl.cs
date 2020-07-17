@@ -32,6 +32,7 @@ public class CameraControl : MonoBehaviour
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Room"))
         {
             string id = g.name;
+            Debug.Log(id);
             this.rooms.Add(id, g.GetComponent<RoomObject>());
         }
     }
@@ -53,7 +54,7 @@ public class CameraControl : MonoBehaviour
         RoomObject roomObject;
         if (!this.rooms.TryGetValue(this.currentRoom, out roomObject))
         {
-            this.transform.position = new Vector2();
+            this.transform.position = new Vector3(0, 0, this.transform.position.z);
             return;
         }
 
@@ -80,10 +81,10 @@ public class CameraControl : MonoBehaviour
         float extraWidth = Mathf.Max(dimensions.x - this.cameraFreedom, 0);
         float extraHeight = Mathf.Max(dimensions.y - this.cameraFreedom, 0);
 
-        float minX = room.transform.position.x - extraWidth * halfWidth;
-        float maxX = room.transform.position.x + extraWidth * halfWidth;
-        float minY = room.transform.position.y - extraHeight * halfHeight;
-        float maxY = room.transform.position.y + extraHeight * halfHeight;
+        float minX = room.getPosition().x - extraWidth * halfWidth;
+        float maxX = room.getPosition().x + extraWidth * halfWidth;
+        float minY = room.getPosition().y - extraHeight * halfHeight;
+        float maxY = room.getPosition().y + extraHeight * halfHeight;
 
         Vector2 target = new Vector2(
             Mathf.Clamp(this.player.position.x, minX, maxX),

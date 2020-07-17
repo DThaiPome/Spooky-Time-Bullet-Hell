@@ -1092,6 +1092,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8594df8d90eb17743897ce39e0d66bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomWidth: 1
+  roomHeight: 1
+  roomPosition: {x: 18, y: 10}
 --- !u!4 &766271260
 Transform:
   m_ObjectHideFlags: 0
@@ -1625,6 +1628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8594df8d90eb17743897ce39e0d66bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomWidth: 0
+  roomHeight: 0
+  roomPosition: {x: 0, y: 10}
 --- !u!4 &1122908815
 Transform:
   m_ObjectHideFlags: 0
@@ -2058,6 +2064,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067080023723504234, guid: 52db9c2729a0f1741b84b01cbdfbcb32,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2067080023723504241, guid: 52db9c2729a0f1741b84b01cbdfbcb32,
         type: 3}

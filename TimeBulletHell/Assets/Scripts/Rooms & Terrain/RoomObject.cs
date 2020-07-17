@@ -8,6 +8,8 @@ public class RoomObject : MonoBehaviour
     private float roomWidth = 0;
     [SerializeField]
     private float roomHeight = 0;
+    [SerializeField]
+    private Vector2 roomPosition;
 
     void Start()
     {
@@ -38,6 +40,11 @@ public class RoomObject : MonoBehaviour
     public Vector2 getRoomDimensions()
     {
         return new Vector2(this.roomWidth, this.roomHeight);
+    }
+
+    public Vector2 getPosition()
+    {
+        return this.roomPosition;
     }
 
     void OnDestroy()
