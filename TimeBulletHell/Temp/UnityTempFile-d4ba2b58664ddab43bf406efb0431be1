@@ -328,6 +328,7 @@ Assets\Scripts\Mobs\MobManager.cs
 Assets\Scripts\Mobs\MobSpawners\MobSpawner.cs
 Assets\Scripts\Mobs\MobSpawners\SpawnOnEnable.cs
 Assets\Scripts\Mobs\MobTypes\BossMobBehaviour.cs
+Assets\Scripts\Mobs\MobTypes\DestructableBarrierLock.cs
 Assets\Scripts\Mobs\MobTypes\MobBehaviour.cs
 Assets\Scripts\Mobs\MobTypes\TestBossMob.cs
 Assets\Scripts\Mobs\MobTypes\TestMob.cs

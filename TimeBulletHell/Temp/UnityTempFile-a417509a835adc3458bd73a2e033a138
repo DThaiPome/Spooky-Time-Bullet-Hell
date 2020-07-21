@@ -328,6 +328,7 @@ Assets\Scripts\Mobs\MobManager.cs
 Assets\Scripts\Mobs\MobSpawners\MobSpawner.cs
 Assets\Scripts\Mobs\MobSpawners\SpawnOnEnable.cs
 Assets\Scripts\Mobs\MobTypes\BossMobBehaviour.cs
+Assets\Scripts\Mobs\MobTypes\DestructableBarrierLock.cs
 Assets\Scripts\Mobs\MobTypes\MobBehaviour.cs
 Assets\Scripts\Mobs\MobTypes\TestBossMob.cs
 Assets\Scripts\Mobs\MobTypes\TestMob.cs
@@ -348,6 +349,7 @@ Assets\Scripts\Pools\PoolMap.cs
 "Assets\Scripts\Rooms & Terrain\Barriers\BarrierGroups\ABarrierGroup.cs"
 "Assets\Scripts\Rooms & Terrain\Barriers\BarrierGroups\BossBarrierGroup.cs"
 "Assets\Scripts\Rooms & Terrain\Barriers\BarrierGroups\ClearSpawnersBarrierGroup.cs"
+"Assets\Scripts\Rooms & Terrain\Barriers\BarrierGroups\ObjectsDisabledBarrierGroup.cs"
 "Assets\Scripts\Rooms & Terrain\Barriers\Barriers\ABarrier.cs"
 "Assets\Scripts\Rooms & Terrain\Barriers\Barriers\BasicBarrier.cs"
 "Assets\Scripts\Rooms & Terrain\RoomObject.cs"
