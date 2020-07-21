@@ -18,6 +18,7 @@ public class SmallBat : MobBehaviour
     private float secondsPerBullet;
     private float timeElapsed;
 
+    private float rotationalSpeed;
     private float orientation;
     private Rigidbody2D rb;
     private Vector2 initialPos;
@@ -36,26 +37,26 @@ public class SmallBat : MobBehaviour
         this.secondsPerBullet = this.bulletsPerSecond == 0 ? 1 : 1 / this.bulletsPerSecond;
         this.rb = this.GetComponent<Rigidbody2D>();
 
-        EventManager.instance.onWarpedTickEvent += this.turn;
+        EventManager.instance.onWarpedTickEvent += this.updateRotationalSpeedPerWarpedTick;
     }
 
     protected override void onDestroy()
     {
         base.onDestroy();
-        EventManager.instance.onWarpedTickEvent -= this.turn;
+        EventManager.instance.onWarpedTickEvent -= this.updateRotationalSpeedPerWarpedTick;
     }
 
     protected override void update()
     {
         base.update();
+        this.turn();
         this.fireIfReady();
         this.move();
     }
 
     private void turn()
     {
-        this.rotateOrientation(UnityEngine.Random.Range(-this.maxDegreesPerTick, this.maxDegreesPerTick));
-
+        this.rotateOrientation(this.rotationalSpeed * GameTime.instance.deltaTime());
     }
 
     private void move()
@@ -64,12 +65,6 @@ public class SmallBat : MobBehaviour
             * this.moveSpeed * GameTime.instance.deltaTime();
         Vector2 newPos = (Vector2)this.transform.position + offset;
 
-        if (Vector2.Distance(this.initialPos, newPos) > this.moveRadius)
-        {
-            Vector2 fromInitial = (Vector2)this.transform.position - this.initialPos;
-            newPos = (Vector2)this.transform.position + (-fromInitial * this.moveSpeed * GameTime.instance.deltaTime());
-        }
-
         this.rb.MovePosition(newPos);
     }
 
@@ -77,6 +72,23 @@ public class SmallBat : MobBehaviour
     {
         this.orientation += degrees;
         this.orientation %= 360;
+    }
+
+    private void updateRotationalSpeedPerWarpedTick()
+    {
+        if (Vector2.Distance(this.transform.position, this.initialPos) >= this.moveRadius)
+        {
+            this.rotationalSpeed = this.rotationalSpeed > 0 ? this.maxDegreesPerTick : -this.maxDegreesPerTick;
+        }
+        else
+        {
+            this.updateRotationalSpeed(UnityEngine.Random.Range(-this.maxDegreesPerTick, this.maxDegreesPerTick));
+        }
+    }
+
+    private void updateRotationalSpeed(float degreesPerSecond)
+    {
+        this.rotationalSpeed = Mathf.Clamp(this.rotationalSpeed + degreesPerSecond, -this.maxDegreesPerTick, this.maxDegreesPerTick);
     }
 
     private void fireIfReady()

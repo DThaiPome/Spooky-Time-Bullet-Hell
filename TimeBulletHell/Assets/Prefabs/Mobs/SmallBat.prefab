@@ -113,9 +113,9 @@ MonoBehaviour:
   drops: []
   bulletsPerSecond: 0.5
   bulletSpeed: 4
-  moveSpeed: 3
+  moveSpeed: 2
   moveRadius: 1
-  maxDegreesPerTick: 60
+  maxDegreesPerTick: 900
 --- !u!50 &4407666547974981854
 Rigidbody2D:
   serializedVersion: 4
