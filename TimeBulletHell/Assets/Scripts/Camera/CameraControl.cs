@@ -42,7 +42,7 @@ public class CameraControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         this.transform.eulerAngles = new Vector3(0, 0, 0);
         this.focusOnRoom(this.moveRate);
