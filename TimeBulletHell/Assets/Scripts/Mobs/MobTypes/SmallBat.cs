@@ -78,7 +78,7 @@ public class SmallBat : MobBehaviour
     {
         if (Vector2.Distance(this.transform.position, this.initialPos) >= this.moveRadius)
         {
-            this.rotationalSpeed = this.rotationalSpeed > 0 ? this.maxDegreesPerTick : -this.maxDegreesPerTick;
+            this.rotationalSpeed = (this.rotationalSpeed > 0 ? this.maxDegreesPerTick : -this.maxDegreesPerTick) / 4;
         }
         else
         {
