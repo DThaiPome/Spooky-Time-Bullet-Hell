@@ -22,6 +22,7 @@ public class SmallBat : MobBehaviour
 
     protected override void onEnable()
     {
+        base.onEnable();
         this.timeElapsed = 0;
         this.orientation = UnityEngine.Random.Range(0, 360);
         this.initialPos = this.transform.position;
@@ -29,6 +30,7 @@ public class SmallBat : MobBehaviour
 
     protected override void start()
     {
+        base.start();
         this.secondsPerBullet = this.bulletsPerSecond == 0 ? 1 : 1 / this.bulletsPerSecond;
         this.rb = this.GetComponent<Rigidbody2D>();
 
@@ -37,6 +39,7 @@ public class SmallBat : MobBehaviour
 
     protected override void onDestroy()
     {
+        base.onDestroy();
         EventManager.instance.onWarpedTickEvent -= this.turn;
     }
 
@@ -49,7 +52,7 @@ public class SmallBat : MobBehaviour
 
     private void turn()
     {
-        this.rotateOrientation(UnityEngine.Random.Range(-90, 90) * GameTime.instance.deltaTime());
+        this.rotateOrientation(UnityEngine.Random.Range(-90, 90));
 
     }
 
@@ -62,7 +65,6 @@ public class SmallBat : MobBehaviour
         if (Vector2.Distance(this.initialPos, newPos) > this.moveRadius)
         {
             this.rotateOrientation(90);
-            Debug.Log("oops");
             this.move();
         } else
         {
