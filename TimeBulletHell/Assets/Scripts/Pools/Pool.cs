@@ -51,7 +51,7 @@ public class Pool
             p = this.clone();
             this.initPoolable(p);
         }
-        p.gameObject.SetActive(true);
+        //p.gameObject.SetActive(true);
         this.activePoolables.Add(p);
         return p;
     }

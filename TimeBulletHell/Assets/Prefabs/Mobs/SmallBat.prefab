@@ -111,10 +111,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   drops: []
-  bulletsPerSecond: 1
-  bulletSpeed: 5
-  moveSpeed: 5
+  bulletsPerSecond: 0.5
+  bulletSpeed: 4
+  moveSpeed: 3
   moveRadius: 1
+  maxDegreesPerTick: 60
 --- !u!50 &4407666547974981854
 Rigidbody2D:
   serializedVersion: 4

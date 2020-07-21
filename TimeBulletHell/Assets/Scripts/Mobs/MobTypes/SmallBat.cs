@@ -5,13 +5,15 @@ using UnityEngine;
 public class SmallBat : MobBehaviour
 {
     [SerializeField]
-    private float bulletsPerSecond = 1;
+    private float bulletsPerSecond = 0.5f;
     [SerializeField]
-    private float bulletSpeed = 5;
+    private float bulletSpeed = 4;
     [SerializeField]
     private float moveSpeed = 5;
     [SerializeField]
     private float moveRadius = 1;
+    [SerializeField]
+    private float maxDegreesPerTick = 30;
 
     private float secondsPerBullet;
     private float timeElapsed;
@@ -52,7 +54,7 @@ public class SmallBat : MobBehaviour
 
     private void turn()
     {
-        this.rotateOrientation(UnityEngine.Random.Range(-90, 90));
+        this.rotateOrientation(UnityEngine.Random.Range(-this.maxDegreesPerTick, this.maxDegreesPerTick));
 
     }
 
@@ -64,12 +66,11 @@ public class SmallBat : MobBehaviour
 
         if (Vector2.Distance(this.initialPos, newPos) > this.moveRadius)
         {
-            this.rotateOrientation(90);
-            this.move();
-        } else
-        {
-            this.rb.MovePosition(newPos);
+            Vector2 fromInitial = (Vector2)this.transform.position - this.initialPos;
+            newPos = (Vector2)this.transform.position + (-fromInitial * this.moveSpeed * GameTime.instance.deltaTime());
         }
+
+        this.rb.MovePosition(newPos);
     }
 
     private void rotateOrientation(float degrees)

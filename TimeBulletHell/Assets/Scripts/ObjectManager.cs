@@ -58,6 +58,7 @@ public abstract class ObjectManager<T> : MonoBehaviour
             {
                 g.transform.SetParent(this.roomTransform);
                 spawnProperties.spawn(t);
+                g.SetActive(true);
             }
         }
         return t;
