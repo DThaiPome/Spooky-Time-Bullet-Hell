@@ -59,6 +59,7 @@ ScriptsOnlyBuild:
     - TimelessGunPickup
     - UpdateUIText
     Unity.2D.Tilemap.Editor.dll:
+    - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
