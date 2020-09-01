@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobName: MarchingMole
-  secondsPerSpawn: 1
+  secondsPerSpawn: 0.65
