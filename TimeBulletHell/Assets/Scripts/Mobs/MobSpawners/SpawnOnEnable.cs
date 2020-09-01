@@ -44,7 +44,7 @@ public class SpawnOnEnable : MobSpawner
     protected override List<MobBehaviour> spawnMobs()
     {
         this.spawned = true;
-        return new List<MobBehaviour>() { MobManager.instance.spawn(this.mobName, new DefaultSpawnProperties(this.transform.position)) };
+        return new List<MobBehaviour>() { MobManager.instance.spawn(this.mobName, new MobSpawnPropertiesWithRotation(this.transform.position, this.transform.rotation)) };
     }
 
     public override bool spawnerCleared()

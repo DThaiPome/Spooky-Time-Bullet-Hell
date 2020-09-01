@@ -55,7 +55,7 @@ public class MarchingMole : MobBehaviour
 
     private void MoveForward()
     {
-        Vector2 offset = this.transform.right * this.moveSpeed * Time.deltaTime;
+        Vector2 offset = this.transform.right * this.moveSpeed * GameTime.instance.deltaTime();
         Vector2 newPos = (Vector2)this.transform.position + offset;
 
         this.rb.MovePosition(newPos);

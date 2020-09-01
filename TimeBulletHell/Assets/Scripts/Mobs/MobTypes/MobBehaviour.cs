@@ -177,8 +177,24 @@ public class DefaultSpawnProperties : ISpawnProperties<MobBehaviour>
         this.origin = origin;
     }
 
-    public void spawn(MobBehaviour mb)
+    public virtual void spawn(MobBehaviour mb)
     {
         mb.spawn(this.origin);
+    }
+}
+
+public class MobSpawnPropertiesWithRotation : DefaultSpawnProperties
+{
+    private Quaternion rotation;
+
+    public MobSpawnPropertiesWithRotation(Vector2 origin, Quaternion rotation) : base(origin)
+    {
+        this.rotation = rotation;
+    }
+
+    public override void spawn(MobBehaviour mb)
+    {
+        base.spawn(mb);
+        mb.transform.rotation = rotation;
     }
 }
