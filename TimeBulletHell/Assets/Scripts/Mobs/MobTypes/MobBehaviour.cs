@@ -5,7 +5,7 @@ using UnityEngine;
 public class MobBehaviour : MonoBehaviour
 {
     [SerializeField]
-    protected int maxHealth;
+    protected int maxHealth = 1;
     [SerializeField]
     protected List<MobDropData> drops;
 
