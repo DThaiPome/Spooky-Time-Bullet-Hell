@@ -330,6 +330,7 @@ Assets\Scripts\Mobs\MobSpawners\SpawnOnEnable.cs
 Assets\Scripts\Mobs\MobSpawners\SpawnOnTimer.cs
 Assets\Scripts\Mobs\MobTypes\BossMobBehaviour.cs
 Assets\Scripts\Mobs\MobTypes\DestructableBarrierLock.cs
+Assets\Scripts\Mobs\MobTypes\HexRingBug.cs
 Assets\Scripts\Mobs\MobTypes\MarchingMole.cs
 Assets\Scripts\Mobs\MobTypes\MobBehaviour.cs
 Assets\Scripts\Mobs\MobTypes\SmallBat.cs
