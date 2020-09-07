@@ -336,6 +336,7 @@ Assets\Scripts\Mobs\MobTypes\MobBehaviour.cs
 Assets\Scripts\Mobs\MobTypes\SmallBat.cs
 Assets\Scripts\Mobs\MobTypes\TestBossMob.cs
 Assets\Scripts\Mobs\MobTypes\TestMob.cs
+Assets\Scripts\Mobs\MobTypes\WormGuard.cs
 Assets\Scripts\ObjectManager.cs
 Assets\Scripts\Pickups\PickupManager.cs
 Assets\Scripts\Pickups\PickupTypes\APickup.cs
