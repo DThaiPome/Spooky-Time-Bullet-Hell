@@ -5,7 +5,19 @@ using UnityEngine;
 public class BossMobBehaviour : MobBehaviour
 {
     [SerializeField]
+    private ABarrierGroup barriers;
+    [SerializeField]
     private Vector2 levelEnderPosition;
+
+    protected override void onEnable()
+    {
+        base.onEnable();
+
+        if (this.barriers != null)
+        {
+            this.barriers.setBarriers();
+        }
+    }
 
     protected override void onDeath()
     {
