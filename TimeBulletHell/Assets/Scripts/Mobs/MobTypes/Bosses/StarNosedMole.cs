@@ -79,9 +79,9 @@ public class StarNosedMole : BossMobWithPhases
         };
         List<float> odds = new List<float>()
         {
-            0f,
-            0f,
-            1f
+            5f,
+            1f,
+            3f
         };
         
         if (!this.busy)
