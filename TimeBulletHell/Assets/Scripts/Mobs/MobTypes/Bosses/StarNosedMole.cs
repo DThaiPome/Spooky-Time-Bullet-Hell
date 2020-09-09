@@ -77,7 +77,7 @@ public class StarNosedMole : BossMobWithPhases
         for(int i = 0; i < 5; i++)
         {
             BulletManager.instance.spawn("BasicBullet", new DefaultFireProperties(this.transform.position, this.angleToPlayer(), 4));
-            yield return new WaitForSeconds(.25f);
+            yield return GameTime.instance.WaitForSeconds(0.25f);
         }
         this.EndAction(0.5f);
     }
@@ -85,7 +85,7 @@ public class StarNosedMole : BossMobWithPhases
     private IEnumerator CoverFace()
     {
         this.BeginCoverFace();
-        yield return new WaitForSeconds(this.coverFaceLength);
+        yield return GameTime.instance.WaitForSeconds(this.coverFaceLength);
         this.EndCoveringFace();
         this.EndAction(0.1f);
     }

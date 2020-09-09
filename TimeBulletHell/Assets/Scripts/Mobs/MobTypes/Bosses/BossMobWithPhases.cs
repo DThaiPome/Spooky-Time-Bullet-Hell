@@ -28,7 +28,7 @@ public abstract class BossMobWithPhases : BossMobBehaviour
 
     private IEnumerator RestBeforeNextAction(float restingTime)
     {
-        yield return new WaitForSeconds(restingTime);
+        yield return GameTime.instance.WaitForSeconds(restingTime);
         this.busy = false;
     }
 

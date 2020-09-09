@@ -53,4 +53,14 @@ public class GameTime : MonoBehaviour
     {
         return Mathf.Lerp(this.minMulitiplier, this.maxMultiplier, this.pm.getSpeedPercent()) * Time.deltaTime;
     }
+
+    public IEnumerator WaitForSeconds(float seconds)
+    {
+        float timeElapsed = 0;
+        while(timeElapsed <= seconds)
+        {
+            timeElapsed += this.deltaTime();
+            yield return null;
+        }
+    }
 }
