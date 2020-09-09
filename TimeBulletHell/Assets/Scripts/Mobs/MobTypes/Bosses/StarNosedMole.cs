@@ -21,6 +21,8 @@ public class StarNosedMole : BossMobWithPhases
 
     private bool coveringFace;
 
+    private bool hidden;
+
     protected override void onEnable()
     {
         base.onEnable();
