@@ -185,6 +185,10 @@ MonoBehaviour:
   barriers: {fileID: 0}
   levelEnderPosition: {x: -100, y: 65}
   coverFaceLength: 2
+  moleCountRange: {x: 7, y: 10}
+  moleSpawnDirections: 24
+  moleDistance: 5
+  molesPerSecond: 3
 --- !u!114 &977653251323955400
 MonoBehaviour:
   m_ObjectHideFlags: 0
