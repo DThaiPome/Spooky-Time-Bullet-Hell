@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//A queue that holds clones of an object. When a clone taken out of the queue
+//becomes inactive, the pool retrieves it.
 public class Pool
 {
     private GameObject prefab;
@@ -9,6 +11,7 @@ public class Pool
     private List<Poolable> activePoolables;
     private Transform poolableParent;
 
+    //Clone the prefab poolCount times, and set its parent to poolableParent
     public Pool(GameObject prefab, int poolCount, Transform poolableParent)
     {
         this.prefab = prefab;
@@ -21,12 +24,14 @@ public class Pool
         }
     }
 
+    //Instantiates the object
     private Poolable clone()
     {
         GameObject g = Object.Instantiate(this.prefab);
         return g.GetComponent<Poolable>();
     }
 
+    //Pool the object
     private void enqueue(Poolable p)
     {
         this.initPoolable(p);
@@ -34,6 +39,7 @@ public class Pool
         this.poolables.Enqueue(p);
     }
 
+    //Make sure the object is deactivated
     private void initPoolable(Poolable p)
     {
         p.gameObject.SetActive(false);
@@ -56,6 +62,7 @@ public class Pool
         return p;
     }
 
+    //Retrieve any inactive objects from this pool
     public void recallPoolables()
     {
         for(int i = 0; i < this.activePoolables.Count; i++)
